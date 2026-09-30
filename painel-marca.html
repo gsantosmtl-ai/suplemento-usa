@@ -1,0 +1,736 @@
+<title>Marca, Nome e Fornecedores</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --ink:#1C1614; --ink-2:#4A3D37; --muted:#6B5F59; --faint:#948680;
+  --paper:#FAF6F4; --surface:#FFFFFF; --surface-2:#F3EBE6;
+  --rule:#E4DAD3; --rule-strong:#C9B9B0;
+  --garnet:#8E2A2A; --garnet-soft:#F2E0DD;
+  --gold:#C8912A; --gold-soft:#F7EBD5;
+  --moro:#C24A2B;
+  --ok:#3E6B4A; --ok-soft:#E3EDE5;
+  --warn:#8A5A16; --warn-soft:#F7EBD5;
+  --bad:#8E2A2A; --bad-soft:#F2E0DD;
+  --shadow:0 1px 2px rgba(28,22,20,.05), 0 10px 28px -18px rgba(28,22,20,.22);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#F2EAE6; --ink-2:#D3C6C0; --muted:#A2938C; --faint:#7C6D67;
+    --paper:#16120F; --surface:#1E1916; --surface-2:#272020;
+    --rule:#332A26; --rule-strong:#4A3D37;
+    --garnet:#E08A8A; --garnet-soft:#3A1F1F;
+    --gold:#E0AE4F; --gold-soft:#332616;
+    --moro:#E07A55;
+    --ok:#87BA95; --ok-soft:#1E2D22;
+    --warn:#D8A552; --warn-soft:#332616;
+    --bad:#E08A8A; --bad-soft:#3A1F1F;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.75);
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#F2EAE6; --ink-2:#D3C6C0; --muted:#A2938C; --faint:#7C6D67;
+  --paper:#16120F; --surface:#1E1916; --surface-2:#272020;
+  --rule:#332A26; --rule-strong:#4A3D37;
+  --garnet:#E08A8A; --garnet-soft:#3A1F1F;
+  --gold:#E0AE4F; --gold-soft:#332616;
+  --moro:#E07A55;
+  --ok:#87BA95; --ok-soft:#1E2D22;
+  --warn:#D8A552; --warn-soft:#332616;
+  --bad:#E08A8A; --bad-soft:#3A1F1F;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.75);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:'Archivo','Helvetica Neue',Arial,sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1140px; margin:0 auto; padding-inline:20px; padding-block:0 88px}
+:focus-visible{outline:2px solid var(--garnet); outline-offset:2px}
+
+.mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace}
+
+/* masthead */
+.mast{padding-block:56px 30px}
+.eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--garnet);margin:0 0 18px}
+h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(2.4rem,6.8vw,4rem);line-height:1.04;letter-spacing:-.015em;margin:0;text-wrap:balance}
+h1 em{font-style:italic;color:var(--garnet)}
+.standfirst{font-size:clamp(1rem,2.3vw,1.14rem);color:var(--ink-2);max-width:62ch;margin:20px 0 0}
+
+/* tabs */
+.tabs{display:flex;gap:2px;flex-wrap:wrap;border-bottom:2px solid var(--ink);margin-top:34px}
+.tab{
+  appearance:none;border:1px solid var(--rule);border-bottom:none;background:var(--surface-2);
+  color:var(--muted);font-family:'Archivo',sans-serif;font-size:14px;font-weight:600;
+  padding:11px 17px 10px;cursor:pointer;display:flex;align-items:baseline;gap:9px;
+  border-radius:2px 2px 0 0;
+}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tab .n{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.06em;opacity:.7}
+
+/* panels */
+.panel{padding-block:40px}
+h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(1.7rem,4vw,2.35rem);line-height:1.12;letter-spacing:-.01em;margin:0 0 14px;text-wrap:balance}
+h3{font-size:.95rem;font-weight:700;margin:38px 0 12px;letter-spacing:.005em}
+h3:first-of-type{margin-top:28px}
+.lede{font-size:1.05rem;color:var(--ink-2);max-width:64ch;margin:0 0 6px}
+p{margin:0 0 14px;max-width:66ch}
+strong{font-weight:600}
+.srcnote{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin:0 0 22px}
+
+/* chips + filters */
+.chip{display:inline-block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:500;padding:3px 8px;border-radius:2px;white-space:nowrap}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+.chip.neu{background:var(--surface-2);color:var(--muted)}
+.chip.new{background:var(--garnet);color:#fff}
+
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin:20px 0 4px;align-items:center}
+.flabel{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-right:5px}
+.fbtn{
+  appearance:none;cursor:pointer;background:var(--surface);border:1px solid var(--rule-strong);
+  color:var(--ink-2);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;
+  letter-spacing:.05em;padding:5px 11px;border-radius:2px;
+}
+.fbtn:hover{border-color:var(--garnet);color:var(--garnet)}
+.fbtn[aria-pressed="true"]{background:var(--garnet);border-color:var(--garnet);color:#fff}
+.count{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--faint);margin-left:4px}
+
+/* tables */
+.scroll{overflow-x:auto;margin:16px 0 8px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:14px}
+th,td{text-align:left;padding:11px 16px 11px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;border-bottom:1px solid var(--rule-strong);padding-bottom:8px}
+td.nm{font-weight:600}
+td.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tr.dim{opacity:.42}
+
+/* callout */
+.call{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--garnet);padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.call.gold{border-left-color:var(--gold)}
+.call.ok{border-left-color:var(--ok)}
+.call .k{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:7px}
+.call p:last-child{margin-bottom:0}
+
+/* phase cards */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px;margin:22px 0}
+.ph{background:var(--surface);border:1px solid var(--rule);padding:18px;box-shadow:var(--shadow)}
+.ph .t{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--garnet);margin-bottom:8px}
+.ph .h{font-family:'Instrument Serif',Georgia,serif;font-size:1.35rem;line-height:1.15;margin-bottom:8px}
+.ph p{font-size:13.5px;color:var(--ink-2);margin:0;max-width:none}
+
+/* steps */
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:18px 0}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:30px minmax(0,1fr);gap:0 14px;padding-block:11px;border-bottom:1px solid var(--rule);font-size:14.5px}
+ol.steps li:last-child{border-bottom:none}
+ol.steps li::before{content:counter(s);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--garnet);font-weight:700;padding-top:.35em}
+ol.steps b{font-weight:600}
+
+/* name grid */
+.ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:12px;margin:18px 0 8px}
+.ncard{
+  appearance:none;text-align:left;cursor:pointer;background:var(--surface);
+  border:1px solid var(--rule);padding:16px;font-family:inherit;color:inherit;
+  display:flex;flex-direction:column;gap:3px;box-shadow:var(--shadow);
+}
+.ncard:hover{border-color:var(--rule-strong)}
+.ncard[aria-pressed="true"]{border-color:var(--garnet);border-width:2px;padding:15px;background:var(--surface-2)}
+.ncard .w{font-family:'Instrument Serif',Georgia,serif;font-size:1.5rem;line-height:1.08;letter-spacing:.02em}
+.ncard[aria-pressed="true"] .w{color:var(--garnet)}
+.ncard .ph2{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;color:var(--faint);letter-spacing:.04em;margin-bottom:6px}
+.ncard .rt{font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:6px}
+.ncard .tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+
+/* lockup preview */
+.lockup{
+  background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow);
+  padding:38px 26px;margin:20px 0;text-align:center;
+}
+.lockup .brand{
+  font-family:'Instrument Serif',Georgia,serif;font-size:clamp(2.1rem,6vw,3.1rem);
+  letter-spacing:.12em;line-height:1;margin-bottom:12px;
+}
+.lockup .tl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--garnet)}
+.lockup .terr{font-size:12.5px;color:var(--muted);margin-top:16px}
+
+/* architecture */
+.arch{border:1px solid var(--rule);background:var(--surface);padding:22px;margin:18px 0;box-shadow:var(--shadow)}
+.tier{padding-block:15px;border-bottom:1px dashed var(--rule)}
+.tier:first-child{padding-top:0}
+.tier:last-child{border-bottom:none;padding-bottom:0}
+.tier .lab{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--garnet);margin-bottom:9px}
+.skus{display:flex;flex-wrap:wrap;gap:7px}
+.sku{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.04em;padding:5px 10px;border:1px solid var(--rule-strong);background:var(--paper);color:var(--ink-2)}
+.sku b{color:var(--ink);font-weight:700}
+.fams{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.fam{border:1px solid var(--rule);padding:12px;background:var(--paper)}
+.fam .fh{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;color:var(--moro);margin-bottom:6px;font-weight:700}
+.fam .fl{font-size:12.5px;color:var(--ink-2);line-height:1.5}
+.proto{display:flex;flex-direction:column;gap:8px}
+.pr{border-left:2px solid var(--gold);padding:8px 0 8px 14px}
+.pr .pn{font-weight:600;font-size:14.5px}
+.pr .pc{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;color:var(--muted);margin-top:2px}
+
+/* territory toggle */
+.terrtoggle{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.tbtn{
+  appearance:none;cursor:pointer;flex:1 1 230px;text-align:left;
+  background:var(--surface);border:1px solid var(--rule);padding:16px;
+  font-family:inherit;color:inherit;box-shadow:var(--shadow);
+}
+.tbtn:hover{border-color:var(--rule-strong)}
+.tbtn[aria-pressed="true"]{border-color:var(--garnet);border-width:2px;padding:15px;background:var(--surface-2)}
+.tbtn .tn{font-family:'Instrument Serif',Georgia,serif;font-size:1.3rem;line-height:1.15;margin-bottom:5px}
+.tbtn[aria-pressed="true"] .tn{color:var(--garnet)}
+.tbtn .td{font-size:12.5px;color:var(--ink-2);line-height:1.45}
+
+/* statements */
+.stmt{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(1.22rem,3vw,1.58rem);line-height:1.32;border-left:3px solid var(--gold);padding-left:20px;margin:18px 0;max-width:42ch}
+.stmt .en{display:block;font-style:italic;color:var(--garnet);margin-bottom:5px}
+.stmt small{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-style:normal}
+
+/* values */
+.vals{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px;margin:18px 0}
+.val{background:var(--surface);border:1px solid var(--rule);padding:16px;box-shadow:var(--shadow)}
+.val .vn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.08em;font-weight:700;color:var(--garnet);margin-bottom:7px}
+.val p{font-size:13.5px;color:var(--ink-2);margin:0;max-width:none}
+
+/* do / dont */
+.dd{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px;margin:18px 0}
+.ddcol{background:var(--surface);border:1px solid var(--rule);padding:18px}
+.ddcol.no{border-left:3px solid var(--bad)}
+.ddcol.yes{border-left:3px solid var(--ok)}
+.ddcol .ddh{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:11px}
+.ddcol.yes .ddh{color:var(--ok)} .ddcol.no .ddh{color:var(--bad)}
+.ddcol ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
+.ddcol li{font-size:13.5px;color:var(--ink-2);padding-left:15px;position:relative}
+.ddcol li::before{content:"—";position:absolute;left:0;color:var(--faint)}
+.ddcol .q{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:1.05rem;color:var(--ink)}
+
+/* tagline list */
+.tls{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:10px;margin:18px 0}
+.tlb{
+  appearance:none;cursor:pointer;text-align:left;background:var(--surface);
+  border:1px solid var(--rule);padding:14px 16px;font-family:inherit;color:inherit;
+}
+.tlb:hover{border-color:var(--rule-strong)}
+.tlb[aria-pressed="true"]{border-color:var(--gold);border-width:2px;padding:13px 15px;background:var(--gold-soft)}
+.tlb .tt{font-family:'Instrument Serif',Georgia,serif;font-size:1.12rem;line-height:1.25}
+.tlb .tk{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.05em;color:var(--faint);line-height:1.85}
+
+@media (max-width:640px){
+  .mast{padding-block:38px 24px}
+  table{min-width:560px}
+  .lockup{padding:28px 18px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="eyebrow">Supplements LLC · Mercado EUA · Painel de decisão</p>
+    <h1>Fornecedores, estratégia e <em>nome</em> num só lugar</h1>
+    <p class="standfirst">Os três documentos consolidados e navegáveis, com sugestões novas em cada frente. Clique nos nomes para ver a arquitetura de produto se montar; troque o território para ver missão, visão e tom mudarem junto.</p>
+
+    <div class="tabs" role="tablist" aria-label="Frentes do projeto">
+      <button class="tab" role="tab" id="t-1" aria-controls="p-1" aria-selected="true"><span class="n">01</span> Estruturação</button>
+      <button class="tab" role="tab" id="t-2" aria-controls="p-2" aria-selected="false"><span class="n">02</span> Estratégia de marca</button>
+      <button class="tab" role="tab" id="t-3" aria-controls="p-3" aria-selected="false"><span class="n">03</span> Nomes e arquitetura</button>
+    </div>
+  </header>
+
+  <!-- ======================= 01 ESTRUTURAÇÃO ======================= -->
+  <div class="panel" id="p-1" role="tabpanel" aria-labelledby="t-1">
+    <h2>Estruturação e fornecimento</h2>
+    <p class="srcnote">Fonte: Plano de Estruturação — Neilson Flores</p>
+    <p class="lede">Dez fornecedores mapeados em duas rotas: plataformas turnkey para validar sem estoque, e fabricantes tradicionais para escalar com fórmula própria.</p>
+
+    <div class="phases">
+      <div class="ph">
+        <div class="t">Fase 1</div>
+        <div class="h">Validar sem capital</div>
+        <p>Plataforma turnkey, sem MOQ, lançamento em dias. Serve para testar o roteiro da live e a conversão do pitch antes de travar dinheiro em estoque.</p>
+      </div>
+      <div class="ph">
+        <div class="t">Fase 2</div>
+        <div class="h">Escalar com fórmula própria</div>
+        <p>Fabricante tradicional, MOQ de 1.000 a 5.000+, 6 a 12 semanas. Melhora margem e cria fórmula exclusiva e defensável.</p>
+      </div>
+      <div class="ph">
+        <div class="t">Meio de caminho</div>
+        <div class="h">Um só parceiro</div>
+        <p>NutraCap e o grupo Vox/ODF permitem começar com MOQ baixo e migrar para customizado sem trocar de fornecedor nem refazer due diligence.</p>
+      </div>
+    </div>
+
+    <h3>Fornecedores mapeados</h3>
+    <div class="filters">
+      <span class="flabel">Filtrar</span>
+      <button class="fbtn" data-sf="todos" aria-pressed="true">Todos</button>
+      <button class="fbtn" data-sf="turnkey" aria-pressed="false">Turnkey / sem MOQ</button>
+      <button class="fbtn" data-sf="fabricante" aria-pressed="false">Fabricante tradicional</button>
+      <button class="fbtn" data-sf="eua" aria-pressed="false">Fábrica nos EUA</button>
+      <button class="fbtn" data-sf="alerta" aria-pressed="false">Com ponto de atenção</button>
+      <span class="count" id="scount"></span>
+    </div>
+    <div class="scroll">
+      <table id="stable">
+        <thead><tr><th>Empresa</th><th>Tipo</th><th>Local</th><th>Contato</th><th>MOQ</th><th>Observação</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="call gold">
+      <span class="k">Achado que vale destacar</span>
+      <p><strong>Vox Nutrition e On Demand Fulfillment são empresas irmãs</strong> — mesmo grupo, mesma central. Dá para validar sem estoque na ODF e, se o produto performar, migrar para produção em lote na Vox sem trocar de parceiro. É a rota mais alinhada ao que foi pedido: uma casa para validar e escalar.</p>
+    </div>
+
+    <h3>Critérios de triagem inegociáveis</h3>
+    <ol class="steps">
+      <li><b>FDA-registered facility</b> e certificação <b>GMP</b> (21 CFR Part 111).</li>
+      <li><b>Laboratório terceirizado</b> para pureza, potência e triagem de adulterantes — crítico na categoria emagrecimento.</li>
+      <li><b>Certificado de Análise (CoA) por lote</b>, disponível antes do embarque.</li>
+      <li><b>MOQ compatível</b> com o volume de teste inicial do funil.</li>
+      <li><b>Fórmula de catálogo</b> para validar rápido, com opção de customização depois.</li>
+      <li><b>Serviços agregados</b>: design de rótulo, embalagem, fulfillment e 3PL.</li>
+    </ol>
+
+    <h3>Sugestões que eu acrescentaria ao RFQ</h3>
+    <p>O roteiro original pede preço, MOQ, prazo e certificações. Três perguntas que faltam e que mudam a decisão:</p>
+    <ol class="steps">
+      <li><b>Custo por ativo, não preço fechado do frasco.</b> Sem isso não há como negociar dose contra custo, nem saber qual ingrediente está carregando a conta.</li>
+      <li><b>Acesso e licença de logo dos ingredientes de marca.</b> GlucoVantage, Satiereal, Slendesta, Morosil e Capsimax são insumos licenciados — nem todo fabricante pode nomeá-los no rótulo.</li>
+      <li><b>Validade mínima na entrega.</b> Com envio único de 6 meses, a última cápsula é consumida muito depois da fabricação. Peça validade mínima de 20 meses contados da entrega, e o shelf life do pó separado do da cápsula.</li>
+    </ol>
+
+    <h3>Compliance — pontos críticos</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Área</th><th>Ponto de atenção</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">FDA · Rotulagem</td><td>21 CFR Part 101 — Supplement Facts e disclaimer padrão de que a FDA não avaliou a declaração.</td></tr>
+          <tr><td class="nm">FDA · Registro</td><td>Fabricante com facility registration ativo; a marca registra-se como labeler quando aplicável.</td></tr>
+          <tr><td class="nm">FTC · Claims</td><td>Toda alegação — rótulo, live, anúncio, página — precisa de respaldo proporcional ao que é dito.</td></tr>
+          <tr><td class="nm">FTC · Testemunhais</td><td>Depoimentos devem representar resultado típico, ou vir com disclosure clara do que é atípico.</td></tr>
+          <tr><td class="nm">Contas de mídia</td><td>Google, Meta e adquirentes têm política restritiva para emagrecimento — risco de suspensão se o discurso for agressivo.</td></tr>
+          <tr><td class="nm">Assinatura</td><td>Regra Click-to-Cancel: cancelar tem de ser tão fácil quanto assinar.</td></tr>
+          <tr><td class="nm">Importação</td><td>Produto fabricado fora precisa cumprir rotulagem FDA antes de entrar; alfândega retém lote não conforme.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ======================= 02 ESTRATÉGIA ======================= -->
+  <div class="panel" id="p-2" role="tabpanel" aria-labelledby="t-2" hidden>
+    <h2>Estratégia de marca</h2>
+    <p class="srcnote">Fonte: Estratégia para Marca para a Supplements LLC</p>
+    <p class="lede">Dois territórios foram propostos. Escolha um para ver propósito, missão, visão e tom se ajustarem.</p>
+
+    <div class="terrtoggle" id="terrtoggle">
+      <button class="tbtn" data-terr="daily" aria-pressed="true">
+        <div class="tn">Better Every Day</div>
+        <div class="td">Hábito e consistência. Plataforma ampla, fala com todos, não limita o portfólio a suplemento.</div>
+      </button>
+      <button class="tbtn" data-terr="healthspan" aria-pressed="false">
+        <div class="tn">Optimize Your Healthspan</div>
+        <div class="td">Ciência e longevidade. Desloca a conversa de viver mais para viver bem por mais tempo.</div>
+      </button>
+    </div>
+
+    <div id="terrout"></div>
+
+    <h3>Arquitetura estratégica</h3>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Elemento</th><th>Direcionamento</th></tr></thead>
+        <tbody>
+          <tr><td class="nm">Categoria</td><td>Health &amp; Wellness / Supplements</td></tr>
+          <tr><td class="nm">Território</td><td>Performance, saúde, longevidade e qualidade de vida</td></tr>
+          <tr><td class="nm">Posicionamento</td><td>Suplementação inteligente integrada à rotina</td></tr>
+          <tr><td class="nm">Personalidade</td><td>Moderna, confiável, premium, humana e orientada por ciência</td></tr>
+          <tr><td class="nm">Diferencial</td><td>Produto + conhecimento + protocolo + experiência</td></tr>
+          <tr><td class="nm">Público</td><td>Adultos que buscam saúde, energia, performance e qualidade de vida</td></tr>
+          <tr><td class="nm">Mercado inicial</td><td>Estados Unidos</td></tr>
+          <tr><td class="nm">Visão futura</td><td>Plataforma de wellness, e não apenas marca de suplementos</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Valores</h3>
+    <div class="vals">
+      <div class="val"><div class="vn">SCIENCE FIRST</div><p>Ciência antes do hype. Produtos e comunicação buscam evidência, qualidade e transparência.</p></div>
+      <div class="val"><div class="vn">QUALITY WITHOUT COMPROMISE</div><p>Qualidade sem concessões em ingredientes, fornecedores, fabricação, testes e experiência.</p></div>
+      <div class="val"><div class="vn">SIMPLICITY</div><p>Saúde precisa caber na vida real. Produtos e protocolos simples de entender e usar.</p></div>
+      <div class="val"><div class="vn">TRANSPARENCY</div><p>Confiança pela transparência. O consumidor sabe o que está consumindo e por quê.</p></div>
+      <div class="val"><div class="vn">HUMAN PERFORMANCE</div><p>Energia, foco, performance, recuperação, saúde e longevidade.</p></div>
+      <div class="val"><div class="vn">CONSISTENCY</div><p>Resultado se constrói na consistência. Não vender milagres; incentivar hábito sustentável.</p></div>
+    </div>
+
+    <h3>Tom de voz</h3>
+    <div class="dd">
+      <div class="ddcol yes">
+        <div class="ddh">A marca é</div>
+        <ul>
+          <li><span class="q">"Here's why this matters."</span> — educativa</li>
+          <li><span class="q">"Three ingredients. One purpose."</span> — clara</li>
+          <li><span class="q">"Designed for your daily routine."</span> — confiante</li>
+          <li><span class="q">"Better habits start with small steps."</span> — humana</li>
+        </ul>
+      </div>
+      <div class="ddcol no">
+        <div class="ddh">A marca não é</div>
+        <ul>
+          <li>alarmista</li><li>médica sem necessidade</li><li>excessivamente técnica</li>
+          <li>milagrosa</li><li>agressiva</li><li>baseada em medo</li><li>cheia de promessas impossíveis</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Território visual</h3>
+    <div class="dd">
+      <div class="ddcol yes">
+        <div class="ddh">Ocupar</div>
+        <ul>
+          <li>clean e sofisticado</li><li>tipografia forte</li><li>embalagem minimalista</li>
+          <li>informação muito organizada</li><li>fotografia lifestyle</li><li>ciência apresentada de forma simples</li>
+        </ul>
+      </div>
+      <div class="ddcol no">
+        <div class="ddh">Evitar</div>
+        <ul>
+          <li>musculação e corpos extremos</li><li>estética hardcore</li><li>explosões gráficas</li>
+          <li>excesso de cores</li><li>claims gigantes</li><li>aparência de loja de vitaminas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="call">
+      <span class="k">Sugestão que eu acrescentaria</span>
+      <p>O grande diferencial identificado foi vender <strong>produto + protocolo</strong>, não só o frasco. Vale nomear isso como conceito proprietário desde já — <strong>THE [MARCA] METHOD</strong> ou <strong>[MARCA] DAILY SYSTEM</strong> — porque um sistema com nome próprio é registrável, comunicável e transforma SKUs soltos em componentes de uma coisa só.</p>
+    </div>
+  </div>
+
+  <!-- ======================= 03 NOMES ======================= -->
+  <div class="panel" id="p-3" role="tabpanel" aria-labelledby="t-3" hidden>
+    <h2>Nomes e arquitetura de produto</h2>
+    <p class="srcnote">Fonte: Sugestões de Marcas para suplementos · + sugestões novas</p>
+    <p class="lede">Treze candidatos. Clique em um para ver a arquitetura inteira se montar com ele.</p>
+
+    <div class="call">
+      <span class="k">Observação sobre a shortlist original</span>
+      <p>Dos nove nomes originais, <strong>seis terminam em -ORA</strong> e os outros ficam no mesmo bairro fonético. É uma ideia testada nove vezes, no espaço de naming mais saturado de wellness nos EUA — e os próprios documentos já registraram colisões: VYBORA CO, VEYORA, VYB, além de Aurevia e Nouriva. Por isso acrescentei <strong>quatro candidatos de fora do cluster</strong>: se todos os -ORA caírem no clearance, a decisão não volta à estaca zero.</p>
+    </div>
+
+    <div class="filters">
+      <span class="flabel">Filtrar</span>
+      <button class="fbtn" data-nf="todos" aria-pressed="true">Todos</button>
+      <button class="fbtn" data-nf="ora" aria-pressed="false">Família -ORA</button>
+      <button class="fbtn" data-nf="fora" aria-pressed="false">Fora do cluster</button>
+      <button class="fbtn" data-nf="nova" aria-pressed="false">Sugestões novas</button>
+      <span class="count" id="ncount"></span>
+    </div>
+
+    <div class="ngrid" id="ngrid"></div>
+
+    <div class="lockup" id="lockup">
+      <div class="brand" id="lkbrand">VYVORA</div>
+      <div class="tl" id="lktag">Optimize Your Healthspan</div>
+      <div class="terr" id="lkterr"></div>
+    </div>
+
+    <h3>Taglines a testar</h3>
+    <p>Clique para ver aplicada no lockup acima.</p>
+    <div class="tls" id="tls"></div>
+
+    <h3>Arquitetura com o nome selecionado</h3>
+    <div class="arch" id="arch"></div>
+
+    <div class="call ok">
+      <span class="k">Sugestão de sequenciamento</span>
+      <p>Antes de qualquer investimento em identidade, domínio ou embalagem: <strong>trademark clearance profissional no USPTO</strong> nas classes relevantes, mais domínio, handles, conflito fonético e risco de confusão. Leve <strong>pelo menos um nome de fora do cluster -ORA</strong> na mesma rodada — é o que garante que a rodada termine com uma decisão, e não com uma lista vazia.</p>
+    </div>
+  </div>
+
+  <footer>
+    Consolidação de "Plano de Estruturação", "Estratégia para Marca para a Supplements LLC" e "Sugestões de Marcas para suplementos".<br>
+    Contatos coletados nos canais oficiais — confirme antes de formalizar pedido ou pagamento. Não constitui parecer jurídico: rótulo, alegações e nome exigem revisão de advogado especializado em FDA/FTC e busca no USPTO.
+  </footer>
+</div>
+
+<script>
+/* ---------------- TABS ---------------- */
+var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+tabs.forEach(function(t){
+  t.addEventListener('click', function(){
+    tabs.forEach(function(o){
+      var sel = o === t;
+      o.setAttribute('aria-selected', sel ? 'true' : 'false');
+      document.getElementById(o.getAttribute('aria-controls')).hidden = !sel;
+    });
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+});
+
+/* ---------------- SUPPLIERS ---------------- */
+var SUPPLIERS = [
+  {n:'Supliful', tipo:'turnkey', eua:true, local:'Plataforma · fulfillment EUA', contato:'supliful.com', moq:'Sem MOQ', obs:'180+ produtos, planos de US$ 0 a 49+/mês. Rota mais rápida de validação.', alerta:false},
+  {n:'On Demand Fulfillment', tipo:'turnkey', eua:true, local:'West Jordan, UT', contato:'1-888-505-2372', moq:'Sem MOQ', obs:'110+ produtos, categoria weight loss no catálogo. Empresa irmã da Vox Nutrition.', alerta:false},
+  {n:'Vox Nutrition', tipo:'fabricante', eua:true, local:'West Jordan, UT', contato:'1-800-795-7161', moq:'A partir de 50 un.', obs:'Fabricante de verdade: 115+ fórmulas prontas, linha de emagrecimento, custom e bulk.', alerta:false},
+  {n:'NutraCap Labs', tipo:'fabricante', eua:true, local:'Norcross, GA', contato:'(800) 688-5956', moq:'Baixo', obs:'Híbrido: MOQ baixo + fórmula customizada + planta de 100.000 ft². Um parceiro para as duas fases.', alerta:false},
+  {n:'Rocktomic', tipo:'turnkey', eua:true, local:'Duluth, GA', contato:'support@rocktomic.com', moq:'Sem MOQ', obs:'150+ produtos, mesmo modelo print-on-demand. Reclamações no BBB sobre comunicação e atraso de envio — tratar como opção secundária.', alerta:true},
+  {n:'Makers Nutrition', tipo:'fabricante', eua:true, local:'Commack, NY', contato:'info@makersnutrition.com', moq:'~1.000 un.', obs:'Turnkey completo, da formulação ao fulfillment. Cotação em 48h. Bom para primeiro pedido.', alerta:false},
+  {n:'NutraScience Labs', tipo:'fabricante', eua:true, local:'Farmingdale, NY', contato:'info@nutrasciencelabs.com', moq:'Médio', obs:'+50 anos de experiência combinada, +2.300 marcas atendidas. Forte em compliance e escala.', alerta:false},
+  {n:'Vita Plus Inter', tipo:'fabricante', eua:true, local:'Temecula, CA', contato:'(626) 420-7518', moq:'Médio', obs:'+6.000 fórmulas prontas, 30 anos de mercado, linha específica de Weight Management. FDA-registered/cGMP.', alerta:false},
+  {n:'ENZ Pharmtech', tipo:'fabricante', eua:false, local:'Zhengzhou, China', contato:'Formulário / WhatsApp', moq:'A confirmar', obs:'Especialista em suplementos de emagrecimento. Fabricação fora dos EUA exige due diligence extra de importação, FDA e alfândega, com prazos maiores.', alerta:true},
+  {n:'Wonnda', tipo:'turnkey', eua:false, local:'Plataforma / diretório', contato:'wonnda.com', moq:'Varia', obs:'Não é fabricante — é diretório para comparar vários fornecedores de weight loss e pedir cotação em lote.', alerta:true}
+];
+var sFilter = 'todos';
+function renderSuppliers(){
+  var tb = document.querySelector('#stable tbody');
+  var shown = 0;
+  tb.innerHTML = SUPPLIERS.map(function(s){
+    var ok = sFilter === 'todos'
+      || (sFilter === 'turnkey' && s.tipo === 'turnkey')
+      || (sFilter === 'fabricante' && s.tipo === 'fabricante')
+      || (sFilter === 'eua' && s.eua)
+      || (sFilter === 'alerta' && s.alerta);
+    if(ok) shown++;
+    var badge = s.tipo === 'turnkey'
+      ? '<span class="chip neu">Turnkey</span>'
+      : '<span class="chip ok">Fabricante</span>';
+    var al = s.alerta ? ' <span class="chip warn">Atenção</span>' : '';
+    return '<tr class="' + (ok ? '' : 'dim') + '">'
+      + '<td class="nm">' + s.n + '</td>'
+      + '<td>' + badge + al + '</td>'
+      + '<td>' + s.local + '</td>'
+      + '<td class="mono">' + s.contato + '</td>'
+      + '<td class="mono">' + s.moq + '</td>'
+      + '<td>' + s.obs + '</td></tr>';
+  }).join('');
+  document.getElementById('scount').textContent = shown + ' de ' + SUPPLIERS.length;
+}
+document.querySelectorAll('[data-sf]').forEach(function(b){
+  b.addEventListener('click', function(){
+    sFilter = b.getAttribute('data-sf');
+    document.querySelectorAll('[data-sf]').forEach(function(o){
+      o.setAttribute('aria-pressed', o === b ? 'true' : 'false');
+    });
+    renderSuppliers();
+  });
+});
+renderSuppliers();
+
+/* ---------------- TERRITORIES ---------------- */
+var TERR = {
+  daily: {
+    proposito: {en:'Help people live better, every day.', pt:'Ajudar as pessoas a viver melhor, todos os dias.'},
+    missao: {en:'Create high-quality wellness solutions that make better health simple, practical and consistent.', pt:'Criar soluções de wellness de alta qualidade que tornem o cuidado com a saúde mais simples, prático e consistente.'},
+    visao: {en:'Become a trusted global wellness brand that helps people build better lives through science, quality and everyday habits.', pt:'Ser uma marca global de wellness reconhecida por ajudar pessoas a construir uma vida melhor com ciência, qualidade e hábitos diários.'},
+    promise: 'Better Every Day.',
+    nota:'Não limita a marca a suplemento e permite falar de energia, foco, sono, longevidade e hábitos. Cria uma filosofia: você não precisa transformar sua vida de uma vez, precisa fazer escolhas melhores consistentemente.'
+  },
+  healthspan: {
+    proposito: {en:'Help people optimize their healthspan.', pt:'Ajudar as pessoas a otimizar seus anos de vida com saúde.'},
+    missao: {en:'Turn science into simple, high-quality protocols people can actually follow.', pt:'Transformar ciência em protocolos simples e de alta qualidade que as pessoas consigam de fato seguir.'},
+    visao: {en:'Become a reference in health optimization — products, protocols and knowledge in one system.', pt:'Ser referência em otimização de saúde, unindo produto, protocolo e conhecimento em um só sistema.'},
+    promise: 'Optimize Your Healthspan.',
+    nota:'Healthspan desloca a conversa de viver mais para viver mais anos com saúde, energia e força. Dá cobertura científica, sustenta preço premium e aceita a entrada por controle de peso sem contradizer nada.'
+  }
+};
+var curTerr = 'daily';
+function renderTerr(){
+  var t = TERR[curTerr];
+  document.getElementById('terrout').innerHTML =
+      '<div class="stmt"><span class="en">' + t.proposito.en + '</span>' + t.proposito.pt + '<small>Propósito</small></div>'
+    + '<div class="stmt"><span class="en">' + t.missao.en + '</span>' + t.missao.pt + '<small>Missão</small></div>'
+    + '<div class="stmt"><span class="en">' + t.visao.en + '</span>' + t.visao.pt + '<small>Visão</small></div>'
+    + '<div class="stmt"><span class="en">' + t.promise + '</span><small>Brand promise</small></div>'
+    + '<div class="call gold"><span class="k">Por que este território</span><p>' + t.nota + '</p></div>';
+  var lk = document.getElementById('lkterr');
+  if(lk) lk.textContent = 'Território: ' + (curTerr === 'daily' ? 'Better Every Day' : 'Optimize Your Healthspan');
+}
+document.querySelectorAll('[data-terr]').forEach(function(b){
+  b.addEventListener('click', function(){
+    curTerr = b.getAttribute('data-terr');
+    document.querySelectorAll('[data-terr]').forEach(function(o){
+      o.setAttribute('aria-pressed', o === b ? 'true' : 'false');
+    });
+    renderTerr();
+  });
+});
+renderTerr();
+
+/* ---------------- NAMES ---------------- */
+var NAMES = [
+  {w:'VYVORA', ph:'vai·VOR·ah', cl:'ora', st:['warn','Líder atual'], nova:false,
+   rt:'Vitality + evolve + aura. Não fica preso a vitamin, nutrition ou supplement. Permite construir significado próprio.',
+   tag:'Optimize Your Healthspan.'},
+  {w:'NUVORA', ph:'nu·VOR·ah', cl:'ora', st:['neu','Alternativa'], nova:false,
+   rt:'Sonoridade moderna e tecnológica. Boa para incorporar personalização, testes e AI no futuro.',
+   tag:'The New Standard of Wellness.'},
+  {w:'VELORA', ph:'ve·LOR·ah', cl:'ora', st:['neu','Alternativa'], nova:false,
+   rt:'Forte foneticamente e bastante premium. Registro de lifestyle sofisticado.',
+   tag:'Your Better Biology.'},
+  {w:'ELVORA', ph:'el·VOR·ah', cl:'ora', st:['neu','Reserva'], nova:false,
+   rt:'Remete a elevation, evolve e vitality. Registro wellness/lifestyle.',
+   tag:'Elevate Your Everyday.'},
+  {w:'EVORA', ph:'e·VOR·ah', cl:'ora', st:['bad','Risco alto'], nova:false,
+   rt:'Curto, sofisticado e fácil de falar — e justamente por isso a probabilidade de já existir em alguma classe é alta.',
+   tag:'Elevate Your Health.'},
+  {w:'VYYBORA', ph:'vai·BOR·ah', cl:'ora', st:['bad','Descartar'], nova:false,
+   rt:'O duplo Y é passivo de erro de digitação, e num funil de webinar o nome é falado antes de ser digitado. É também o mais próximo de VYBORA CO, já em operação.',
+   tag:'Better Every Day.'},
+  {w:'VYVANTA', ph:'vai·VAN·tah', cl:'fora', st:['neu','Alternativa'], nova:false,
+   rt:'Mais energético e contemporâneo. Funciona bem para linha de performance e para DTC.',
+   tag:'Live at Your Best.'},
+  {w:'VITERRA', ph:'vi·TER·ah', cl:'fora', st:['ok','Fora do cluster'], nova:false,
+   rt:'Vital + Terra. Sensação natural e premium, e a única da lista original com raiz semântica claramente diferente.',
+   tag:'Built for Better Living.'},
+  {w:'VITALYN', ph:'VAI·ta·lin', cl:'fora', st:['warn','Descritivo'], nova:false,
+   rt:'Ligado a vitalidade de forma direta. Ganha em clareza, perde em distintividade e em força de registro.',
+   tag:'Vitality. Simplified.'},
+  {w:'THRIVEN', ph:'THRY·ven', cl:'fora', st:['new','Nova'], nova:true,
+   rt:'De thrive — prosperar, florescer. Raiz inglesa reconhecível, calorosa e expansível para qualquer categoria de saúde. Lê como marca americana sem ser inventada do zero.',
+   tag:'Protocols, Not Promises.'},
+  {w:'HALEN', ph:'HAY·len', cl:'fora', st:['new','Nova'], nova:true,
+   rt:'De hale — saudável, robusto, íntegro. Curto, anglo, fácil de falar e digitar. Registro clínico-premium, próximo do território de marcas de longevidade.',
+   tag:'Built on Evidence.'},
+  {w:'VESTRA', ph:'VES·trah', cl:'fora', st:['new','Nova'], nova:true,
+   rt:'Sonoridade latina e premium, com terminação -TRA que escapa completamente do cluster -ORA. Consoantes fortes dão presença em embalagem.',
+   tag:'Your Healthspan, Optimized.'},
+  {w:'ALDEN', ph:'AWL·den', cl:'fora', st:['new','Nova'], nova:true,
+   rt:'Limpo, quieto e confiável — o registro de marcas modernas de saúde e cuidado pessoal. Zero conotação de suplemento, o que é exatamente o pedido: nome que não limita a expansão.',
+   tag:'Health, On Purpose.'}
+];
+
+var TAGLINES = [
+  {t:'Better Every Day.', k:'Evolução diária'},
+  {t:'Optimize Your Healthspan.', k:'Ciência · longevidade'},
+  {t:'Protocols, Not Promises.', k:'Nova · diferenciação'},
+  {t:'Science for Better Living.', k:'Ciência'},
+  {t:'Wellness, Made Simple.', k:'Simplicidade'},
+  {t:'Built on Evidence.', k:'Nova · credibilidade'},
+  {t:'Small Habits. Better Life.', k:'Consistência'},
+  {t:'Live Better. Longer.', k:'Longevidade'},
+  {t:'Your Healthspan, Optimized.', k:'Nova · healthspan'},
+  {t:'Perform Better. Live Better.', k:'Performance'},
+  {t:'Health, On Purpose.', k:'Nova · intenção'},
+  {t:'Designed for Better Living.', k:'Premium'},
+  {t:'Where Science Meets Routine.', k:'Nova · rotina'},
+  {t:'Unlock Your Better.', k:'Potencial'}
+];
+
+var nFilter = 'todos';
+var curName = NAMES[0];
+var curTag = null;
+
+function renderNames(){
+  var shown = 0;
+  document.getElementById('ngrid').innerHTML = NAMES.filter(function(n){
+    var ok = nFilter === 'todos'
+      || (nFilter === 'ora' && n.cl === 'ora')
+      || (nFilter === 'fora' && n.cl === 'fora')
+      || (nFilter === 'nova' && n.nova);
+    if(ok) shown++;
+    return ok;
+  }).map(function(n){
+    return '<button class="ncard" type="button" data-name="' + n.w + '" aria-pressed="'
+      + (n.w === curName.w ? 'true' : 'false') + '">'
+      + '<div class="w">' + n.w + '</div>'
+      + '<div class="ph2">' + n.ph + '</div>'
+      + '<div class="tags"><span class="chip ' + n.st[0] + '">' + n.st[1] + '</span></div>'
+      + '<div class="rt">' + n.rt + '</div>'
+      + '</button>';
+  }).join('');
+  document.getElementById('ncount').textContent = shown + ' de ' + NAMES.length;
+  document.querySelectorAll('[data-name]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var found = NAMES.filter(function(x){ return x.w === b.getAttribute('data-name'); })[0];
+      if(found){ curName = found; curTag = null; renderNames(); renderTaglines(); renderLockup(); renderArch(); }
+    });
+  });
+}
+
+function renderTaglines(){
+  document.getElementById('tls').innerHTML = TAGLINES.map(function(t){
+    var active = (curTag ? curTag === t.t : curName.tag === t.t);
+    return '<button class="tlb" type="button" data-tag="' + t.t.replace(/"/g,'&quot;') + '" aria-pressed="'
+      + (active ? 'true' : 'false') + '">'
+      + '<div class="tt">' + t.t + '</div><div class="tk">' + t.k + '</div></button>';
+  }).join('');
+  document.querySelectorAll('[data-tag]').forEach(function(b){
+    b.addEventListener('click', function(){
+      curTag = b.getAttribute('data-tag');
+      renderTaglines(); renderLockup();
+    });
+  });
+}
+
+function renderLockup(){
+  document.getElementById('lkbrand').textContent = curName.w;
+  document.getElementById('lktag').textContent = curTag || curName.tag;
+  document.getElementById('lkterr').textContent =
+    'Território: ' + (curTerr === 'daily' ? 'Better Every Day' : 'Optimize Your Healthspan');
+}
+
+var SKUS = [
+  ['LEAN','Weight management support'],
+  ['METABOLIC','Metabolic wellness support'],
+  ['FIBER+','Daily fiber + gut support'],
+  ['CORE','Daily nutritional foundation'],
+  ['GREENS','Daily greens + nutrient support'],
+  ['REST','Nighttime recovery + relaxation'],
+  ['RECOVER','Muscle + recovery support'],
+  ['RENEW','Healthy aging + cellular support'],
+  ['HYDRATE','Electrolytes + daily hydration'],
+  ['COLLAGEN','Beauty + joint + healthy aging']
+];
+var FAMS = [
+  ['LEAN','Weight Management','LEAN · METABOLIC · FIBER+'],
+  ['CORE','Daily Wellness','CORE · GREENS · HYDRATE'],
+  ['PERFORM','Strength &amp; Recovery','RECOVER · CREATINE · PROTEIN'],
+  ['LONGEVITY','Healthy Aging','RENEW · COQ10 · MAGNESIUM']
+];
+var PROTOS = [
+  ['LEAN PROTOCOL','30-day weight management support','LEAN + METABOLIC + FIBER+'],
+  ['DAILY PROTOCOL','Your everyday wellness foundation','CORE + GREENS + MAGNESIUM'],
+  ['ACTIVE PROTOCOL','Strength. Hydration. Recovery.','HYDRATE + CREATINE + RECOVER'],
+  ['LONGEVITY PROTOCOL','Build a healthier future','RENEW + COQ10 + MAGNESIUM']
+];
+
+function renderArch(){
+  var b = curName.w;
+  var skus = SKUS.map(function(s){
+    return '<span class="sku"><b>' + b + '</b> ' + s[0] + '</span>';
+  }).join('');
+  var fams = FAMS.map(function(f){
+    return '<div class="fam"><div class="fh">' + f[0] + '</div><div class="fl">' + f[1]
+      + '<br><span style="color:var(--faint);font-size:11.5px">' + f[2] + '</span></div></div>';
+  }).join('');
+  var protos = PROTOS.map(function(p){
+    return '<div class="pr"><div class="pn">' + b + ' ' + p[0] + '</div><div class="pc">'
+      + p[1] + ' · ' + p[2] + '</div></div>';
+  }).join('');
+  document.getElementById('arch').innerHTML =
+      '<div class="tier"><div class="lab">Nível 1 · Marca-mãe</div>'
+    + '<div class="skus"><span class="sku" style="border-color:var(--garnet)"><b>' + b + '</b></span></div>'
+    + '<div class="fl" style="font-size:12.5px;color:var(--muted);margin-top:8px">'
+    + curName.tag + ' · ' + curName.ph + '</div></div>'
+    + '<div class="tier"><div class="lab">Nível 2 · SKUs por benefício</div><div class="skus">' + skus + '</div></div>'
+    + '<div class="tier"><div class="lab">Nível 3 · Quatro famílias</div><div class="fams">' + fams + '</div></div>'
+    + '<div class="tier"><div class="lab">Nível 4 · Protocolos — o que aumenta ticket e recorrência</div>'
+    + '<div class="proto">' + protos + '</div></div>';
+}
+
+renderNames(); renderTaglines(); renderLockup(); renderArch();
+</script>
