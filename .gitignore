@@ -1,3 +1,7 @@
 .DS_Store
 ~$*
 *.tmp
+
+# material puxado de e-mail e Drive — nao versionar
+fornecedores-recebidos/
+emails/
