@@ -109,15 +109,26 @@ tr.hi td{background:var(--gold-soft)}
 .ph p{font-size:13.5px;color:var(--ink-2);margin:0;max-width:none}
 
 ol.steps{list-style:none;counter-reset:s;padding:0;margin:16px 0}
-ol.steps li{counter-increment:s;display:grid;grid-template-columns:28px minmax(0,1fr);gap:0 13px;padding-block:10px;border-bottom:1px solid var(--rule);font-size:14.5px}
+ol.steps li{counter-increment:s;position:relative;padding:10px 0 10px 38px;border-bottom:1px solid var(--rule);font-size:14.5px;line-height:1.55}
 ol.steps li:last-child{border-bottom:none}
-ol.steps li::before{content:counter(s);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--garnet);font-weight:700;padding-top:.35em}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;line-height:1.9;color:var(--garnet);font-weight:700}
 ul.plain{list-style:none;padding:0;margin:16px 0}
-ul.plain li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:0 11px;padding-block:8px;border-bottom:1px solid var(--rule);font-size:14.5px}
+ul.plain li{position:relative;padding:8px 0 8px 22px;border-bottom:1px solid var(--rule);font-size:14.5px;line-height:1.55}
 ul.plain li:last-child{border-bottom:none}
-ul.plain li::before{content:"";width:7px;height:7px;margin-top:.6em;background:var(--gold);border-radius:50%}
+ul.plain li::before{content:"";position:absolute;left:0;top:1.05em;width:7px;height:7px;background:var(--gold);border-radius:50%}
 
-.ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:12px;margin:18px 0 8px}
+.ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:12px;margin:10px 0 26px}
+.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:12px;margin:10px 0 0}
+.slot{border:1px solid var(--rule);background:var(--paper);padding:14px;display:flex;flex-direction:column}
+.slot .sl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--moro);margin-bottom:9px}
+.slot .mainp{font-weight:600;font-size:14.5px;line-height:1.3}
+.slot .px{display:none;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--ink-2);margin-top:4px;display:block}
+.slot .alts{font-size:12.5px;color:var(--muted);margin-top:10px;padding-top:9px;border-top:1px solid var(--rule);line-height:1.5}
+.slot.gap{border-color:var(--bad);border-left:3px solid var(--bad)}
+.slot.gap .mainp{color:var(--bad)}
+.ghead{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--garnet);margin-top:26px;padding-bottom:7px;border-bottom:1px solid var(--rule-strong);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ghead em{font-style:normal;color:var(--faint);letter-spacing:.04em;text-transform:none;font-size:11.5px}
+tr.grouprow td{background:var(--surface-2);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--garnet);padding-top:14px;padding-bottom:7px;border-bottom:1px solid var(--rule-strong)}
 .ncard{appearance:none;text-align:left;cursor:pointer;background:var(--surface);border:1px solid var(--rule);padding:16px;font-family:inherit;color:inherit;display:flex;flex-direction:column;gap:3px;box-shadow:var(--shadow)}
 .ncard:hover{border-color:var(--rule-strong)}
 .ncard[aria-pressed="true"]{border-color:var(--garnet);border-width:2px;padding:15px;background:var(--surface-2)}
@@ -222,6 +233,9 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
     <button class="tab" role="tab" id="t-3" aria-controls="p-3" aria-selected="false"><span class="n">03</span> Nomes</button>
     <button class="tab" role="tab" id="t-4" aria-controls="p-4" aria-selected="false"><span class="n">04</span> Portfólio e preços</button>
     <button class="tab" role="tab" id="t-5" aria-controls="p-5" aria-selected="false"><span class="n">05</span> Composição</button>
+    <button class="tab" role="tab" id="t-6" aria-controls="p-6" aria-selected="false"><span class="n">06</span> Produto e funil</button>
+    <button class="tab" role="tab" id="t-7" aria-controls="p-7" aria-selected="false"><span class="n">07</span> Economia</button>
+    <button class="tab" role="tab" id="t-8" aria-controls="p-8" aria-selected="false"><span class="n">08</span> Decisões</button>
   </div>
 </header>
 
@@ -288,6 +302,35 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
         </ul>
       </div>
       <div class="tier">
+        <div class="lab">O protocolo montado na Vox · MOQ 150 por SKU</div>
+        <div class="slots">
+          <div class="slot">
+            <div class="sl">Produto principal</div>
+            <div class="mainp">Berberine 1200 mg</div>
+            <span class="px">$6,64 @150 · $5,74 @1.000</span>
+            <div class="alts">Dose clínica, forma HCl — a mais estudada.<br><b>Alternativas:</b> Caralluma 600 mg, Garcinia 95% HCA.</div>
+          </div>
+          <div class="slot">
+            <div class="sl">Brinde complementar</div>
+            <div class="mainp">Saffron 88.5</div>
+            <span class="px">$4,23 @150 · $3,33 @1.000</span>
+            <div class="alts">É o mesmo ativo do Satiereal do briefing.<br><b>Se quiser formato pó:</b> Greens 151 g. <b>Se quiser fibra:</b> Max Detox ou Colon Sweep.</div>
+          </div>
+          <div class="slot">
+            <div class="sl">Order bump 1 · doce</div>
+            <div class="mainp">Blood Sugar Plus</div>
+            <span class="px">$4,26 @150 · $3,36 @1.000</span>
+            <div class="alts">Cobre o conceito glicêmico do briefing.<br><b>Alternativas:</b> Cinnamon 600 mg, ALA avulso, Myo D-Chiro Inositol.</div>
+          </div>
+          <div class="slot">
+            <div class="sl">Order bump 2 · termogênico</div>
+            <div class="mainp">Oxy Burn</div>
+            <span class="px">$4,73 @150 · $3,83 @1.000</span>
+            <div class="alts">Frasco preto, já diferencia na caixa.<br><b>Alternativas:</b> Best Seller Blend, Keto Ultra, Night Time Fat Burn (sem estimulante).</div>
+          </div>
+        </div>
+      </div>
+      <div class="tier">
         <div class="lab">Leitura</div>
         <div class="fl">É o <b>melhor custo por frasco</b> e o menor MOQ de estoque do mercado (150 unidades). Em troca, exige capital, aprovação de rótulo e um 3PL separado. ⚠ Recomendou <b>Green Coffee Bean</b>, que aparece como <b>descontinuado</b> na tabela do ODF — mesmo grupo. Vale confirmar disponibilidade antes de contar com ele.</div>
       </div>
@@ -321,6 +364,35 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
           <li><b>Compulsão / glicêmico</b> → tem Ceylon Cinnamon isolado; não há fórmula combinando Gymnema, cromo, canela e ALA.</li>
           <li><b>Termogênico</b> → KETO 5 e Best Sellers Blend.</li>
         </ul>
+      </div>
+      <div class="tier">
+        <div class="lab">O protocolo montado no ODF · sem MOQ, dropship</div>
+        <div class="slots">
+          <div class="slot">
+            <div class="sl">Produto principal</div>
+            <div class="mainp">Berberine</div>
+            <span class="px">$9,50 tier 1 · $7,60 tier 3</span>
+            <div class="alts">1.200 mg de Berberina HCl por dose — o mais próximo do conceito.<br><b>Alternativas:</b> African Mango Ultra, White Kidney Bean.</div>
+          </div>
+          <div class="slot">
+            <div class="sl">Brinde complementar</div>
+            <div class="mainp">Saffron Pure</div>
+            <span class="px">$5,41 tier 1 · $4,58 tier 3</span>
+            <div class="alts">Saciedade, mesmo ativo do Satiereal.<br><b>Se quiser fibra:</b> Psyllium Husk Plus. <b>Formato pó:</b> Powder Greens.</div>
+          </div>
+          <div class="slot">
+            <div class="sl">Order bump 1 · doce</div>
+            <div class="mainp">Blood Sugar Ultra</div>
+            <span class="px">$5,90 tier 1 · $4,80 tier 3</span>
+            <div class="alts">Suporte glicêmico.<br><b>Alternativas:</b> Cinnamon, Myo D-Chiro Inositol.</div>
+          </div>
+          <div class="slot">
+            <div class="sl">Order bump 2 · termogênico</div>
+            <div class="mainp">Oxy Burn</div>
+            <span class="px">$6,67 tier 1 · $5,42 tier 3</span>
+            <div class="alts">Termogênico de manhã.<br><b>Alternativas:</b> Best Sellers Blend, Raspberry Ketone Ultra, Night Time Fat Burner.</div>
+          </div>
+        </div>
       </div>
       <div class="tier">
         <div class="lab">A sugestão mais útil que ele deu</div>
@@ -359,6 +431,35 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
           <li>Faz design de rótulo, revisão de compliance, CoA de produto acabado, armazenagem, fulfillment e integração com Shopify.</li>
           <li>Estoque disponível: <b>só gummies</b> — ACV+probiótico, colágeno, probiótico, multi feminino, vit C+zinco, vit C 1000, D3, cúrcuma+gengibre, hair/skin/nails. MOQ 500/SKU, 2–4 semanas.</li>
         </ul>
+      </div>
+      <div class="tier">
+        <div class="lab">O protocolo na PLE · tudo seria custom</div>
+        <div class="slots">
+          <div class="slot gap">
+            <div class="sl">Produto principal</div>
+            <div class="mainp">Não existe em estoque</div>
+            <span class="px">Custom: 2.500 frascos · 10–12 semanas</span>
+            <div class="alts">Nenhum dos gummies de estoque serve ao conceito metabólico.</div>
+          </div>
+          <div class="slot gap">
+            <div class="sl">Brinde complementar</div>
+            <div class="mainp">Não existe em estoque</div>
+            <span class="px">Pó custom: 1.000–2.000 potes</span>
+            <div class="alts">É aqui que a PLE é melhor que a Vox: o MOQ de pó custom é muito menor que os 750 kg da Vox.</div>
+          </div>
+          <div class="slot gap">
+            <div class="sl">Order bump 1 · doce</div>
+            <div class="mainp">Não existe em estoque</div>
+            <span class="px">Custom: 2.500 frascos</span>
+            <div class="alts">Só faria sentido na fase de fórmula-assinatura.</div>
+          </div>
+          <div class="slot gap">
+            <div class="sl">Order bump 2 · termogênico</div>
+            <div class="mainp">Não existe em estoque</div>
+            <span class="px">Custom: 2.500 frascos</span>
+            <div class="alts">Idem.</div>
+          </div>
+        </div>
       </div>
       <div class="tier">
         <div class="lab">O veredito dela</div>
@@ -507,16 +608,7 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
     <p>Dos nove nomes originais, <strong>seis terminam em -ORA</strong> e os outros ficam no mesmo bairro fonético. É uma ideia testada nove vezes, no espaço de naming mais saturado de wellness nos EUA — e os próprios documentos já registraram colisões: VYBORA CO, VEYORA, VYB, além de Aurevia e Nouriva. Por isso acrescentei <strong>quatro candidatos de fora do cluster</strong>.</p>
   </div>
 
-  <div class="filters">
-    <span class="flabel">Filtrar</span>
-    <button class="fbtn" data-nf="todos" aria-pressed="true">Todos</button>
-    <button class="fbtn" data-nf="ora" aria-pressed="false">Família -ORA</button>
-    <button class="fbtn" data-nf="fora" aria-pressed="false">Fora do cluster</button>
-    <button class="fbtn" data-nf="nova" aria-pressed="false">Sugestões novas</button>
-    <span class="count" id="ncount"></span>
-  </div>
-
-  <div class="ngrid" id="ngrid"></div>
+  <div id="ngroups"></div>
 
   <div class="lockup" id="lockup">
     <div class="brand" id="lkbrand">VYVORA</div>
@@ -548,32 +640,17 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
     <p>A Vox vende <strong>"GLP1 Support"</strong> com o <strong>mesmo part number (14697) do Berberine 1200mg</strong>, e <strong>"GLP1 Booster"</strong> com o mesmo part number (14724) do Best Seller Blend. São os mesmos produtos com nome de marketing GLP-1. Dois recados: o mercado já está vendendo berberina como a jogada GLP-1, e <strong>vocês não devem usar esses nomes no rótulo</strong> — o próprio modelo de negócio de vocês proíbe "GLP-1 natural", e é exatamente o tipo de nome que FDA e FTC olham.</p>
   </div>
 
-  <div class="filters">
-    <span class="flabel">Filtrar</span>
-    <button class="fbtn" data-pf="todos" aria-pressed="true">Todos</button>
-    <button class="fbtn" data-pf="ancora" aria-pressed="false">Candidatos a âncora</button>
-    <button class="fbtn" data-pf="saciedade" aria-pressed="false">Saciedade / apetite</button>
-    <button class="fbtn" data-pf="glicemico" aria-pressed="false">Glicêmico / doce</button>
-    <button class="fbtn" data-pf="termo" aria-pressed="false">Termogênico</button>
-    <button class="fbtn" data-pf="digestivo" aria-pressed="false">Digestivo / fibra</button>
-    <button class="fbtn" data-pf="sono" aria-pressed="false">Sono</button>
-    <button class="fbtn" data-pf="longevidade" aria-pressed="false">Longevidade</button>
-    <span class="count" id="pcount"></span>
-  </div>
-
   <div class="scroll">
     <table id="ptable">
-      <thead><tr>
-        <th>Produto</th><th>Papel no protocolo</th><th>Vox Nutrition</th><th>On Demand Fulfillment</th>
-      </tr></thead>
+      <thead id="phead"></thead>
       <tbody></tbody>
     </table>
   </div>
-  <p style="font-size:12.5px;color:var(--muted)">Disponibilidade por fornecedor. Os preços por frasco de cada catálogo não são reproduzidos aqui — estão nas tabelas originais que a Vox e o ODF enviaram, e circulam só internamente.</p>
+  <p style="font-size:12.5px;color:var(--muted)" id="pnote"></p>
 
   <div class="call">
     <span class="k">A diferença entre os dois</span>
-    <p>O ODF revende produto fabricado pela Vox. Comprando direto da Vox sai mais barato por frasco, mas exige capital, aprovação de rótulo e um 3PL separado. No ODF o mesmo produto custa mais, e em troca não há estoque, não há capital travado e o envio ao cliente final já vem incluso. Na nossa composição, a diferença fica em torno de <strong>$11 por pedido</strong> — é o preço da conveniência, e é o que justifica começar no ODF e migrar depois.</p>
+    <p>Comprando direto da Vox a 1.000 frascos, o Berberine sai por <strong>$5,74</strong>. No ODF, o mesmo produto, da mesma fábrica, sai por <strong>$7,60</strong> — mas sem estoque, sem capital e com envio ao cliente incluso. A diferença de $1,86 por frasco é o preço da conveniência: em 6 frascos por cliente, são <strong>$11 por pedido</strong>.</p>
   </div>
 </div>
 
@@ -666,8 +743,187 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
   </ol>
 </div>
 
+<!-- ============ 06 ============ -->
+<div class="panel" id="p-6" role="tabpanel" aria-labelledby="t-6" hidden>
+  <h2>Produto e funil</h2>
+  <p class="srcnote">Fonte: Briefing do Protocolo de Emagrecimento + Modelo de Negócio</p>
+  <p class="lede">Quatro SKUs, oferta de 6 meses em envio único, vendidos por aula ao vivo com fechamento humano.</p>
+
+  <h3>A linha como foi especificada</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Produto</th><th>Formato</th><th>Função</th><th>Apelo</th><th>Ativo herói</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Principal</td><td>60 caps · 2–4/dia · sem estimulante</td><td>Metabolismo, saciedade, gordura abdominal</td><td>"Ativa o interruptor metabólico"</td><td>Berberina</td></tr>
+        <tr><td class="nm">Brinde</td><td>Pó · 3 doses/dia · hibisco-limão</td><td>Saciedade pré-refeição, desinchar</td><td>"O ritual que desincha"</td><td>Konjac</td></tr>
+        <tr><td class="nm">Bump glicêmico</td><td>60 caps</td><td>Vontade de doce, compulsão</td><td>"Corta a vontade de doce na raiz"</td><td>Gymnema</td></tr>
+        <tr><td class="nm">Bump acelerador</td><td>60 caps · manhã</td><td>Termogênese, energia</td><td>"A gordura que queima gordura"</td><td>Grains of Paradise</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call">
+    <span class="k">A decisão da berberina</span>
+    <p>Di-hidroberberina permite <strong>2 cápsulas/dia</strong> e custa várias vezes mais. Berberina HCl exige <strong>3–4 cápsulas/dia</strong>, é bem mais barata e tem a <strong>base de evidência humana maior</strong> — a di-hidro resolve absorção e número de cápsulas, não eficácia. Somando as doses do briefing na versão HCl dá ~1.876 mg/dia de ativos, o que não cabe em duas cápsulas de tamanho 00. A forma HCl é a escolha coerente com custo <em>e</em> com evidência.</p>
+  </div>
+
+  <h3>Estrutura da oferta</h3>
+  <ul class="plain">
+    <li><b>6 meses do principal + 3 meses do brinde</b>, em <b>envio único</b> — a cliente recebe tudo de uma vez e consome ao longo do protocolo.</li>
+    <li>Order bumps no checkout: <b>glicêmico</b> e <b>acelerador</b>, em 1 ou 3 meses.</li>
+    <li>Envio único tira a oferta do regime de <b>negative option</b>: sem cobrança recorrente, a regra de cancelamento fácil da FTC não se aplica, e some a maior fonte de chargeback de assinatura.</li>
+    <li>Em troca, não há receita recorrente: o mês 6 é um precipício, não uma renovação. É aí que o conteúdo de acompanhamento durante o protocolo deixa de ser enfeite e vira a engrenagem da recompra.</li>
+  </ul>
+
+  <h3>O funil</h3>
+  <ol class="steps">
+    <li><b>Anúncio</b> convidando para uma aula às 20h.</li>
+    <li><b>CRM com automação</b> de confirmação — e-mail, SMS e WhatsApp.</li>
+    <li>Às <b>20h</b>, quem confirmou recebe o link da aula.</li>
+    <li>Aula ao vivo; o <b>pitch começa em 1h15</b>.</li>
+    <li><b>Checkout</b> abre com a oferta de 6 meses e os dois bumps.</li>
+    <li><b>Recuperação comercial</b>, do mais quente para o mais frio: erro de cartão · entrou no checkout e não preencheu · clicou no link · ficou até o fim sem clicar · assistiu metade.</li>
+  </ol>
+
+  <div class="call gold">
+    <span class="k">Os quatro pilares do pitch</span>
+    <p><b>Custo</b> — comparação com os 15+ frascos avulsos, com preço real, print e data. <b>Dose certa</b> — doses calibradas, com a autoridade técnica da química responsável. <b>Praticidade</b> — poucas cápsulas contra vários frascos. <b>Sinergia</b> — ativos combinados e compatíveis.</p>
+  </div>
+
+  <div class="call">
+    <span class="k">A contradição a resolver no pitch</span>
+    <p>O pilar 2 é "dose certa". A regra de compliance é "só cite um estudo se a dose do produto for a mesma do estudo". E a ideia de apresentar as fórmulas como <strong>blends</strong> esconde as doses. As três não convivem: se a dose não é pública, não dá para provar que bate com o estudo. Saída: <strong>rótulo aberto no produto-âncora</strong>, blend só nos order bumps.</p>
+  </div>
+
+  <h3>Nome do protocolo, em avaliação</h3>
+  <ul class="plain">
+    <li><b>Red Gold Protocol</b> — favorito. O "gold" é a berberina, o "red" é o açafrão e a laranja moro. Família: Core, Ritual, Glyco, Ignite. ⚠ <b>Red Gold</b> é marca consolidada de alimentos nos EUA — espere uma busca carregada no USPTO.</li>
+    <li><b>Metabolic Switch Protocol</b> e <b>180-Day Metabolic Reset</b> — "switch" e "reset" são claims de mecanismo disfarçados de nome.</li>
+    <li><b>Golden Root Protocol</b> — o mais neutro dos quatro do ponto de vista regulatório.</li>
+    <li>⚠ <b>Glyco</b> aponta direto para glicemia, que é o território de claim que o próprio plano manda evitar. Renomear.</li>
+  </ul>
+
+  <h3>Compliance do funil</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Frente</th><th>O que observar</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Claims proibidos</td><td>Nada de "Ozempic natural", "GLP-1 natural", "queima gordura" ou "trata diabetes". Só structure/function claims, sempre com o disclaimer da FDA.</td></tr>
+        <tr><td class="nm">Berberina</td><td>É o ponto mais sensível: a reputação dela nos EUA é controle glicêmico. Qualquer deriva para açúcar no sangue, insulina ou comparação com GLP-1 sai de structure/function e vira claim de doença.</td></tr>
+        <tr><td class="nm">Claims sempre falsos</td><td>A FTC trata como sempre falso para suplemento: emagrecer sem dieta ou exercício, perder X quilos por semana, bloquear absorção de gordura, emagrecer permanentemente.</td></tr>
+        <tr><td class="nm">Comparação de preço</td><td>O value stack precisa comparar com preços realmente disponíveis, com print e data arquivados.</td></tr>
+        <tr><td class="nm">TCPA</td><td>Confirmação por SMS e WhatsApp mais ligação do comercial exige <b>consentimento expresso e por escrito na página de inscrição</b> — separado do aceite geral. Multa por mensagem, e é alvo de ação coletiva.</td></tr>
+        <tr><td class="nm">Venda a menores</td><td>Lei de Nova York proíbe venda de suplemento de emagrecimento a menores. Checkout precisa confirmar 18+ e os anúncios precisam excluir menores.</td></tr>
+        <tr><td class="nm">Rótulo</td><td>Alerta de interação medicamentosa (principalmente diabetes), gestação e lactação, quantidade de cafeína, e ingestão do glucomanan com bastante água — risco de engasgo documentado.</td></tr>
+        <tr><td class="nm">Validade</td><td>Com envio único de 6 meses, exigir <b>validade mínima de 20 meses na entrega</b>. O pó tem datação mais curta que a cápsula.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ============ 07 ============ -->
+<div class="panel" id="p-7" role="tabpanel" aria-labelledby="t-7" hidden>
+  <h2>Economia</h2>
+  <p class="srcnote">Modelo de custos e precificação — 791 fórmulas, 9 abas</p>
+  <p class="lede">A regra de ferro desse mercado: aquisição consome 50 a 60% da receita. O que sobra para produto e logística é 20 a 25%.</p>
+
+  <h3>Onde vai cada dólar</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Linha</th><th class="num">Por pedido</th><th>Observação</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Receita bruta média</td><td class="num">$478,80</td><td>Oferta de $389 + bumps ponderados pelo take rate</td></tr>
+        <tr><td class="nm">Reembolso e chargeback</td><td class="num">$62,49</td><td><b>Segundo maior custo</b> — maior que frete, 3PL, embalagem e processamento somados</td></tr>
+        <tr><td class="nm">Processamento</td><td class="num">$21,85</td><td>Adquirente de alto risco, 4,5% + taxa fixa</td></tr>
+        <tr><td class="nm">Frete ao cliente</td><td class="num">$16 a $26</td><td>Por peso real: 3–4 lb = $20,15 · acima de 10 lb vira cotação</td></tr>
+        <tr><td class="nm">Embalagem, 3PL, suporte</td><td class="num">$10,70</td><td>Caixa, inserto, picking, armazenagem, atendimento</td></tr>
+        <tr><td class="nm">Comissão do comercial</td><td class="num">$15,96</td><td>10% sobre a receita que o time recupera</td></tr>
+        <tr><td class="nm">Orçamento para o produto</td><td class="num">$86,46</td><td>O que sobra para 30% de margem com CAC de $90</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call ok">
+    <span class="k">A conclusão</span>
+    <p>As três rotas de composição cabem nesse orçamento — a mais cara, de estoque zero, usa <strong>$68,44</strong> e ainda sobra $18. A estimativa de $14 por frasco que travava a conta era o custo de uma fórmula custom com quatro ativos de marca, que nenhum fornecedor tem e que ninguém precisa para entregar os mesmos mecanismos.</p>
+  </div>
+
+  <h3>Preço</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Preço 6 meses</th><th class="num">Por mês</th><th>Leitura</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">$294</td><td class="num">$49</td><td>Padrão do mercado de VSL evergreen. Exige custo de commodity.</td></tr>
+        <tr class="hi"><td class="nm">$389</td><td class="num">$65</td><td><b>Alvo definido.</b> Viável com produtos de estoque e CAC eficiente.</td></tr>
+        <tr><td class="nm">$397</td><td class="num">$66</td><td>Se for ficar abaixo de $400, use este: mesma percepção, +$8, e parece preço de resposta direta.</td></tr>
+        <tr><td class="nm">$447</td><td class="num">$74</td><td><b>Recomendado.</b> Entrega 30%+ em toda a faixa plausível de custo, e fica sob a barreira dos $500.</td></tr>
+        <tr><td class="nm">$497</td><td class="num">$83</td><td>Preço natural de webinar ao vivo com fechamento humano.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call gold">
+    <span class="k">Por que o formato sustenta preço mais alto</span>
+    <p>$294 é o preço treinado do VSL evergreen, onde não existe vendedor. Aqui há <strong>aula ao vivo com especialista e time comercial fechando</strong> — o formato de ticket alto, onde $497 e $597 são normais. E preço baixo demais custa duas vezes: atrai comprador menos comprometido, o que sobe o reembolso, que já é o segundo maior custo.</p>
+  </div>
+
+  <h3>As três alavancas</h3>
+  <div class="phases">
+    <div class="ph"><div class="t">Alavanca 1</div><div class="h">Custo do frasco</div><p>Cada $2 a menos no frasco compra ~$10 de folga no CAC. E cada $1 vale $6 no pedido, porque são 6 frascos por cliente — negociar o âncora vale 6× mais que qualquer outro SKU.</p></div>
+    <div class="ph"><div class="t">Alavanca 2</div><div class="h">CAC ≤ $90</div><p>É a mais incerta e só o primeiro webinar mede. Depende de CPL e da taxa de presença — com horário marcado, o show rate é o gargalo.</p></div>
+    <div class="ph"><div class="t">Alavanca 3</div><div class="h">Reembolso 12% → 9%</div><p>Vale ~3 pontos de margem, o mesmo que cortar $2 do frasco, e é mais barato de conseguir: garantia com devolução de frascos lacrados, expectativa correta no pitch e onboarding nas duas primeiras semanas.</p></div>
+  </div>
+
+  <h3>Capital e caixa</h3>
+  <ul class="plain">
+    <li><b>Rota de estoque zero:</b> nenhum capital travado. Mensalidade de plataforma, isenta acima de $5 mil faturados no mês.</li>
+    <li><b>Rota de compra direta:</b> ~<b>$51,6 mil</b> em estoque para atender cerca de 1.000 clientes — porque cada cliente consome 6 frascos do âncora. Cote pensando em <b>clientes</b>, não em unidades: 5.000 frascos são só ~830 clientes.</li>
+    <li><b>Reserva rolante:</b> o adquirente de alto risco retém tipicamente 5 a 10% por 6 meses. Não é despesa, mas trava capital de giro exatamente na fase em que ele falta.</li>
+    <li><b>Conta de pagamento:</b> é o item de maior lead time do projeto e pode inviabilizar o lançamento sozinho. Emagrecimento de ticket alto com pré-pagamento é o perfil que faz adquirente segurar reserva ou encerrar conta.</li>
+  </ul>
+</div>
+
+<!-- ============ 08 ============ -->
+<div class="panel" id="p-8" role="tabpanel" aria-labelledby="t-8" hidden>
+  <h2>Decisões</h2>
+  <p class="lede">O que já está fechado, e o que ainda trava o que vem depois.</p>
+
+  <h3>Fechado</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Decisão</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Categoria de entrada</td><td>Emagrecimento, com expansão depois para metabolismo, energia e longevidade</td></tr>
+        <tr><td class="nm">Oferta</td><td>6 meses do principal + 3 meses do brinde, em envio único</td></tr>
+        <tr><td class="nm">Canal</td><td>Webinar ao vivo às 20h com recuperação comercial por temperatura</td></tr>
+        <tr><td class="nm">Preço-alvo</td><td>$389 · recomendado $447</td></tr>
+        <tr><td class="nm">Margem meta</td><td>30% líquida</td></tr>
+        <tr><td class="nm">Forma da berberina</td><td>HCl — mais barata e com base de evidência maior; custa 3–4 cápsulas/dia</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Em aberto, por ordem de bloqueio</h3>
+  <ol class="steps">
+    <li><b>Conta de pagamento de alto risco.</b> Maior lead time do projeto e o único item que pode inviabilizar o lançamento sozinho.</li>
+    <li><b>Clearance no USPTO</b> de dois nomes de marca-mãe — um de fora do cluster -ORA — e do nome do protocolo, com domínio e handles. Nada de identidade ou embalagem antes disso.</li>
+    <li><b>Rótulo aberto ou blend</b> no produto-âncora. Decide o valor Transparency e a capacidade de citar estudo no pitch.</li>
+    <li><b>Confirmar o preço</b> em $447, ou aceitar $389 com a composição de estoque.</li>
+    <li><b>Amostra física paga</b> do Berberine e do Saffron antes de qualquer rótulo.</li>
+    <li><b>Escolher uma taxonomia</b> de SKU — Core/Ritual/Glyco/Ignite ou LEAN/CORE/PERFORM/LONGEVITY — e renomear Glyco.</li>
+    <li><b>Roteiro do webinar</b> com os apelos reescritos em linguagem publicável, e o script do comercial sob a mesma revisão.</li>
+    <li><b>Consentimento TCPA</b> na página de inscrição, para SMS, WhatsApp e ligação.</li>
+    <li><b>Confirmar com a Vox</b> se o Green Coffee Bean ainda existe — foi recomendado, mas aparece como descontinuado na tabela da empresa irmã.</li>
+  </ol>
+
+  <div class="call">
+    <span class="k">A contradição de fundo, que ainda não foi decidida</span>
+    <p>Os documentos de marca descrevem uma marca premium de wellness, com transparência e sem claims agressivos. O plano de produto e o funil descrevem uma operação de resposta direta em emagrecimento, com blends fechados e escassez no pitch. Não é fatal — muitas marcas nasceram assim e migraram — mas <strong>a marca não pode ser construída como se a fase 1 não existisse</strong>. O rótulo e o site vão ser vistos primeiro por quem comprou num webinar de emagrecimento.</p>
+  </div>
+</div>
+
 <footer>
-  Consolidação de "Plano de Estruturação", "Estratégia para Marca para a Supplements LLC" e "Sugestões de Marcas para suplementos", cruzada com as respostas de Vox Nutrition, On Demand Fulfillment e Private Label Express (set 2026).<br>
+  Consolidação de "Plano de Estruturação", "Estratégia para Marca para a Supplements LLC" e "Sugestões de Marcas para suplementos", do briefing do protocolo e do modelo de negócio, cruzada com as respostas de Vox Nutrition, On Demand Fulfillment e Private Label Express (set 2026).<br>
   Preços de catálogo sujeitos a alteração — confirmar com o representante antes de qualquer pedido. Não constitui parecer jurídico: rótulo, alegações, nome e checkout exigem revisão de advogado especializado em FDA/FTC e busca no USPTO.
 </footer>
 </div>
@@ -768,21 +1024,27 @@ var TAGLINES = [
   {t:'Where Science Meets Routine.',k:'Nova · rotina'},
   {t:'Unlock Your Better.',k:'Potencial'}
 ];
-var nFilter='todos', curName=NAMES[0], curTag=null;
-
+var curName=NAMES[0], curTag=null;
+var NGROUPS = [
+  {t:'Família -ORA', d:'O cluster saturado — colisões já registradas em VYBORA CO, VEYORA e VYB',
+   f:function(n){ return n.cl==='ora'; }},
+  {t:'Fora do cluster, da lista original', d:'Raiz semântica diferente, menos risco fonético',
+   f:function(n){ return n.cl==='fora' && !n.nova; }},
+  {t:'Sugestões novas', d:'Acrescentadas para a rodada de clearance não depender só do -ORA',
+   f:function(n){ return n.nova; }}
+];
+function card(n){
+  return '<button class="ncard" type="button" data-name="'+n.w+'" aria-pressed="'+(n.w===curName.w?'true':'false')+'">'
+    +'<div class="w">'+n.w+'</div><div class="ph2">'+n.ph+'</div>'
+    +'<div class="tags"><span class="chip '+n.st[0]+'">'+n.st[1]+'</span></div>'
+    +'<div class="rt">'+n.rt+'</div></button>';
+}
 function renderNames(){
-  var shown=0;
-  document.getElementById('ngrid').innerHTML = NAMES.filter(function(n){
-    var ok = nFilter==='todos' || (nFilter==='ora'&&n.cl==='ora') || (nFilter==='fora'&&n.cl==='fora') || (nFilter==='nova'&&n.nova);
-    if(ok) shown++;
-    return ok;
-  }).map(function(n){
-    return '<button class="ncard" type="button" data-name="'+n.w+'" aria-pressed="'+(n.w===curName.w?'true':'false')+'">'
-      +'<div class="w">'+n.w+'</div><div class="ph2">'+n.ph+'</div>'
-      +'<div class="tags"><span class="chip '+n.st[0]+'">'+n.st[1]+'</span></div>'
-      +'<div class="rt">'+n.rt+'</div></button>';
+  document.getElementById('ngroups').innerHTML = NGROUPS.map(function(g){
+    var items = NAMES.filter(g.f);
+    return '<div class="ghead"><span>'+g.t+' · '+items.length+'</span><em>'+g.d+'</em></div>'
+      + '<div class="ngrid">'+items.map(card).join('')+'</div>';
   }).join('');
-  document.getElementById('ncount').textContent = shown+' de '+NAMES.length;
   document.querySelectorAll('[data-name]').forEach(function(b){
     b.addEventListener('click', function(){
       var f = NAMES.filter(function(x){return x.w===b.getAttribute('data-name');})[0];
@@ -790,13 +1052,6 @@ function renderNames(){
     });
   });
 }
-document.querySelectorAll('[data-nf]').forEach(function(b){
-  b.addEventListener('click', function(){
-    nFilter=b.getAttribute('data-nf');
-    document.querySelectorAll('[data-nf]').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
-    renderNames();
-  });
-});
 function renderTaglines(){
   document.getElementById('tls').innerHTML = TAGLINES.map(function(t){
     var active = (curTag ? curTag===t.t : curName.tag===t.t);
@@ -865,28 +1120,38 @@ var P = [
   ['CoQ10 (30 ct)','longevidade','Energia mitocondrial',4.53,3.63,3.43,8.80,6.60,0],
   ['Collagen I-II-III-V-X (90 ct)','longevidade','Beleza e articulação',4.82,3.92,3.72,7.23,5.78,0]
 ];
-var pFilter='todos';
+var SHOW_PRICES = false;
+var PGROUPS = [
+  ['ancora','Candidatos a âncora metabólica'],
+  ['saciedade','Saciedade e apetite'],
+  ['glicemico','Glicêmico e vontade de doce'],
+  ['termo','Termogênico'],
+  ['digestivo','Digestivo e fibra'],
+  ['sono','Sono e recuperação'],
+  ['longevidade','Longevidade']
+];
 function money(v){ return v===null ? '<span style="color:var(--faint)">—</span>' : '$'+v.toFixed(2); }
+function stock(v){ return v!==null ? '<span class="chip ok">Em estoque</span>' : '<span style="color:var(--faint)">—</span>'; }
 function renderP(){
-  var shown=0;
-  document.querySelector('#ptable tbody').innerHTML = P.filter(function(r){
-    var ok = pFilter==='todos' || r[1]===pFilter;
-    if(ok) shown++;
-    return ok;
-  }).map(function(r){
-    var vox = (r[3]!==null) ? '<span class="chip ok">Em estoque</span>' : '<span style="color:var(--faint)">—</span>';
-    var odf = (r[6]!==null) ? '<span class="chip ok">Em estoque</span>' : '<span style="color:var(--faint)">—</span>';
-    return '<tr class="'+(r[8]?'hi':'')+'"><td class="nm">'+r[0]+'</td><td style="font-size:13px;color:var(--ink-2)">'+r[2]+'</td>'
-      +'<td>'+vox+'</td><td>'+odf+'</td></tr>';
+  var cols = SHOW_PRICES ? 7 : 4;
+  document.getElementById('phead').innerHTML = SHOW_PRICES
+    ? '<tr><th>Produto</th><th>Papel no protocolo</th><th class="num">Vox 150</th><th class="num">Vox 1.000</th><th class="num">Vox 2.500</th><th class="num">ODF t1</th><th class="num">ODF t3</th></tr>'
+    : '<tr><th>Produto</th><th>Papel no protocolo</th><th>Vox Nutrition</th><th>On Demand Fulfillment</th></tr>';
+  document.getElementById('pnote').innerHTML = SHOW_PRICES
+    ? 'Vox = preço por frasco na compra direta, pela quantidade. ODF t1 = 1–199 frascos/mês, t3 = 1.000–4.999 frascos/mês, já com fulfillment incluso. Traço = não disponível naquele fornecedor.'
+    : 'Disponibilidade por fornecedor. Os preços por frasco de cada catálogo não são reproduzidos aqui — estão nas tabelas originais que a Vox e o ODF enviaram, e circulam só internamente.';
+  document.querySelector('#ptable tbody').innerHTML = PGROUPS.map(function(g){
+    var items = P.filter(function(r){ return r[1]===g[0]; });
+    if(!items.length) return '';
+    return '<tr class="grouprow"><td colspan="'+cols+'">'+g[1]+' · '+items.length+'</td></tr>'
+      + items.map(function(r){
+          var cells = SHOW_PRICES
+            ? '<td class="num">'+money(r[3])+'</td><td class="num">'+money(r[4])+'</td><td class="num">'+money(r[5])+'</td><td class="num">'+money(r[6])+'</td><td class="num">'+money(r[7])+'</td>'
+            : '<td>'+stock(r[3])+'</td><td>'+stock(r[6])+'</td>';
+          return '<tr class="'+(r[8]?'hi':'')+'"><td class="nm">'+r[0]+'</td>'
+            +'<td style="font-size:13px;color:var(--ink-2)">'+r[2]+'</td>'+cells+'</tr>';
+        }).join('');
   }).join('');
-  document.getElementById('pcount').textContent = shown+' de '+P.length;
 }
-document.querySelectorAll('[data-pf]').forEach(function(b){
-  b.addEventListener('click', function(){
-    pFilter=b.getAttribute('data-pf');
-    document.querySelectorAll('[data-pf]').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
-    renderP();
-  });
-});
 renderP();
 </script>
