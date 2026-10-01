@@ -711,11 +711,14 @@ footer{border-top:1px solid var(--line);margin-top:50px;padding-top:24px;font-fa
     <button class="fb" data-pf="saciedade" aria-pressed="false">Saciedade</button>
     <button class="fb" data-pf="glicemico" aria-pressed="false">Doce</button>
     <button class="fb" data-pf="termo" aria-pressed="false">Termogênico</button>
+    <button class="fb" data-pf="massa" aria-pressed="false">Massa magra</button>
     <button class="fb" data-pf="digestivo" aria-pressed="false">Digestivo</button>
     <button class="fb" data-pf="sono" aria-pressed="false">Sono</button>
     <button class="fb" data-pf="longevidade" aria-pressed="false">Longevidade</button>
     <span class="cnt" id="pcount"></span>
   </div>
+  <div id="ptabela"></div>
+  <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:26px 0 0">Ficha detalhada de cada produto</p>
   <div class="pgrid" id="pgrid"></div>
 
   <h3>Compliance do funil</h3>
@@ -1184,6 +1187,14 @@ var P = [
  ['NAD+','longevidade','Longevidade celular','unico','NAD+ / precursores','Energia celular','fraca','Mesma situação do NMN: mecanismo plausível, desfechos clínicos ainda não demonstrados.',['Supports cellular energy production and healthy aging','Promotes mitochondrial health'],[6.60,5.70,5.50],[null,null],0,null],
  ['Resveratrol 50%','longevidade','Longevidade','unico','Resveratrol 50%, 600 mg','Antioxidante, longevidade','fraca','Biodisponibilidade oral baixa. Resultados humanos inconsistentes apesar do volume de pesquisa.',['Supports heart health and circulatory function','Provides antioxidant protection for healthy aging'],[5.50,4.60,4.40],[6.44,5.37],0,null],
  ['CoQ10 (30 ct)','longevidade','Energia mitocondrial','unico','Ubiquinona','Função mitocondrial','moderada','Evidência boa em insuficiência cardíaca e em mialgia por estatina. Não é ativo de emagrecimento.',['Supports heart health and cardiovascular energy production','Aids cellular energy at the mitochondrial level'],[4.53,3.63,3.43],[8.80,6.60],0,null],
+ ['Amino Diet Drops','saciedade','Formato líquido — 2 oz','?','Blend de aminoácidos em gotas','Apetite e suporte à dieta','fraca','Gotas de aminoácidos em protocolos de dieta têm base fraca. O valor aqui é de formato: quebra a monotonia de cápsula e cria ritual.',[],[null,null,null],[5.81,4.72],0,'Pedir Supplement Facts. "Diet" no nome do produto atrai escrutínio.'],
+ ['Garcinia Cambogia Pure 750 mg 80% HCA','saciedade','Dose concentrada de apetite','unico','Garcinia cambogia 750 mg com 80% HCA','Apetite e serotonina','fraca','Mesma literatura fraca do Garcinia 95%. A diferença entre 80% e 95% de HCA não tem relevância clínica demonstrada.',['Concentrated dose for more targeted appetite suppression','Supports healthy serotonin levels to reduce emotional eating'],[4.59,3.69,3.49],[null,null],0,'Catálogo diz "aids in reducing stored fat and waist circumference" — alegação de redução de medida é arriscada.'],
+ ['DIM 350','glicemico','Metabolismo de estrogênio — perfil feminino','unico','Diindolilmetano 350 mg','Equilíbrio hormonal e metabolismo de estrogênio','moderada','DIM tem evidência razoável para metabolismo de estrogênio. A ligação com peso é indireta — vale para o público feminino 30–55, que é o núcleo do ICP.',['Supports estrogen balance and hormonal health','Aids metabolism of excess estrogen to support weight goals','Promotes clearer skin and improved mood'],[5.63,4.73,4.53],[null,null],1,null],
+ ['Creatine Monohydrate','massa','Preservação de massa magra','unico','Creatina monoidratada — 300 g','Força e manutenção de massa durante restrição calórica','forte','É o suplemento esportivo com <b>mais evidência humana que existe</b>. Em déficit calórico, ajuda a preservar massa magra — exatamente a narrativa que o documento de marcas previa para a linha RECOVER.',[],[null,null,null],[7.37,5.99],1,'Não é produto de emagrecimento e não deve ser vendido como tal. É produto de preservação — e é essa a história.'],
+ ['Plant Protein','massa','Saciedade e massa magra','blend','Proteína vegetal — 720 g, chocolate ou baunilha','Saciedade e aporte proteico','forte','Proteína é o macronutriente com maior efeito sobre saciedade, e aporte adequado é o principal fator de preservação de massa magra em déficit. Evidência sólida e pouco explorada no protocolo.',[],[null,null,null],[null,null],1,'Formato pó em pote de 720 g — peso e frete bem maiores que cápsula. Avaliar impacto no custo de envio.'],
+ ['Hydration Powder','massa','Eletrólitos — recorrência e ritual','blend','Eletrólitos — 240 g, fruit punch','Hidratação diária','moderada','Reposição de eletrólitos tem base fisiológica clara. O valor estratégico é de <b>recorrência e ritual diário</b>, não de emagrecimento.',[],[null,null,null],[12.13,9.55],0,null],
+ ['Sea Moss','digestivo','Minerais e tireoide','unico','Musgo marinho','Minerais, tireoide, digestão','fraca','Fonte de iodo e minerais. A associação com tireoide e metabolismo é popular no mercado, mas a evidência de efeito sobre peso é fraca. ⚠ Excesso de iodo tem risco próprio.',['Provides essential minerals to support thyroid and immune health','Promotes digestive function and gut balance'],[4.72,3.82,3.62],[5.74,4.70],0,'Qualquer menção a tireoide entra em território de claim de doença. Evitar.'],
+ ['Moringa','digestivo','Nutritivo e metabólico','unico','Folha de moringa','Nutrição e energia','fraca','Perfil nutricional bom, evidência de emagrecimento fraca. Produto de baixo custo e boa percepção natural.',[],[4.05,3.15,2.95],[5.05,4.04],0,null],
  ['Collagen I-II-III-V-X (90 ct)','longevidade','Beleza e articulação','blend','Colágeno tipos I, II, III, V e X — 1800 mg','Pele, articulação, cabelo e unha','moderada','Peptídeos de colágeno têm evidência razoável para elasticidade da pele e desconforto articular. Excelente produto de recompra.',['Supports joint, hair, skin, and nail health','Promotes skin elasticity and reduces visible signs of aging'],[4.82,3.92,3.72],[7.23,5.78],0,null]
 ];
 
@@ -1333,6 +1344,7 @@ document.querySelectorAll('[data-sf]').forEach(function(b){
 var SHOW_PRICES = false;
 var PG = [['ancora','Âncora metabólica — o produto principal'],['saciedade','Saciedade, apetite e inchaço — o brinde'],
           ['glicemico','Vontade de doce — order bump 1'],['termo','Termogênese e energia — order bump 2'],
+          ['massa','Preservação de massa magra — a lacuna do protocolo'],
           ['digestivo','Digestivo e fibra'],['sono','Sono, cortisol e compulsão noturna'],
           ['longevidade','Longevidade — para a expansão']];
 var BL={blend5:['ok','Blend de 5'],blend4:['ok','Blend de 4'],blend:['ok','Blend'],unico:['n','Ingrediente único'],nome:['w','Blend só no nome'],'?':['n','A confirmar']};
@@ -1357,11 +1369,36 @@ function renderP(){
        +'<div class="pf"><div class="pl2">Para que serve</div><div class="pv">'+r[5]+'</div></div>'
        +'<div class="pf"><div class="pl2">O que diz a ciência</div><div class="pv">'+r[7]+'</div></div>'
        +(r[12]?'<div class="pw">'+r[12]+'</div>':'')
-       +(SHOW_PRICES?'<div class="px"><span>Vox '+m$(r[9][0])+' / '+m$(r[9][1])+'</span><span>ODF '+m$(r[10][0])+' / '+m$(r[10][1])+'</span></div>':'')
+       +(SHOW_PRICES?'<div class="px"><span>Vox 150/1k/2,5k &nbsp;'+m$(r[9][0])+' · '+m$(r[9][1])+' · '+m$(r[9][2])+'</span><span>ODF t1/t3 &nbsp;'+m$(r[10][0])+' · '+m$(r[10][1])+'</span></div>':'')
        +'</div>';
     });
   });
   document.getElementById('pgrid').innerHTML=h;
+  var linhas='';
+  PG.forEach(function(g){
+    var it=P.filter(function(r){return r[1]===g[0];});
+    if(pFilter!=='todos'&&pFilter!==g[0]) return;
+    if(!it.length) return;
+    linhas += '<tr class="grp"><td colspan="'+(SHOW_PRICES?6:4)+'">'+g[1]+'</td></tr>';
+    it.forEach(function(r){
+      var b=BL[r[3]]||BL['?'], e=EV[r[6]]||EV['?'];
+      var melhorVox = r[9][1]!==null ? r[9][1] : r[9][0];
+      var melhorOdf = r[10][1]!==null ? r[10][1] : r[10][0];
+      var preco = SHOW_PRICES
+        ? '<td class="num">'+m$(melhorVox)+'</td><td class="num">'+m$(melhorOdf)+'</td>'
+        : '';
+      linhas += '<tr'+(r[11]?' class="hl"':'')+'><td class="n">'+r[0]+'</td>'
+        +'<td style="font-size:12.5px;color:var(--muted)">'+r[2]+'</td>'
+        +'<td><span class="chip '+b[0]+'">'+b[1]+'</span></td>'
+        +'<td><span class="chip '+e[0]+'">'+e[1]+'</span></td>'
+        + preco + '</tr>';
+    });
+  });
+  document.getElementById('ptabela').innerHTML =
+      '<div class="scroll"><table><thead><tr><th>Produto</th><th>Papel</th><th>Blend</th><th>Evidência</th>'
+    + (SHOW_PRICES?'<th class="num">Vox @1.000</th><th class="num">ODF tier 3</th>':'')
+    + '</tr></thead><tbody>'+linhas+'</tbody></table></div>'
+    + (SHOW_PRICES?'<p style="font-size:12px;color:var(--muted);margin-top:6px">Melhor preço disponível em cada fornecedor. Vox a 1.000 frascos; ODF no tier 3, que é 1.000–4.999 frascos/mês e já inclui fulfillment ao cliente final.</p>':'');
   document.getElementById('pcount').textContent=mos+' de '+tot;
 }
 document.querySelectorAll('[data-pf]').forEach(function(b){
