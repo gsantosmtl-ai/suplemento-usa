@@ -1,233 +1,198 @@
-<title>Marca, Nome e Fornecedores</title>
+<title>Supplements LLC — Painel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 
 <style>
 :root{
-  --ink:#1C1614; --ink-2:#4A3D37; --muted:#6B5F59; --faint:#948680;
-  --paper:#FAF6F4; --surface:#FFFFFF; --surface-2:#F3EBE6;
-  --rule:#E4DAD3; --rule-strong:#C9B9B0;
-  --garnet:#8E2A2A; --garnet-soft:#F2E0DD;
-  --gold:#C8912A; --gold-soft:#F7EBD5;
-  --moro:#C24A2B;
-  --ok:#3E6B4A; --ok-soft:#E3EDE5;
-  --warn:#8A5A16; --warn-soft:#F7EBD5;
-  --bad:#8E2A2A; --bad-soft:#F2E0DD;
-  --shadow:0 1px 2px rgba(28,22,20,.05), 0 10px 28px -18px rgba(28,22,20,.22);
+  --ink:#0E1518; --ink-2:#3A464B; --muted:#657279; --faint:#99A3A8;
+  --paper:#F6F7F8; --surface:#FFFFFF; --sunken:#EDEFF1;
+  --line:#E1E5E8; --line-2:#CBD2D6;
+  --accent:#0D6E72; --accent-soft:#E3F0F0; --accent-ink:#0A5457;
+  --warn:#9A6B16; --warn-soft:#FAF1DF;
+  --danger:#A8403A; --danger-soft:#FAE8E6;
+  --ok:#2E6B4F; --ok-soft:#E4F0EA;
+  --shadow:0 1px 1px rgba(14,21,24,.03), 0 6px 20px -14px rgba(14,21,24,.18);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --ink:#F2EAE6; --ink-2:#D3C6C0; --muted:#A2938C; --faint:#7C6D67;
-    --paper:#16120F; --surface:#1E1916; --surface-2:#272020;
-    --rule:#332A26; --rule-strong:#4A3D37;
-    --garnet:#E08A8A; --garnet-soft:#3A1F1F;
-    --gold:#E0AE4F; --gold-soft:#332616;
-    --moro:#E07A55;
-    --ok:#87BA95; --ok-soft:#1E2D22;
-    --warn:#D8A552; --warn-soft:#332616;
-    --bad:#E08A8A; --bad-soft:#3A1F1F;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.75);
+    --ink:#E8EDEF; --ink-2:#B4C0C5; --muted:#8A979D; --faint:#667279;
+    --paper:#0D1214; --surface:#141B1E; --sunken:#1B2327;
+    --line:#242E33; --line-2:#36434A;
+    --accent:#5BB8B8; --accent-soft:#12302F; --accent-ink:#8FD4D2;
+    --warn:#D3A24F; --warn-soft:#2E2514;
+    --danger:#D98078; --danger-soft:#301917;
+    --ok:#74B394; --ok-soft:#14261D;
+    --shadow:0 1px 1px rgba(0,0,0,.3), 0 6px 20px -14px rgba(0,0,0,.6);
   }
 }
 :root[data-theme="dark"]{
-  --ink:#F2EAE6; --ink-2:#D3C6C0; --muted:#A2938C; --faint:#7C6D67;
-  --paper:#16120F; --surface:#1E1916; --surface-2:#272020;
-  --rule:#332A26; --rule-strong:#4A3D37;
-  --garnet:#E08A8A; --garnet-soft:#3A1F1F;
-  --gold:#E0AE4F; --gold-soft:#332616;
-  --moro:#E07A55;
-  --ok:#87BA95; --ok-soft:#1E2D22;
-  --warn:#D8A552; --warn-soft:#332616;
-  --bad:#E08A8A; --bad-soft:#3A1F1F;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.75);
+  --ink:#E8EDEF; --ink-2:#B4C0C5; --muted:#8A979D; --faint:#667279;
+  --paper:#0D1214; --surface:#141B1E; --sunken:#1B2327;
+  --line:#242E33; --line-2:#36434A;
+  --accent:#5BB8B8; --accent-soft:#12302F; --accent-ink:#8FD4D2;
+  --warn:#D3A24F; --warn-soft:#2E2514;
+  --danger:#D98078; --danger-soft:#301917;
+  --ok:#74B394; --ok-soft:#14261D;
+  --shadow:0 1px 1px rgba(0,0,0,.3), 0 6px 20px -14px rgba(0,0,0,.6);
 }
 
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:0 88px}
-:focus-visible{outline:2px solid var(--garnet);outline-offset:2px}
+body{background:var(--paper);color:var(--ink);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1060px;margin:0 auto;padding-inline:20px;padding-block:0 100px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
 
-.mast{padding-block:52px 28px}
-.eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--garnet);margin:0 0 18px}
-h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(2.3rem,6.4vw,3.9rem);line-height:1.04;letter-spacing:-.015em;margin:0;text-wrap:balance}
-h1 em{font-style:italic;color:var(--garnet)}
-.standfirst{font-size:clamp(1rem,2.3vw,1.14rem);color:var(--ink-2);max-width:64ch;margin:20px 0 0}
+/* ---------- topo ---------- */
+.mast{padding-block:48px 0}
+.kicker{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(2.1rem,5.2vw,3.1rem);line-height:1.08;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.sub{color:var(--ink-2);max-width:60ch;margin:14px 0 0;font-size:1rem}
 
-.tabs{display:flex;gap:2px;flex-wrap:wrap;border-bottom:2px solid var(--ink);margin-top:32px}
-.tab{appearance:none;border:1px solid var(--rule);border-bottom:none;background:var(--surface-2);color:var(--muted);font-family:'Archivo',sans-serif;font-size:13.5px;font-weight:600;padding:11px 15px 10px;cursor:pointer;display:flex;align-items:baseline;gap:8px;border-radius:2px 2px 0 0}
-.tab:hover{color:var(--ink)}
-.tab[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.tab .n{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.06em;opacity:.7}
+/* barra de números */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.stat{background:var(--surface);padding:14px 16px}
+.stat .sl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.stat .sv{font-size:1.28rem;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat .sv.acc{color:var(--accent)}
+.stat .sn{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.4}
 
-.panel{padding-block:38px}
-h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(1.65rem,3.9vw,2.3rem);line-height:1.12;letter-spacing:-.01em;margin:0 0 14px;text-wrap:balance}
-h3{font-size:.95rem;font-weight:700;margin:36px 0 12px}
+/* ---------- nav ---------- */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line-2);margin-top:30px}
+.navin{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.navin::-webkit-scrollbar{display:none}
+.nb{appearance:none;border:none;background:none;cursor:pointer;font-family:inherit;font-size:14px;font-weight:500;color:var(--muted);padding:13px 16px 11px;border-bottom:2px solid transparent;white-space:nowrap}
+.nb:hover{color:var(--ink)}
+.nb[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+
+/* ---------- seções ---------- */
+section{padding-block:40px}
+h2{font-size:1.45rem;font-weight:600;letter-spacing:-.01em;margin:0 0 6px;line-height:1.2}
+.lead{color:var(--ink-2);max-width:64ch;margin:0 0 4px}
+h3{font-size:.95rem;font-weight:600;margin:38px 0 14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
 h3:first-of-type{margin-top:26px}
-h4{font-size:.82rem;font-weight:700;margin:24px 0 8px;color:var(--garnet);font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase}
-.lede{font-size:1.05rem;color:var(--ink-2);max-width:66ch;margin:0 0 6px}
-p{margin:0 0 14px;max-width:68ch}
-strong{font-weight:600}
-.srcnote{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin:0 0 20px}
+p{margin:0 0 13px;max-width:68ch}
+.src{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 22px}
 
-.chip{display:inline-block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:500;padding:3px 8px;border-radius:2px;white-space:nowrap}
+/* ---------- card único ---------- */
+.card{background:var(--surface);border:1px solid var(--line);padding:18px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card .ct{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.card .ch{font-size:1rem;font-weight:600;line-height:1.3;margin-bottom:7px}
+.card p{font-size:13.5px;color:var(--ink-2);margin:0;max-width:none}
+.card.acc{border-left:2px solid var(--accent)}
+.card.w{border-left:2px solid var(--warn)}
+.card.d{border-left:2px solid var(--danger)}
+
+/* nota */
+.note{border-left:2px solid var(--accent);padding:2px 0 2px 16px;margin:20px 0;color:var(--ink-2);font-size:14px}
+.note.w{border-left-color:var(--warn)}
+.note.d{border-left-color:var(--danger)}
+.note b,.note strong{color:var(--ink)}
+.note .nt{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:6px}
+.note p:last-child{margin-bottom:0}
+
+/* chips */
+.chip{display:inline-block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:2px;white-space:nowrap}
 .chip.ok{background:var(--ok-soft);color:var(--ok)}
-.chip.warn{background:var(--warn-soft);color:var(--warn)}
-.chip.bad{background:var(--bad-soft);color:var(--bad)}
-.chip.neu{background:var(--surface-2);color:var(--muted)}
-.chip.new{background:var(--garnet);color:#fff}
-.chip.gold{background:var(--gold);color:#fff}
+.chip.w{background:var(--warn-soft);color:var(--warn)}
+.chip.d{background:var(--danger-soft);color:var(--danger)}
+.chip.n{background:var(--sunken);color:var(--muted)}
+.chip.a{background:var(--accent-soft);color:var(--accent-ink)}
 
-.filters{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 4px;align-items:center}
-.flabel{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-right:4px}
-.fbtn{appearance:none;cursor:pointer;background:var(--surface);border:1px solid var(--rule-strong);color:var(--ink-2);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.05em;padding:5px 11px;border-radius:2px}
-.fbtn:hover{border-color:var(--garnet);color:var(--garnet)}
-.fbtn[aria-pressed="true"]{background:var(--garnet);border-color:var(--garnet);color:#fff}
-.count{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--faint);margin-left:4px}
+/* filtros */
+.filters{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:16px 0}
+.fl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-right:3px}
+.fb{appearance:none;cursor:pointer;background:none;border:1px solid var(--line-2);color:var(--muted);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;padding:5px 10px;border-radius:2px}
+.fb:hover{border-color:var(--accent);color:var(--accent)}
+.fb[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.cnt{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:var(--faint);margin-left:4px}
 
-.scroll{overflow-x:auto;margin:16px 0 8px;-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;width:100%;min-width:660px;font-size:14px}
-th,td{text-align:left;padding:10px 14px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
-th{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;border-bottom:1px solid var(--rule-strong);padding-bottom:8px}
-td.nm{font-weight:600}
-td.mono,th.num,td.num{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
-td.num{text-align:right;padding-right:16px}
-th.num{text-align:right;padding-right:16px}
+/* listas */
+ul.ls{list-style:none;padding:0;margin:14px 0}
+ul.ls li{position:relative;padding:9px 0 9px 20px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.55}
+ul.ls li:last-child{border-bottom:none}
+ul.ls li::before{content:"";position:absolute;left:0;top:1.15em;width:5px;height:5px;background:var(--accent);border-radius:50%}
+ol.ns{list-style:none;counter-reset:n;padding:0;margin:14px 0}
+ol.ns li{counter-increment:n;position:relative;padding:10px 0 10px 34px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.55}
+ol.ns li:last-child{border-bottom:none}
+ol.ns li::before{content:counter(n);position:absolute;left:0;top:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:var(--accent);line-height:2}
+
+/* tabela */
+.scroll{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:13.5px}
+th,td{text-align:left;padding:10px 14px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:400;padding-bottom:8px}
+td.n{font-weight:600}
+td.num,th.num{font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;text-align:right;padding-right:14px;white-space:nowrap}
 tr:last-child td{border-bottom:none}
-tr.hi td{background:var(--gold-soft)}
+tr.hl td{background:var(--accent-soft)}
+tr.grp td{background:var(--sunken);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:13px;padding-bottom:7px}
 
-.call{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--garnet);padding:18px 20px;margin:20px 0;box-shadow:var(--shadow)}
-.call.gold{border-left-color:var(--gold)}
-.call.ok{border-left-color:var(--ok)}
-.call .k{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:7px}
-.call p:last-child{margin-bottom:0}
+/* timeline de fases */
+.tl{margin:20px 0}
+.ph{display:grid;grid-template-columns:120px minmax(0,1fr);gap:0 22px;padding:18px 0;border-top:1px solid var(--line)}
+.ph:last-child{border-bottom:1px solid var(--line)}
+.ph .pl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);line-height:1.6;padding-top:2px}
+.ph .pl em{display:block;font-style:normal;color:var(--faint);margin-top:3px;letter-spacing:.04em}
+.ph .ph2{font-size:1.02rem;font-weight:600;margin-bottom:5px}
+.ph .pd{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
 
-.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:20px 0}
-.ph{background:var(--surface);border:1px solid var(--rule);padding:18px;box-shadow:var(--shadow)}
-.ph .t{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--garnet);margin-bottom:8px}
-.ph .h{font-family:'Instrument Serif',Georgia,serif;font-size:1.3rem;line-height:1.15;margin-bottom:8px}
-.ph p{font-size:13.5px;color:var(--ink-2);margin:0;max-width:none}
+/* nomes */
+.ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(188px,1fr));gap:10px;margin:10px 0 24px}
+.nc{appearance:none;cursor:pointer;text-align:left;background:var(--surface);border:1px solid var(--line);padding:14px;font-family:inherit;color:inherit}
+.nc:hover{border-color:var(--line-2)}
+.nc[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.nc .nw{font-family:'Instrument Serif',Georgia,serif;font-size:1.35rem;line-height:1.1;letter-spacing:.02em}
+.nc[aria-pressed="true"] .nw{color:var(--accent-ink)}
+.nc .np{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;color:var(--faint);margin:3px 0 8px}
+.nc .nr{font-size:12px;line-height:1.45;color:var(--ink-2);margin-top:7px}
+.gh{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:22px;padding-bottom:7px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+.gh em{font-style:normal;color:var(--faint);text-transform:none;letter-spacing:.03em;font-size:11px}
+.lock{background:var(--surface);border:1px solid var(--line);padding:34px 22px;text-align:center;margin:18px 0}
+.lock .lb{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(1.9rem,5vw,2.7rem);letter-spacing:.14em;line-height:1}
+.lock .lt{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-top:11px}
 
-ol.steps{list-style:none;counter-reset:s;padding:0;margin:16px 0}
-ol.steps li{counter-increment:s;position:relative;padding:10px 0 10px 38px;border-bottom:1px solid var(--rule);font-size:14.5px;line-height:1.55}
-ol.steps li:last-child{border-bottom:none}
-ol.steps li::before{content:counter(s);position:absolute;left:0;top:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;line-height:1.9;color:var(--garnet);font-weight:700}
-ul.plain{list-style:none;padding:0;margin:16px 0}
-ul.plain li{position:relative;padding:8px 0 8px 22px;border-bottom:1px solid var(--rule);font-size:14.5px;line-height:1.55}
-ul.plain li:last-child{border-bottom:none}
-ul.plain li::before{content:"";position:absolute;left:0;top:1.05em;width:7px;height:7px;background:var(--gold);border-radius:50%}
+/* fichas de produto */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px;margin:10px 0 24px}
+.pc{background:var(--surface);border:1px solid var(--line);padding:16px;box-shadow:var(--shadow)}
+.pc.hl{border-left:2px solid var(--accent)}
+.pc .pn{font-weight:600;font-size:14.5px;line-height:1.25}
+.pc .pp{font-size:11.5px;color:var(--muted);margin-top:2px}
+.pc .pb{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 0}
+.pc .pf{margin-top:11px;padding-top:10px;border-top:1px solid var(--line)}
+.pc .pl2{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+.pc .pv{font-size:12.5px;line-height:1.5;color:var(--ink-2)}
+.pc .pw{margin-top:10px;padding:8px 10px;background:var(--warn-soft);font-size:11.5px;line-height:1.45;color:var(--warn)}
+.pc .px{margin-top:10px;padding-top:9px;border-top:1px solid var(--line);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
 
-.ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:12px;margin:10px 0 26px}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;margin:12px 0 26px}
-.pcard{border:1px solid var(--rule);background:var(--surface);padding:17px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:0}
-.pcard.hi{border-left:3px solid var(--gold);padding-left:15px}
-.pcard .pn2{font-weight:700;font-size:15px;line-height:1.25}
-.pcard .pp{font-size:12px;color:var(--muted);margin-top:2px}
-.pcard .badges{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 0}
-.pcard .fld{margin-top:11px;padding-top:10px;border-top:1px solid var(--rule)}
-.pcard .fl2{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
-.pcard .fv{font-size:12.8px;line-height:1.5;color:var(--ink-2)}
-.pcard .fv b{color:var(--ink)}
-.pcard .warn2{margin-top:10px;padding:9px 11px;background:var(--warn-soft);border-left:2px solid var(--warn);font-size:12px;line-height:1.45;color:var(--warn)}
-.pcard .pxrow{margin-top:11px;padding-top:9px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:12px;margin:10px 0 0}
-.slot{border:1px solid var(--rule);background:var(--paper);padding:14px;display:flex;flex-direction:column}
-.slot .sl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--moro);margin-bottom:9px}
-.slot .mainp{font-weight:600;font-size:14.5px;line-height:1.3}
-.slot .px{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--ink-2);margin-top:4px}
-.slot .alts{font-size:12.5px;color:var(--muted);margin-top:10px;padding-top:9px;border-top:1px solid var(--rule);line-height:1.5}
-.slot.gap{border-color:var(--bad);border-left:3px solid var(--bad)}
-.slot.gap .mainp{color:var(--bad)}
-.ghead{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--garnet);margin-top:26px;padding-bottom:7px;border-bottom:1px solid var(--rule-strong);display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.ghead em{font-style:normal;color:var(--faint);letter-spacing:.04em;text-transform:none;font-size:11.5px}
-tr.grouprow td{background:var(--surface-2);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--garnet);padding-top:14px;padding-bottom:7px;border-bottom:1px solid var(--rule-strong)}
-.ncard{appearance:none;text-align:left;cursor:pointer;background:var(--surface);border:1px solid var(--rule);padding:16px;font-family:inherit;color:inherit;display:flex;flex-direction:column;gap:3px;box-shadow:var(--shadow)}
-.ncard:hover{border-color:var(--rule-strong)}
-.ncard[aria-pressed="true"]{border-color:var(--garnet);border-width:2px;padding:15px;background:var(--surface-2)}
-.ncard .w{font-family:'Instrument Serif',Georgia,serif;font-size:1.5rem;line-height:1.08;letter-spacing:.02em}
-.ncard[aria-pressed="true"] .w{color:var(--garnet)}
-.ncard .ph2{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;color:var(--faint);letter-spacing:.04em;margin-bottom:6px}
-.ncard .rt{font-size:12.5px;line-height:1.45;color:var(--ink-2);margin-top:6px}
-.ncard .tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+/* slots da oferta */
+.slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:10px;margin:12px 0}
+.sc{background:var(--sunken);border:1px solid var(--line);padding:13px}
+.sc.gap{background:var(--danger-soft);border-color:var(--danger)}
+.sc .ss{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+.sc.gap .ss{color:var(--danger)}
+.sc .sm{font-weight:600;font-size:13.5px;line-height:1.25}
+.sc .sx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:var(--muted);margin-top:3px}
+.sc .sa{font-size:11.5px;color:var(--ink-2);margin-top:8px;padding-top:7px;border-top:1px solid var(--line);line-height:1.45}
 
-.lockup{background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow);padding:36px 24px;margin:20px 0;text-align:center}
-.lockup .brand{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(2rem,5.6vw,3rem);letter-spacing:.12em;line-height:1;margin-bottom:12px}
-.lockup .tl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--garnet)}
-.lockup .terr{font-size:12.5px;color:var(--muted);margin-top:16px}
+/* stmt */
+.stmt{border-left:2px solid var(--accent);padding-left:18px;margin:16px 0;max-width:52ch}
+.stmt .en{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:1.22rem;line-height:1.3;color:var(--accent-ink);display:block;margin-bottom:5px}
+.stmt .pt{font-size:14px;color:var(--ink-2)}
+.stmt small{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-top:9px}
 
-.arch{border:1px solid var(--rule);background:var(--surface);padding:22px;margin:18px 0;box-shadow:var(--shadow)}
-.tier{padding-block:15px;border-bottom:1px dashed var(--rule)}
-.tier:first-child{padding-top:0}
-.tier:last-child{border-bottom:none;padding-bottom:0}
-.tier .lab{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--garnet);margin-bottom:9px}
-.skus{display:flex;flex-wrap:wrap;gap:7px}
-.sku{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.04em;padding:5px 10px;border:1px solid var(--rule-strong);background:var(--paper);color:var(--ink-2)}
-.sku b{color:var(--ink);font-weight:700}
-.fams{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.fam{border:1px solid var(--rule);padding:12px;background:var(--paper)}
-.fam .fh{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;color:var(--moro);margin-bottom:6px;font-weight:700}
-.fam .fl{font-size:12.5px;color:var(--ink-2);line-height:1.5}
-.proto{display:flex;flex-direction:column;gap:8px}
-.pr{border-left:2px solid var(--gold);padding:8px 0 8px 14px}
-.pr .pn{font-weight:600;font-size:14.5px}
-.pr .pc{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;color:var(--muted);margin-top:2px}
+footer{border-top:1px solid var(--line);margin-top:50px;padding-top:24px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.04em;color:var(--faint);line-height:1.9}
 
-.terrtoggle{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
-.tbtn{appearance:none;cursor:pointer;flex:1 1 230px;text-align:left;background:var(--surface);border:1px solid var(--rule);padding:16px;font-family:inherit;color:inherit;box-shadow:var(--shadow)}
-.tbtn:hover{border-color:var(--rule-strong)}
-.tbtn[aria-pressed="true"]{border-color:var(--garnet);border-width:2px;padding:15px;background:var(--surface-2)}
-.tbtn .tn{font-family:'Instrument Serif',Georgia,serif;font-size:1.3rem;line-height:1.15;margin-bottom:5px}
-.tbtn[aria-pressed="true"] .tn{color:var(--garnet)}
-.tbtn .td{font-size:12.5px;color:var(--ink-2);line-height:1.45}
-
-.stmt{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(1.2rem,2.9vw,1.55rem);line-height:1.32;border-left:3px solid var(--gold);padding-left:20px;margin:18px 0;max-width:44ch}
-.stmt .en{display:block;font-style:italic;color:var(--garnet);margin-bottom:5px}
-.stmt small{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-top:10px;font-style:normal}
-
-.vals{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px;margin:18px 0}
-.val{background:var(--surface);border:1px solid var(--rule);padding:16px;box-shadow:var(--shadow)}
-.val .vn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;letter-spacing:.08em;font-weight:700;color:var(--garnet);margin-bottom:7px}
-.val p{font-size:13.5px;color:var(--ink-2);margin:0;max-width:none}
-
-.dd{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px;margin:18px 0}
-.ddcol{background:var(--surface);border:1px solid var(--rule);padding:18px}
-.ddcol.no{border-left:3px solid var(--bad)}
-.ddcol.yes{border-left:3px solid var(--ok)}
-.ddcol .ddh{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:11px}
-.ddcol.yes .ddh{color:var(--ok)} .ddcol.no .ddh{color:var(--bad)}
-.ddcol ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px}
-.ddcol li{font-size:13.5px;color:var(--ink-2);padding-left:15px;position:relative}
-.ddcol li::before{content:"—";position:absolute;left:0;color:var(--faint)}
-.ddcol .q{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:1.05rem;color:var(--ink)}
-
-.tls{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:10px;margin:18px 0}
-.tlb{appearance:none;cursor:pointer;text-align:left;background:var(--surface);border:1px solid var(--rule);padding:14px 16px;font-family:inherit;color:inherit}
-.tlb:hover{border-color:var(--rule-strong)}
-.tlb[aria-pressed="true"]{border-color:var(--gold);border-width:2px;padding:13px 15px;background:var(--gold-soft)}
-.tlb .tt{font-family:'Instrument Serif',Georgia,serif;font-size:1.1rem;line-height:1.25}
-.tlb .tk{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-top:6px}
-
-/* rotas */
-.rotas{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin:20px 0}
-.rota{background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow);display:flex;flex-direction:column}
-.rota.best{border-color:var(--ok);border-width:2px}
-.rota .rh{padding:16px 18px 12px;border-bottom:1px solid var(--rule)}
-.rota .rt2{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--garnet);margin-bottom:6px}
-.rota .rn{font-family:'Instrument Serif',Georgia,serif;font-size:1.32rem;line-height:1.15}
-.rota .rb{padding:14px 18px;flex:1}
-.rota .line{display:flex;justify-content:space-between;gap:12px;font-size:13px;padding-block:5px;border-bottom:1px solid var(--rule)}
-.rota .line:last-of-type{border-bottom:none}
-.rota .line span{font-family:'JetBrains Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;color:var(--ink-2);white-space:nowrap}
-.rota .tot{display:flex;justify-content:space-between;gap:12px;padding:12px 18px;border-top:2px solid var(--ink);font-weight:700;font-size:14.5px}
-.rota .tot span{font-family:'JetBrains Mono',ui-monospace,monospace}
-.rota .meta{padding:0 18px 16px;font-size:12.5px;color:var(--muted);line-height:1.5}
-
-footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.05em;color:var(--faint);line-height:1.85}
-
-@media (max-width:640px){
-  .mast{padding-block:34px 22px}
-  table{min-width:580px}
-  .lockup{padding:26px 16px}
+@media (max-width:620px){
+  .mast{padding-block:32px 0}
+  .ph{grid-template-columns:1fr;gap:10px}
+  .ph .pl{padding-top:0}
+  table{min-width:500px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -235,671 +200,418 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
 <div class="wrap">
 
 <header class="mast">
-  <p class="eyebrow">Supplements LLC · Mercado EUA · Painel de decisão</p>
-  <h1>Fornecedores, estratégia, nome e o <em>protocolo</em> que dá para montar hoje</h1>
-  <p class="standfirst">Os três documentos de marca consolidados, mais tudo que os fornecedores responderam ao briefing do Neilson, e as composições possíveis a partir do que existe em estoque.</p>
+  <p class="kicker">Supplements LLC · Mercado EUA</p>
+  <h1>Painel do projeto</h1>
+  <p class="sub">Marca, fornecedores, produto e economia num só lugar — com o que já está decidido, o que ainda trava, e o que eu recomendaria fazer.</p>
 
-  <div class="tabs" role="tablist" aria-label="Frentes do projeto">
-    <button class="tab" role="tab" id="t-1" aria-controls="p-1" aria-selected="true"><span class="n">01</span> Estruturação</button>
-    <button class="tab" role="tab" id="t-2" aria-controls="p-2" aria-selected="false"><span class="n">02</span> Estratégia</button>
-    <button class="tab" role="tab" id="t-3" aria-controls="p-3" aria-selected="false"><span class="n">03</span> Nomes</button>
-    <button class="tab" role="tab" id="t-4" aria-controls="p-4" aria-selected="false"><span class="n">04</span> Portfólio</button>
-    <button class="tab" role="tab" id="t-5" aria-controls="p-5" aria-selected="false"><span class="n">05</span> Composição</button>
-    <button class="tab" role="tab" id="t-6" aria-controls="p-6" aria-selected="false"><span class="n">06</span> Produto e funil</button>
-    <button class="tab" role="tab" id="t-7" aria-controls="p-7" aria-selected="false"><span class="n">07</span> Economia</button>
-    <button class="tab" role="tab" id="t-8" aria-controls="p-8" aria-selected="false"><span class="n">08</span> Fases</button>
-    <button class="tab" role="tab" id="t-9" aria-controls="p-9" aria-selected="false"><span class="n">09</span> Decisões</button>
+  <div class="strip">
+    <div class="stat"><div class="sl">Oferta</div><div class="sv">6 + 3 meses</div><div class="sn">Envio único</div></div>
+    <div class="stat"><div class="sl">Preço</div><div class="sv acc">US$ 389</div><div class="sn">Recomendado 447</div></div>
+    <div class="stat"><div class="sl">Margem meta</div><div class="sv">30%</div><div class="sn">Líquida</div></div>
+    <div class="stat"><div class="sl">Fornecedores</div><div class="sv">3 <span style="color:var(--faint);font-weight:400">de 11</span></div><div class="sn">Responderam</div></div>
+    <div class="stat"><div class="sl">Marca</div><div class="sv" style="color:var(--warn)">Em aberto</div><div class="sn">USPTO não iniciado</div></div>
   </div>
 </header>
 
-<!-- ============ 01 ============ -->
-<div class="panel" id="p-1" role="tabpanel" aria-labelledby="t-1">
-  <h2>Estruturação e fornecimento</h2>
-  <p class="srcnote">Fonte: Plano de Estruturação (Neilson Flores) + respostas reais dos fornecedores, set 2026</p>
-  <p class="lede">Dez fornecedores mapeados, três já responderam ao briefing. E os três disseram, em palavras diferentes, a mesma coisa.</p>
+<nav><div class="navin" role="tablist" aria-label="Seções">
+  <button class="nb" role="tab" id="t1" aria-controls="s1" aria-selected="true">Visão geral</button>
+  <button class="nb" role="tab" id="t2" aria-controls="s2" aria-selected="false">Marca</button>
+  <button class="nb" role="tab" id="t3" aria-controls="s3" aria-selected="false">Fornecedores</button>
+  <button class="nb" role="tab" id="t4" aria-controls="s4" aria-selected="false">Produto</button>
+  <button class="nb" role="tab" id="t5" aria-controls="s5" aria-selected="false">Números e fases</button>
+</div></nav>
 
-  <div class="call">
-    <span class="k">A convergência</span>
-    <p><strong>Nenhum fornecedor tem a fórmula do briefing em estoque.</strong> A combinação glucomanan + hibisco + dente-de-leão + gengibre não existe pronta em lugar nenhum, e nenhum tem estoque com Gymnema + cromo + canela + ALA juntos. Custom é caro e lento em todos os três. A PLE foi literal: <em>"a 30–45 day launch would not be realistic for the complete four-product line"</em>.</p>
+<!-- ======== 1 VISÃO GERAL ======== -->
+<section id="s1" role="tabpanel" aria-labelledby="t1">
+  <h2>Onde o projeto está</h2>
+  <p class="lead">Três camadas amadureceram em velocidades diferentes. A operação e o produto estão prontos; a marca e o jurídico, não.</p>
+
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card acc">
+      <div class="ct">Decidido</div>
+      <ul class="ls" style="margin:0">
+        <li>Entrada por <b>emagrecimento</b></li>
+        <li><b>6 meses</b> do principal + <b>3</b> do brinde, envio único</li>
+        <li>Webinar ao vivo com recuperação comercial</li>
+        <li>Berberina na forma <b>HCl</b></li>
+      </ul>
+    </div>
+    <div class="card w">
+      <div class="ct">Travado</div>
+      <ul class="ls" style="margin:0">
+        <li><b>Conta de pagamento</b> de alto risco</li>
+        <li><b>Nome</b> — clearance no USPTO não iniciado</li>
+        <li><b>Rótulo aberto ou blend</b> no âncora</li>
+        <li><b>8 de 11 fornecedores</b> sem resposta</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="ct">A recomendação</div>
+      <div class="ch">Lançar com estoque, não com fórmula própria</div>
+      <p>O protocolo fecha 30% de margem a US$ 389 usando produtos de catálogo, sem travar um dólar em estoque. A fórmula custom do briefing continua sendo o destino — só não é o ponto de partida.</p>
+    </div>
   </div>
 
-  <h3>O que cada um respondeu</h3>
-  <div class="scroll">
-    <table>
-      <thead><tr><th>Fornecedor</th><th>MOQ estoque</th><th>MOQ custom</th><th>Prazo</th><th>Fulfillment DTC</th></tr></thead>
-      <tbody>
-        <tr class="hi"><td class="nm">Vox Nutrition<br><span style="font-weight:400;font-size:12.5px;color:var(--muted)">West Jordan, Utah</span></td>
-          <td class="mono">300 rotulado<br>150 em branco</td><td class="mono">~1.000.000 cáps<br>pó: ~750 kg</td><td class="mono">4–6 semanas</td><td>Não — irmã ShipCentral</td></tr>
-        <tr><td class="nm">On Demand Fulfillment<br><span style="font-weight:400;font-size:12.5px;color:var(--muted)">West Jordan, Utah</span></td>
-          <td class="mono">Sem MOQ<br>dropship</td><td class="mono">Não oferece</td><td class="mono">Dias</td><td>Sim — já incluso no preço</td></tr>
-        <tr><td class="nm">Private Label Express<br><span style="font-weight:400;font-size:12.5px;color:var(--muted)">Coral Springs, Flórida</span></td>
-          <td class="mono">500<br>só gummies</td><td class="mono">150.000 cáps<br>≈ 2.500 frascos/SKU</td><td class="mono">10–12 semanas</td><td>Sim</td></tr>
-      </tbody>
-    </table>
+  <h3>As três descobertas que mudaram o plano</h3>
+  <div class="grid g3">
+    <div class="card">
+      <div class="ct">Fórmula</div>
+      <div class="ch">Satiereal é extrato de açafrão</div>
+      <p>O pilar de saciedade do briefing já existe em estoque como <b>Saffron 88,5 mg</b> — e duas cápsulas entregam exatamente a dose estudada de 177 mg/dia. O que travava não era o mecanismo, era a exigência de replicar o ingrediente de marca.</p>
+    </div>
+    <div class="card">
+      <div class="ct">Custo</div>
+      <div class="ch">O âncora custa muito menos que o estimado</div>
+      <p>Berberine 1200 mg sai bem abaixo da estimativa que eu usava para uma fórmula custom com quatro ativos de marca. Com isso, <b>as três rotas cabem no orçamento</b> — inclusive a de estoque zero.</p>
+    </div>
+    <div class="card d">
+      <div class="ct">Compliance</div>
+      <div class="ch">O catálogo do fabricante tem claim proibido</div>
+      <p>Duas alegações publicadas pelo próprio fornecedor estão na lista da FTC de afirmações <b>sempre falsas</b> para emagrecimento. Usar porque o fornecedor usa não protege ninguém — quem responde é quem vende ao consumidor.</p>
+    </div>
   </div>
 
-  <h3>Ficha de cada fornecedor</h3>
-  <div class="filters">
-    <span class="flabel">Status</span>
-    <button class="fbtn" data-sf2="todos" aria-pressed="true">Todos</button>
-    <button class="fbtn" data-sf2="respondeu" aria-pressed="false">Responderam ao briefing</button>
-    <button class="fbtn" data-sf2="aguardando" aria-pressed="false">Sem resposta</button>
-    <button class="fbtn" data-sf2="fabricante" aria-pressed="false">Fabricante</button>
-    <button class="fbtn" data-sf2="turnkey" aria-pressed="false">Turnkey / sem MOQ</button>
-    <span class="count" id="supcount"></span>
-  </div>
-  <div class="filters" id="supbtns" style="margin-top:4px"></div>
-  <div id="supdetail"></div>
-
-  <h3>Critérios de triagem inegociáveis</h3>
-  <ol class="steps">
-    <li><b>FDA-registered facility</b> e certificação <b>GMP</b> (21 CFR Part 111).</li>
-    <li><b>Laboratório terceirizado</b> para pureza, potência e triagem de adulterantes.</li>
-    <li><b>CoA por lote</b>, disponível antes do embarque.</li>
-    <li><b>MOQ compatível</b> com o volume de teste inicial do funil.</li>
-    <li><b>Amostra física paga</b> antes de qualquer pedido comercial.</li>
+  <h3>Próximos cinco passos</h3>
+  <ol class="ns">
+    <li><b>Abrir a conta de pagamento de alto risco.</b> Maior lead time do projeto e o único item capaz de inviabilizar o lançamento sozinho.</li>
+    <li><b>Pedir amostra física paga</b> de Berberine e Saffron. É a validação que nenhuma planilha substitui.</li>
+    <li><b>Cobrar os 8 fornecedores sem resposta</b>, priorizando Vita Plus (6.000 fórmulas prontas) e NutraCap (valida e escala na mesma casa).</li>
+    <li><b>Rodar o clearance no USPTO</b> de dois nomes de marca e do nome do protocolo, com domínio e handles.</li>
+    <li><b>Reescrever os apelos</b> do briefing em linguagem publicável, e colocar o script do comercial sob a mesma revisão.</li>
   </ol>
 
-  <h3>Compliance — pontos críticos</h3>
-  <div class="scroll">
-    <table>
-      <thead><tr><th>Área</th><th>Ponto de atenção</th></tr></thead>
-      <tbody>
-        <tr><td class="nm">FDA · Rotulagem</td><td>21 CFR Part 101 — Supplement Facts e disclaimer de que a FDA não avaliou a declaração.</td></tr>
-        <tr><td class="nm">FTC · Claims</td><td>Toda alegação precisa de respaldo proporcional. Só cite um estudo se a dose do produto for a mesma do estudo.</td></tr>
-        <tr><td class="nm">FTC · Testemunhais</td><td>Depoimentos devem representar resultado típico, ou vir com disclosure clara.</td></tr>
-        <tr><td class="nm">Contas de mídia</td><td>Google, Meta e adquirentes têm política restritiva para emagrecimento.</td></tr>
-        <tr><td class="nm">Menores</td><td>Lei de Nova York proíbe venda de suplemento de emagrecimento a menores. Checkout precisa confirmar 18+.</td></tr>
-        <tr><td class="nm">Rótulo</td><td>Alerta de interação medicamentosa, gestação e lactação, quantidade de cafeína e ingestão do glucomanan com água.</td></tr>
-      </tbody>
-    </table>
+  <div class="note w">
+    <span class="nt">A contradição que ainda não foi decidida</span>
+    <p>Os documentos de marca descrevem uma marca premium de wellness, com transparência e sem claims agressivos. O plano de produto e o funil descrevem resposta direta em emagrecimento, com blends fechados e escassez no pitch. Não é fatal — muitas marcas nasceram assim e migraram. Mas <b>a marca não pode ser construída como se a fase 1 não existisse</b>: o rótulo vai ser visto primeiro por quem comprou num webinar de emagrecimento.</p>
   </div>
-</div>
+</section>
 
-<!-- ============ 02 ============ -->
-<div class="panel" id="p-2" role="tabpanel" aria-labelledby="t-2" hidden>
-  <h2>Estratégia de marca</h2>
-  <p class="srcnote">Fonte: Estratégia para Marca para a Supplements LLC</p>
-  <p class="lede">Dois territórios foram propostos. Escolha um para ver propósito, missão, visão e promessa se ajustarem.</p>
+<!-- ======== 2 MARCA ======== -->
+<section id="s2" role="tabpanel" aria-labelledby="t2" hidden>
+  <h2>Marca</h2>
+  <p class="src">Estratégia para Marca · Sugestões de Marcas · + sugestões novas</p>
 
-  <div class="terrtoggle" id="terrtoggle">
-    <button class="tbtn" data-terr="daily" aria-pressed="true">
-      <div class="tn">Better Every Day</div>
-      <div class="td">Hábito e consistência. Plataforma ampla, fala com todos, não limita o portfólio a suplemento.</div>
-    </button>
-    <button class="tbtn" data-terr="healthspan" aria-pressed="false">
-      <div class="tn">Optimize Your Healthspan</div>
-      <div class="td">Ciência e longevidade. Desloca a conversa de viver mais para viver bem por mais tempo.</div>
-    </button>
-  </div>
-
+  <h3>Território</h3>
+  <p class="lead">Dois foram propostos. Escolha um para ver propósito, missão e visão se ajustarem.</p>
+  <div class="filters" id="terrbtns"></div>
   <div id="terrout"></div>
 
-  <h3>Arquitetura estratégica</h3>
-  <div class="scroll">
-    <table>
-      <thead><tr><th>Elemento</th><th>Direcionamento</th></tr></thead>
-      <tbody>
-        <tr><td class="nm">Categoria</td><td>Health &amp; Wellness / Supplements</td></tr>
-        <tr><td class="nm">Território</td><td>Performance, saúde, longevidade e qualidade de vida</td></tr>
-        <tr><td class="nm">Posicionamento</td><td>Suplementação inteligente integrada à rotina</td></tr>
-        <tr><td class="nm">Personalidade</td><td>Moderna, confiável, premium, humana e orientada por ciência</td></tr>
-        <tr><td class="nm">Diferencial</td><td>Produto + conhecimento + protocolo + experiência</td></tr>
-        <tr><td class="nm">Público</td><td>Adultos que buscam saúde, energia, performance e qualidade de vida</td></tr>
-        <tr><td class="nm">Arquétipos</td><td>Sage (conhecimento) + Explorer (evolução) + Caregiver (cuidado)</td></tr>
-        <tr><td class="nm">Visão futura</td><td>Plataforma de wellness, e não apenas marca de suplementos</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>Valores</h3>
-  <div class="vals">
-    <div class="val"><div class="vn">SCIENCE FIRST</div><p>Ciência antes do hype. Produtos e comunicação buscam evidência, qualidade e transparência.</p></div>
-    <div class="val"><div class="vn">QUALITY WITHOUT COMPROMISE</div><p>Qualidade sem concessões em ingredientes, fornecedores, fabricação, testes e experiência.</p></div>
-    <div class="val"><div class="vn">SIMPLICITY</div><p>Saúde precisa caber na vida real. Produtos e protocolos simples de entender e usar.</p></div>
-    <div class="val"><div class="vn">TRANSPARENCY</div><p>Confiança pela transparência. O consumidor sabe o que está consumindo e por quê.</p></div>
-    <div class="val"><div class="vn">HUMAN PERFORMANCE</div><p>Energia, foco, performance, recuperação, saúde e longevidade.</p></div>
-    <div class="val"><div class="vn">CONSISTENCY</div><p>Resultado se constrói na consistência. Não vender milagres; incentivar hábito sustentável.</p></div>
-  </div>
-
-  <h3>Sugestão — um segundo conjunto de valores para comparar</h3>
-  <p>Os seis valores acima são bons e corretos, mas são os mesmos que quase toda marca de wellness escreve. Abaixo, uma alternativa de <strong>quatro valores</strong>, mais curta e mais difícil de copiar, porque cada um nasce de uma tensão real deste projeto.</p>
-  <div class="vals">
-    <div class="val"><div class="vn">EVIDENCE OVER HYPE</div><p>Evidência antes de moda. Se o ingrediente não tem estudo na dose que usamos, ele não entra — e não citamos estudo cuja dose não bate com a nossa.</p></div>
-    <div class="val"><div class="vn">DOSE HONESTY</div><p>A dose fica aberta no rótulo. Blend proprietário esconde a dose, e quem esconde a dose não pode dizer que acertou a dose.</p></div>
-    <div class="val"><div class="vn">FOLLOW-THROUGH</div><p>O produto só funciona se a pessoa continuar. Desenhamos para ser seguido, não só comprado — e medimos aderência como medimos venda.</p></div>
-    <div class="val"><div class="vn">NO MIRACLES</div><p>Nunca prometer o que o produto não entrega. Nem na embalagem, nem no anúncio, nem na aula ao vivo, nem na ligação do comercial.</p></div>
-  </div>
-  <p>Note o que esse conjunto faz: ele <strong>resolve as contradições em vez de contorná-las</strong>. "Dose Honesty" decide a briga entre blend e "dose certa". "No Miracles" dá ao comercial uma régra clara na hora da ligação. "Follow-through" conecta marca e margem, porque aderência é o que derruba o reembolso.</p>
-
-  <h3>Sugestão — uma segunda versão da missão</h3>
-  <p>A missão atual é correta e um pouco abstrata. Uma alternativa mais concreta, que diz o que a empresa faz em vez do que ela acredita:</p>
-  <div class="stmt">
-    <span class="en">Give people one clear path to feeling better — products that do what they say, and a protocol that fits a real week.</span>
-    Dar às pessoas um caminho claro para se sentir melhor: produtos que cumprem o que dizem, e um protocolo que cabe numa semana real.
-    <small>Missão · alternativa</small>
-  </div>
-
-  <div class="call gold">
-    <span class="k">Sugestão — dois valores que pedem decisão, não redação</span>
-    <p><strong>Transparency</strong> colide com a ideia de blend proprietário: se a dose não é pública, não dá para provar que ela bate com o estudo — e o pilar do pitch é justamente "dose certa". Resolve-se abrindo o rótulo do produto-âncora e deixando blend só nos order bumps. <strong>Consistency</strong> ("não vender milagres") colide com escassez no funil; resolve-se no roteiro, com prazo real em vez de urgência fictícia.</p>
-  </div>
-
-  <div class="call">
-    <span class="k">Sugestão — um sétimo valor que falta</span>
-    <p>Nenhum dos seis fala de <strong>aderência</strong>. E aderência é o que decide se a cliente renova no mês 6 — e o que derruba a taxa de reembolso, o segundo maior custo do pedido. Algo como <strong>FOLLOW-THROUGH</strong>: <em>"o produto só funciona se a pessoa continuar. Desenhamos para ser seguido, não só comprado."</em> É o valor que conecta marca e margem.</p>
-  </div>
-
-  <h3>Tom de voz</h3>
-  <div class="dd">
-    <div class="ddcol yes">
-      <div class="ddh">A marca é</div>
-      <ul>
-        <li><span class="q">"Here's why this matters."</span> — educativa</li>
-        <li><span class="q">"Three ingredients. One purpose."</span> — clara</li>
-        <li><span class="q">"Designed for your daily routine."</span> — confiante</li>
-        <li><span class="q">"Better habits start with small steps."</span> — humana</li>
+  <h3>Valores — dois conjuntos para comparar</h3>
+  <div class="grid g2">
+    <div class="card">
+      <div class="ct">Conjunto original · 6 valores</div>
+      <ul class="ls" style="margin:0">
+        <li><b>Science First</b> — ciência antes do hype</li>
+        <li><b>Quality Without Compromise</b> — sem concessões</li>
+        <li><b>Simplicity</b> — saúde que cabe na vida real</li>
+        <li><b>Transparency</b> — saber o que consome e por quê</li>
+        <li><b>Human Performance</b> — energia, foco, longevidade</li>
+        <li><b>Consistency</b> — não vender milagres</li>
       </ul>
+      <p style="margin-top:12px;color:var(--muted)">Corretos — e os mesmos que quase toda marca de wellness escreve.</p>
     </div>
-    <div class="ddcol no">
-      <div class="ddh">A marca não é</div>
-      <ul>
-        <li>alarmista</li><li>médica sem necessidade</li><li>excessivamente técnica</li>
-        <li>milagrosa</li><li>agressiva</li><li>baseada em medo</li><li>cheia de promessas impossíveis</li>
+    <div class="card acc">
+      <div class="ct">Alternativa · 4 valores</div>
+      <ul class="ls" style="margin:0">
+        <li><b>Evidence Over Hype</b> — se não tem estudo na dose que usamos, não entra</li>
+        <li><b>Dose Honesty</b> — a dose fica aberta no rótulo</li>
+        <li><b>Follow-Through</b> — desenhado para ser seguido, não só comprado</li>
+        <li><b>No Miracles</b> — nem na embalagem, nem na live, nem na ligação</li>
       </ul>
+      <p style="margin-top:12px">Cada um nasce de uma tensão real deste projeto. <b>Dose Honesty</b> resolve a briga entre blend e "dose certa"; <b>No Miracles</b> dá ao comercial uma regra clara na ligação; <b>Follow-Through</b> liga marca e margem, porque aderência é o que derruba o reembolso.</p>
     </div>
   </div>
 
-  <h3>Território visual</h3>
-  <div class="dd">
-    <div class="ddcol yes">
-      <div class="ddh">Ocupar</div>
-      <ul><li>clean e sofisticado</li><li>tipografia forte</li><li>embalagem minimalista</li><li>informação organizada</li><li>fotografia lifestyle</li><li>ciência apresentada de forma simples</li></ul>
-    </div>
-    <div class="ddcol no">
-      <div class="ddh">Evitar</div>
-      <ul><li>musculação e corpos extremos</li><li>estética hardcore</li><li>explosões gráficas</li><li>excesso de cores</li><li>claims gigantes</li><li>aparência de loja de vitaminas</li></ul>
-    </div>
+  <h3>Nomes</h3>
+  <p class="lead">Dezessete candidatos. Clique em um para ver a arquitetura inteira se montar.</p>
+  <div class="note w">
+    <span class="nt">O problema da shortlist original</span>
+    <p>Dos nove nomes originais, <b>seis terminam em -ORA</b> e os outros ficam no mesmo bairro fonético. É uma ideia testada nove vezes, no espaço de naming mais saturado de wellness nos EUA — e os próprios documentos já registraram colisões. Por isso acrescentei oito candidatos de fora do cluster: se todos os -ORA caírem no clearance, a decisão não volta à estaca zero.</p>
   </div>
-
-  <div class="call ok">
-    <span class="k">Sugestão — nomear o sistema</span>
-    <p>O diferencial identificado foi vender <strong>produto + protocolo</strong>, não só o frasco. Vale nomear isso como conceito proprietário desde já — <strong>THE [MARCA] METHOD</strong> ou <strong>[MARCA] DAILY SYSTEM</strong> — porque um sistema com nome próprio é registrável, comunicável, e transforma SKUs soltos em componentes de uma coisa só. É também o que justifica preço premium sem depender de ingrediente exclusivo.</p>
-  </div>
-</div>
-
-<!-- ============ 03 ============ -->
-<div class="panel" id="p-3" role="tabpanel" aria-labelledby="t-3" hidden>
-  <h2>Nomes e arquitetura</h2>
-  <p class="srcnote">Fonte: Sugestões de Marcas para suplementos · + sugestões novas</p>
-  <p class="lede">Treze candidatos. Clique em um para ver a arquitetura inteira se montar com ele.</p>
-
-  <div class="call">
-    <span class="k">Observação sobre a shortlist original</span>
-    <p>Dos nove nomes originais, <strong>seis terminam em -ORA</strong> e os outros ficam no mesmo bairro fonético. É uma ideia testada nove vezes, no espaço de naming mais saturado de wellness nos EUA — e os próprios documentos já registraram colisões: VYBORA CO, VEYORA, VYB, além de Aurevia e Nouriva. Por isso acrescentei <strong>quatro candidatos de fora do cluster</strong>.</p>
-  </div>
-
   <div id="ngroups"></div>
 
-  <div class="lockup" id="lockup">
-    <div class="brand" id="lkbrand">VYVORA</div>
-    <div class="tl" id="lktag">Optimize Your Healthspan</div>
-    <div class="terr" id="lkterr"></div>
+  <div class="lock">
+    <div class="lb" id="lkb">VYVORA</div>
+    <div class="lt" id="lkt">Optimize Your Healthspan</div>
   </div>
 
-  <h3>Taglines a testar</h3>
-  <p>Clique para ver aplicada no lockup acima.</p>
-  <div class="tls" id="tls"></div>
+  <h3>Taglines</h3>
+  <div class="filters" id="tagbtns"></div>
 
   <h3>Arquitetura com o nome selecionado</h3>
-  <div class="arch" id="arch"></div>
+  <div id="arch"></div>
+</section>
 
-  <div class="call ok">
-    <span class="k">Sequenciamento</span>
-    <p>Antes de qualquer investimento em identidade, domínio ou embalagem: <strong>clearance no USPTO</strong> nas classes relevantes, mais domínio, handles e conflito fonético. Leve <strong>pelo menos um nome de fora do cluster -ORA</strong> na mesma rodada. E lembre que num funil de webinar quem vende é o <strong>nome do protocolo</strong>, não o da marca-mãe — clareie os dois em paralelo.</p>
-  </div>
-</div>
+<!-- ======== 3 FORNECEDORES ======== -->
+<section id="s3" role="tabpanel" aria-labelledby="t3" hidden>
+  <h2>Fornecedores</h2>
+  <p class="src">Plano de Estruturação + respostas reais ao briefing, set 2026</p>
+  <p class="lead">Onze mapeados, três responderam. E os três disseram, em palavras diferentes, a mesma coisa.</p>
 
-<!-- ============ 04 ============ -->
-<div class="panel" id="p-4" role="tabpanel" aria-labelledby="t-4" hidden>
-  <h2>Portfólio dos fornecedores</h2>
-  <p class="srcnote">Catálogo Vox Nutrition 2026 + catálogo On Demand Fulfillment, set 2026</p>
-  <p class="lede">O catálogo real dos fornecedores, com as alegações que o próprio fabricante publica para cada produto. É a matéria-prima do rótulo e do roteiro — mas não é automaticamente utilizável.</p>
-
-  <div class="call">
-    <span class="k">Duas alegações do catálogo que vocês não podem usar</span>
-    <p>A FTC mantém uma lista de alegações que considera <strong>sempre falsas</strong> para suplemento de emagrecimento. Duas delas estão no catálogo do fabricante, escritas por ele: <em>"Helps block fat production"</em> no Garcinia Cambogia e <em>"Supports carbohydrate blocking to reduce calorie absorption"</em> no White Kidney Bean. <strong>O fato de o fornecedor usar não torna seguro para vocês</strong> — quem responde pelo claim é quem vende ao consumidor final. Marcamos na coluna Atenção todos os casos.</p>
-  </div>
-
-  <div class="call gold">
-    <span class="k">Achado nos catálogos</span>
-    <p>A Vox vende <strong>"GLP1 Support"</strong> com o <strong>mesmo part number (14697) do Berberine 1200mg</strong>, e <strong>"GLP1 Booster"</strong> com o mesmo part number (14724) do Best Seller Blend. São os mesmos produtos com nome de marketing GLP-1. Dois recados: o mercado já está vendendo berberina como a jogada GLP-1, e <strong>vocês não devem usar esses nomes no rótulo</strong> — o próprio modelo de negócio de vocês proíbe "GLP-1 natural", e é exatamente o tipo de nome que FDA e FTC olham.</p>
+  <div class="note">
+    <span class="nt">A convergência</span>
+    <p><b>Nenhum tem a fórmula do briefing em estoque.</b> A combinação glucomanan + hibisco + dente-de-leão + gengibre não existe pronta em lugar nenhum, e nenhum tem estoque com Gymnema + cromo + canela + ALA juntos. Custom é caro e lento nos três.</p>
   </div>
 
   <div class="filters">
-    <span class="flabel">Filtrar</span>
-    <button class="fbtn" data-pf="todos" aria-pressed="true">Todos</button>
-    <button class="fbtn" data-pf="ancora" aria-pressed="false">Âncora</button>
-    <button class="fbtn" data-pf="saciedade" aria-pressed="false">Saciedade</button>
-    <button class="fbtn" data-pf="glicemico" aria-pressed="false">Doce</button>
-    <button class="fbtn" data-pf="termo" aria-pressed="false">Termogênico</button>
-    <button class="fbtn" data-pf="digestivo" aria-pressed="false">Digestivo</button>
-    <button class="fbtn" data-pf="sono" aria-pressed="false">Sono</button>
-    <button class="fbtn" data-pf="longevidade" aria-pressed="false">Longevidade</button>
-    <span class="count" id="pcount"></span>
+    <span class="fl">Filtrar</span>
+    <button class="fb" data-sf="todos" aria-pressed="true">Todos</button>
+    <button class="fb" data-sf="respondeu" aria-pressed="false">Responderam</button>
+    <button class="fb" data-sf="aguardando" aria-pressed="false">Sem resposta</button>
+    <button class="fb" data-sf="fabricante" aria-pressed="false">Fabricante</button>
+    <button class="fb" data-sf="turnkey" aria-pressed="false">Turnkey</button>
+    <span class="cnt" id="supcount"></span>
   </div>
+  <div class="filters" id="supbtns" style="margin-top:2px"></div>
+  <div id="supdetail"></div>
+</section>
 
-  <div class="pgrid" id="pgrid"></div>
-  <p style="font-size:12.5px;color:var(--muted)" id="pnote"></p>
-
-  <div class="call">
-    <span class="k">A diferença entre os dois</span>
-    <p>Comprando direto da Vox a 1.000 frascos, o Berberine sai por <strong>$5,74</strong>. No ODF, o mesmo produto, da mesma fábrica, sai por <strong>$7,60</strong> — mas sem estoque, sem capital e com envio ao cliente incluso. A diferença de $1,86 por frasco é o preço da conveniência: em 6 frascos por cliente, são <strong>$11 por pedido</strong>.</p>
-  </div>
-</div>
-
-<!-- ============ 05 ============ -->
-<div class="panel" id="p-5" role="tabpanel" aria-labelledby="t-5" hidden>
-  <h2>Composição: o que dá para montar</h2>
-  <p class="srcnote">Protocolo montado a partir do que existe em estoque, mirando os mesmos mecanismos do briefing</p>
-  <p class="lede">O briefing definiu quatro mecanismos. Nenhum fornecedor tem aquelas fórmulas exatas — mas todos os quatro mecanismos têm produto de estoque que os entrega.</p>
-
-  <div class="call ok">
-    <span class="k">O achado que destrava tudo</span>
-    <p><strong>Satiereal é extrato de açafrão padronizado.</strong> A Vox tem <strong>Saffron 88.5 a $4,23</strong> em estoque, e o ODF tem Saffron Pure. O pilar de saciedade do briefing já existe pronto — só não vem com a marca registrada do ingrediente. O mesmo vale para o resto: o que estava travando não era o mecanismo, era a exigência de replicar o ingrediente de marca.</p>
-  </div>
-
-  <h3>Do briefing para o que existe</h3>
-  <div class="scroll">
-    <table>
-      <thead><tr><th>Mecanismo</th><th>Briefing original</th><th>Disponível em estoque</th><th></th></tr></thead>
-      <tbody>
-        <tr><td class="nm">Metabolismo</td><td>Di-hidroberberina (GlucoVantage) 200–300 mg ou Berberina HCl 1.000 mg</td><td><b>Berberine 1200 mg</b> — dose clínica, forma HCl, a mais estudada</td><td><span class="chip ok">Match direto</span></td></tr>
-        <tr><td class="nm">Saciedade</td><td>Satiereal 176 mg + Slendesta 300 mg</td><td><b>Saffron 88.5</b> (o Satiereal é açafrão) · <b>Caralluma 600 mg</b> como reforço</td><td><span class="chip ok">Match direto</span></td></tr>
-        <tr><td class="nm">Compulsão / glicêmico</td><td>Gymnema 400 mg + cromo + canela + ALA</td><td><b>Blood Sugar Plus</b> · <b>Cinnamon 600 mg</b> · <b>ALA</b> avulso</td><td><span class="chip warn">Aproximação</span></td></tr>
-        <tr><td class="nm">Termogênese</td><td>Capsimax + Grains of Paradise + EGCG + cafeína</td><td><b>Oxy Burn</b> · <b>Best Seller Blend</b> · <b>Keto Ultra</b></td><td><span class="chip warn">Aproximação</span></td></tr>
-        <tr><td class="nm">Ritual / desinchar</td><td>Pó de glucomanan + hibisco + dente-de-leão + gengibre</td><td><b>Não existe em nenhum fornecedor.</b> Fibra em cápsula (Psyllium Husk Plus, ODF) é o mais próximo</td><td><span class="chip bad">Lacuna</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="call">
-    <span class="k">A única lacuna real: o pó</span>
-    <p>Glucomanan em pó não existe em estoque em lugar nenhum, e custom de pó começa em <strong>750 kg na Vox</strong> ou <strong>1.000–2.000 potes na PLE</strong>. Três saídas: <strong>(a)</strong> trocar o pó por fibra em cápsula e manter o papel de saciedade pré-refeição; <strong>(b)</strong> transformar o brinde físico em bônus digital — protocolo, plano alimentar, acompanhamento — com custo marginal zero; <strong>(c)</strong> fazer só o pó em custom na PLE enquanto as cápsulas vêm do estoque, aceitando 10–12 semanas para esse item. Para validar o funil, <strong>(a)</strong> ou <strong>(b)</strong> resolvem sem atrasar nada.</p>
-  </div>
-
-  <h3>Três rotas, com custo real por pedido</h3>
-  <p>Protocolo de 6 meses do âncora + 3 meses do complementar, com os dois order bumps. Take rate de 35% no glicêmico e 25% no termogênico.</p>
-
-  <div class="rotas">
-    <div class="rota">
-      <div class="rh"><div class="rt2">Rota A · validar</div><div class="rn">ODF dropship</div></div>
-      <div class="rb">
-        <div class="line">6 × Berberine <span>$45,60</span></div>
-        <div class="line">3 × Saffron Pure <span>$13,74</span></div>
-        <div class="line">Bump glicêmico <span>$5,04</span></div>
-        <div class="line">Bump termogênico <span>$4,06</span></div>
-        <div class="line">Frete (3–4 lb) <span>$20,15</span></div>
-      </div>
-      <div class="tot">Entrega por pedido <span>$88,59</span></div>
-      <div class="meta"><b>Capital de estoque: zero.</b> Lançamento em dias. Mensalidade $149,99, isenta acima de $5 mil/mês. Produto: $68,44 — folga de $18 no orçamento.</div>
-    </div>
-
-    <div class="rota best">
-      <div class="rh"><div class="rt2">Rota B · escalar</div><div class="rn">Vox direto, 1.000 frascos</div></div>
-      <div class="rb">
-        <div class="line">6 × Berberine <span>$34,44</span></div>
-        <div class="line">3 × Saffron <span>$9,99</span></div>
-        <div class="line">Bump glicêmico <span>$3,53</span></div>
-        <div class="line">Bump termogênico <span>$2,87</span></div>
-        <div class="line">Frete estimado <span>$18,00</span></div>
-      </div>
-      <div class="tot">Entrega por pedido <span>$68,83</span></div>
-      <div class="meta"><b>Capital ≈ $51,6 mil</b> para atender ~1.000 clientes. Rótulos $199 + $100 cada. 3PL ShipCentral à parte. Produto: $50,83 — folga de <b>$35,63</b>.</div>
-    </div>
-
-    <div class="rota">
-      <div class="rh"><div class="rt2">Rota C · volume</div><div class="rn">Vox direto, 2.500 frascos</div></div>
-      <div class="rb">
-        <div class="line">6 × Berberine <span>$33,24</span></div>
-        <div class="line">3 × Saffron <span>$9,39</span></div>
-        <div class="line">Bump glicêmico <span>$3,32</span></div>
-        <div class="line">Bump termogênico <span>$2,72</span></div>
-        <div class="line">Frete estimado <span>$18,00</span></div>
-      </div>
-      <div class="tot">Entrega por pedido <span>$66,67</span></div>
-      <div class="meta">Ganho marginal pequeno sobre a Rota B, com capital bem maior. Só faz sentido com volume mensal comprovado.</div>
-    </div>
-  </div>
-
-  <div class="call ok">
-    <span class="k">A conclusão que muda o plano</span>
-    <p>O orçamento de produto para 30% de margem a $389, com CAC de $90, é de <strong>$86,46 por pedido</strong>. As três rotas cabem — inclusive a de <strong>estoque zero</strong>, que sobra $18. Ou seja: <strong>o protocolo é viável a $389 com 30% de margem, usando produtos de estoque, sem travar um dólar em inventário.</strong> A estimativa de $14 por frasco que travava a conta era o custo de uma fórmula custom com quatro ativos de marca — que nenhum fornecedor tem e que ninguém precisa para entregar os mesmos mecanismos.</p>
-  </div>
-
-  <h3>O que eu faria</h3>
-  <ol class="steps">
-    <li><b>Lançar pela Rota A</b>, com o pó trocado por bônus digital. Zero capital, dias até o ar, e o funil é testado com produto real na mão da cliente.</li>
-    <li><b>Migrar o âncora para a Rota B</b> assim que houver volume mensal. Mesma fábrica, mesmo produto, $1,86 mais barato por frasco — $11 por pedido.</li>
-    <li><b>Só então avaliar o custom</b>, e só para o que diferencia de verdade: o pó, ou uma fórmula-assinatura do âncora. Nessa altura há dado de conversão para justificar o MOQ.</li>
-    <li><b>Pedir amostra física paga</b> do Berberine e do Saffron antes de qualquer rótulo — é a validação que nenhuma planilha substitui.</li>
-    <li><b>Não usar os nomes GLP1</b> da Vox no rótulo, mesmo que o produto seja o mesmo.</li>
-  </ol>
-</div>
-
-<!-- ============ 06 ============ -->
-<div class="panel" id="p-6" role="tabpanel" aria-labelledby="t-6" hidden>
-  <h2>Produto e funil</h2>
-  <p class="srcnote">Fonte: Briefing do Protocolo de Emagrecimento + Modelo de Negócio</p>
-  <p class="lede">Quatro SKUs, oferta de 6 meses em envio único, vendidos por aula ao vivo com fechamento humano.</p>
+<!-- ======== 4 PRODUTO ======== -->
+<section id="s4" role="tabpanel" aria-labelledby="t4" hidden>
+  <h2>Produto</h2>
+  <p class="src">Briefing do protocolo · catálogos Vox e ODF · templates de rótulo</p>
 
   <h3>A linha como foi especificada</h3>
   <div class="scroll">
     <table>
-      <thead><tr><th>Produto</th><th>Formato</th><th>Função</th><th>Apelo</th><th>Ativo herói</th></tr></thead>
+      <thead><tr><th>Produto</th><th>Formato</th><th>Apelo</th><th>Ativo herói</th></tr></thead>
       <tbody>
-        <tr><td class="nm">Principal</td><td>60 caps · 2–4/dia · sem estimulante</td><td>Metabolismo, saciedade, gordura abdominal</td><td>"Ativa o interruptor metabólico"</td><td>Berberina</td></tr>
-        <tr><td class="nm">Brinde</td><td>Pó · 3 doses/dia · hibisco-limão</td><td>Saciedade pré-refeição, desinchar</td><td>"O ritual que desincha"</td><td>Konjac</td></tr>
-        <tr><td class="nm">Bump glicêmico</td><td>60 caps</td><td>Vontade de doce, compulsão</td><td>"Corta a vontade de doce na raiz"</td><td>Gymnema</td></tr>
-        <tr><td class="nm">Bump acelerador</td><td>60 caps · manhã</td><td>Termogênese, energia</td><td>"A gordura que queima gordura"</td><td>Grains of Paradise</td></tr>
+        <tr><td class="n">Principal</td><td>60 caps · 2–4/dia · sem estimulante</td><td>"Ativa o interruptor metabólico"</td><td>Berberina</td></tr>
+        <tr><td class="n">Brinde</td><td>Pó · 3 doses/dia</td><td>"O ritual que desincha"</td><td>Konjac</td></tr>
+        <tr><td class="n">Bump glicêmico</td><td>60 caps</td><td>"Corta a vontade de doce"</td><td>Gymnema</td></tr>
+        <tr><td class="n">Bump acelerador</td><td>60 caps · manhã</td><td>"A gordura que queima gordura"</td><td>Grains of Paradise</td></tr>
       </tbody>
     </table>
   </div>
 
-  <h3>Blends: o que já existe pronto e o que exige fórmula própria</h3>
-  <p class="lede">Blend de 4 ativos dá história para contar na live. Mas nem todo produto de estoque é blend — e nem todo blend tem história.</p>
-
+  <h3>Blends: o que já existe pronto</h3>
+  <p class="lead">Blend de 4 ativos dá história para a live. Mas nem todo produto de estoque é blend — e nem todo blend tem história.</p>
   <div class="scroll">
     <table>
-      <thead><tr><th>Produto de estoque</th><th>É blend?</th><th>Supplement Facts real</th></tr></thead>
+      <thead><tr><th>Produto</th><th>É blend?</th><th>Supplement Facts real</th></tr></thead>
       <tbody>
-        <tr class="hi"><td class="nm">Best Seller Blend</td><td><span class="chip ok">Blend de 5</span></td>
-          <td style="font-size:13px">658 mg por dose: café verde 130 mg (50% ác. clorogênico) · raspberry ketone 130 mg · garcinia 130 mg (50% HCA) · cafeína anidra 138 mg · chá verde 130 mg (45% EGCG). <b>Tem história: cinco mecanismos num frasco.</b></td></tr>
-        <tr class="hi"><td class="nm">Keto Ultra</td><td><span class="chip ok">Blend de 4</span></td>
-          <td style="font-size:13px">Raspberry ketones 500 mg · african mango 300 mg · fórmula proprietária 400 mg (chá verde + extrato de cafeína). Já vem com linha de <b>"Proprietary Formula"</b> no rótulo.</td></tr>
-        <tr><td class="nm">Berberine 1200 mg</td><td><span class="chip warn">Blend só no nome</span></td>
-          <td style="font-size:13px">"Berberine HCl Blend" 1200 mg — mas são <b>duas formas do mesmo ativo</b> (Berberine HCl 97% e Granular Berberine 97%, ambos Berberis aristata). Para a live, é um ingrediente só.</td></tr>
-        <tr><td class="nm">Blood Sugar Plus · Oxy Burn</td><td><span class="chip neu">Provável blend</span></td>
-          <td style="font-size:13px">Os rótulos vieram como imagem, sem texto extraível. O representante da Vox ofereceu enviar os Supplement Facts assim que definirmos os produtos — <b>é o próximo pedido a fazer</b>.</td></tr>
-        <tr><td class="nm">Saffron · Caralluma · Cinnamon</td><td><span class="chip bad">Ingrediente único</span></td>
-          <td style="font-size:13px">Saffron 88,5 mg · Caralluma 1200 mg · Canela Ceylon orgânica 1200 mg. Dose boa, história curta.</td></tr>
+        <tr class="hl"><td class="n">Best Seller Blend</td><td><span class="chip ok">5 ativos</span></td><td>658 mg: café verde 130 mg (50% ác. clorogênico) · raspberry ketone 130 · garcinia 130 (50% HCA) · cafeína 138 · chá verde 130 (45% EGCG)</td></tr>
+        <tr class="hl"><td class="n">Keto Ultra</td><td><span class="chip ok">4 ativos</span></td><td>Raspberry ketones 500 mg · african mango 300 · fórmula proprietária 400 (chá verde + cafeína). Já traz linha "Proprietary Formula" no rótulo.</td></tr>
+        <tr><td class="n">Berberine</td><td><span class="chip w">Só no nome</span></td><td>"Berberine HCl Blend" 1200 mg — duas formas do mesmo ativo. Para a live, é um ingrediente só.</td></tr>
+        <tr><td class="n">Blood Sugar Plus · Oxy Burn</td><td><span class="chip n">A confirmar</span></td><td>Rótulos vieram como imagem. A Vox ofereceu enviar os Supplement Facts — é o próximo pedido.</td></tr>
+        <tr><td class="n">Saffron · Caralluma · Cinnamon</td><td><span class="chip d">Ingrediente único</span></td><td>Saffron 88,5 mg · Caralluma 1200 mg · Canela Ceylon orgânica 1200 mg</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="call gold">
-    <span class="k">Sugestão — concentrar o custom em um SKU só</span>
-    <p>Os dois order bumps e o termogênico já têm blend de estoque com história pronta. <strong>O âncora é o único que não tem</strong> — e é justamente ele que carrega o pitch e justifica a "dose certa". Então a recomendação é inverter a lógica: em vez de fazer custom de quatro produtos, <strong>faça custom só do principal</strong> e monte os outros três com blends de estoque.</p>
-    <p>Na Private Label Express, um SKU custom de cápsula são <strong>150.000 cápsulas ≈ 2.500 frascos</strong>, em 10–12 semanas. A 6 frascos por cliente, isso atende ~417 clientes. É um compromisso grande, mas é <em>um</em> compromisso em vez de quatro — e recai sobre o produto que mais precisa de diferenciação.</p>
+  <div class="note">
+    <span class="nt">Sugestão — concentrar o custom em um SKU só</span>
+    <p>Os dois bumps e o termogênico já têm blend de estoque com história pronta. <b>O âncora é o único que não tem</b> — e é ele que carrega o pitch. Em vez de custom de quatro produtos, faça custom <b>só do principal</b>: <b>berberina HCl + açafrão + gymnema + cromo</b>. Quatro mecanismos distintos, cada um explicável em trinta segundos. Ficam de fora Morosil e Slendesta, os dois mais caros e de história mais difícil.</p>
   </div>
 
-  <div class="call">
-    <span class="k">Sugestão — o blend de 4 para o âncora</span>
-    <p>Mantendo os mecanismos do briefing e usando ativos que o fabricante já compra: <strong>berberina HCl</strong> (metabolismo, o herói) + <strong>extrato de açafrão</strong> (saciedade — é o Satiereal sem a marca) + <strong>gymnema</strong> (vontade de doce) + <strong>cromo</strong> (suporte metabólico). Quatro ativos, quatro mecanismos distintos, cada um com um papel que dá para explicar em trinta segundos na live. Fica sem Morosil e Slendesta, que são os dois mais caros e os de história mais difícil de contar.</p>
+  <h3>Portfólio dos fornecedores</h3>
+  <p class="lead">Composição real, para que serve, e o nível de evidência de cada ativo — essa última coluna é avaliação nossa, não vem do fornecedor.</p>
+  <div class="filters">
+    <span class="fl">Filtrar</span>
+    <button class="fb" data-pf="todos" aria-pressed="true">Todos</button>
+    <button class="fb" data-pf="ancora" aria-pressed="false">Âncora</button>
+    <button class="fb" data-pf="saciedade" aria-pressed="false">Saciedade</button>
+    <button class="fb" data-pf="glicemico" aria-pressed="false">Doce</button>
+    <button class="fb" data-pf="termo" aria-pressed="false">Termogênico</button>
+    <button class="fb" data-pf="digestivo" aria-pressed="false">Digestivo</button>
+    <button class="fb" data-pf="sono" aria-pressed="false">Sono</button>
+    <button class="fb" data-pf="longevidade" aria-pressed="false">Longevidade</button>
+    <span class="cnt" id="pcount"></span>
   </div>
-
-  <div class="call">
-    <span class="k">A decisão da berberina</span>
-    <p>Di-hidroberberina permite <strong>2 cápsulas/dia</strong> e custa várias vezes mais. Berberina HCl exige <strong>3–4 cápsulas/dia</strong>, é bem mais barata e tem a <strong>base de evidência humana maior</strong> — a di-hidro resolve absorção e número de cápsulas, não eficácia. Somando as doses do briefing na versão HCl dá ~1.876 mg/dia de ativos, o que não cabe em duas cápsulas de tamanho 00. A forma HCl é a escolha coerente com custo <em>e</em> com evidência.</p>
-  </div>
-
-  <h3>Estrutura da oferta</h3>
-  <ul class="plain">
-    <li><b>6 meses do principal + 3 meses do brinde</b>, em <b>envio único</b> — a cliente recebe tudo de uma vez e consome ao longo do protocolo.</li>
-    <li>Order bumps no checkout: <b>glicêmico</b> e <b>acelerador</b>, em 1 ou 3 meses.</li>
-    <li>Envio único tira a oferta do regime de <b>negative option</b>: sem cobrança recorrente, a regra de cancelamento fácil da FTC não se aplica, e some a maior fonte de chargeback de assinatura.</li>
-    <li>Em troca, não há receita recorrente: o mês 6 é um precipício, não uma renovação. É aí que o conteúdo de acompanhamento durante o protocolo deixa de ser enfeite e vira a engrenagem da recompra.</li>
-  </ul>
+  <div class="pgrid" id="pgrid"></div>
 
   <h3>O funil</h3>
-  <ol class="steps">
-    <li><b>Anúncio</b> convidando para uma aula às 20h.</li>
-    <li><b>CRM com automação</b> de confirmação — e-mail, SMS e WhatsApp.</li>
-    <li>Às <b>20h</b>, quem confirmou recebe o link da aula.</li>
-    <li>Aula ao vivo; o <b>pitch começa em 1h15</b>.</li>
-    <li><b>Checkout</b> abre com a oferta de 6 meses e os dois bumps.</li>
-    <li><b>Recuperação comercial</b>, do mais quente para o mais frio: erro de cartão · entrou no checkout e não preencheu · clicou no link · ficou até o fim sem clicar · assistiu metade.</li>
+  <ol class="ns">
+    <li><b>Anúncio</b> convidando para uma aula às 20h</li>
+    <li><b>CRM com automação</b> de confirmação — e-mail, SMS e WhatsApp</li>
+    <li>Às <b>20h</b>, quem confirmou recebe o link</li>
+    <li>Aula ao vivo; o <b>pitch começa em 1h15</b></li>
+    <li><b>Checkout</b> com a oferta de 6 meses e os dois bumps</li>
+    <li><b>Recuperação comercial</b>, do mais quente para o mais frio: erro de cartão · checkout aberto sem preencher · clicou no link · ficou até o fim sem clicar · assistiu metade</li>
   </ol>
 
-  <div class="call gold">
-    <span class="k">Os quatro pilares do pitch</span>
-    <p><b>Custo</b> — comparação com os 15+ frascos avulsos, com preço real, print e data. <b>Dose certa</b> — doses calibradas, com a autoridade técnica da química responsável. <b>Praticidade</b> — poucas cápsulas contra vários frascos. <b>Sinergia</b> — ativos combinados e compatíveis.</p>
+  <div class="note d">
+    <span class="nt">A contradição a resolver antes da live</span>
+    <p>O pilar 2 do pitch é "dose certa". A regra de compliance é "só cite um estudo se a dose do produto for a mesma do estudo". E apresentar as fórmulas como <b>blend</b> esconde a dose. As três não convivem: se a dose não é pública, não dá para provar que bate com o estudo. Saída: <b>rótulo aberto no âncora</b>, blend só nos order bumps.</p>
   </div>
-
-  <div class="call">
-    <span class="k">A contradição a resolver no pitch</span>
-    <p>O pilar 2 é "dose certa". A regra de compliance é "só cite um estudo se a dose do produto for a mesma do estudo". E a ideia de apresentar as fórmulas como <strong>blends</strong> esconde as doses. As três não convivem: se a dose não é pública, não dá para provar que bate com o estudo. Saída: <strong>rótulo aberto no produto-âncora</strong>, blend só nos order bumps.</p>
-  </div>
-
-  <h3>Nome do protocolo, em avaliação</h3>
-  <ul class="plain">
-    <li><b>Red Gold Protocol</b> — favorito. O "gold" é a berberina, o "red" é o açafrão e a laranja moro. Família: Core, Ritual, Glyco, Ignite. ⚠ <b>Red Gold</b> é marca consolidada de alimentos nos EUA — espere uma busca carregada no USPTO.</li>
-    <li><b>Metabolic Switch Protocol</b> e <b>180-Day Metabolic Reset</b> — "switch" e "reset" são claims de mecanismo disfarçados de nome.</li>
-    <li><b>Golden Root Protocol</b> — o mais neutro dos quatro do ponto de vista regulatório.</li>
-    <li>⚠ <b>Glyco</b> aponta direto para glicemia, que é o território de claim que o próprio plano manda evitar. Renomear.</li>
-  </ul>
 
   <h3>Compliance do funil</h3>
   <div class="scroll">
     <table>
       <thead><tr><th>Frente</th><th>O que observar</th></tr></thead>
       <tbody>
-        <tr><td class="nm">Claims proibidos</td><td>Nada de "Ozempic natural", "GLP-1 natural", "queima gordura" ou "trata diabetes". Só structure/function claims, sempre com o disclaimer da FDA.</td></tr>
-        <tr><td class="nm">Berberina</td><td>É o ponto mais sensível: a reputação dela nos EUA é controle glicêmico. Qualquer deriva para açúcar no sangue, insulina ou comparação com GLP-1 sai de structure/function e vira claim de doença.</td></tr>
-        <tr><td class="nm">Claims sempre falsos</td><td>A FTC trata como sempre falso para suplemento: emagrecer sem dieta ou exercício, perder X quilos por semana, bloquear absorção de gordura, emagrecer permanentemente.</td></tr>
-        <tr><td class="nm">Comparação de preço</td><td>O value stack precisa comparar com preços realmente disponíveis, com print e data arquivados.</td></tr>
-        <tr><td class="nm">TCPA</td><td>Confirmação por SMS e WhatsApp mais ligação do comercial exige <b>consentimento expresso e por escrito na página de inscrição</b> — separado do aceite geral. Multa por mensagem, e é alvo de ação coletiva.</td></tr>
-        <tr><td class="nm">Venda a menores</td><td>Lei de Nova York proíbe venda de suplemento de emagrecimento a menores. Checkout precisa confirmar 18+ e os anúncios precisam excluir menores.</td></tr>
-        <tr><td class="nm">Rótulo</td><td>Alerta de interação medicamentosa (principalmente diabetes), gestação e lactação, quantidade de cafeína, e ingestão do glucomanan com bastante água — risco de engasgo documentado.</td></tr>
-        <tr><td class="nm">Validade</td><td>Com envio único de 6 meses, exigir <b>validade mínima de 20 meses na entrega</b>. O pó tem datação mais curta que a cápsula.</td></tr>
+        <tr><td class="n">Claims proibidos</td><td>Nada de "Ozempic natural", "GLP-1 natural", "queima gordura" ou "trata diabetes". Só structure/function, sempre com o disclaimer da FDA.</td></tr>
+        <tr><td class="n">Berberina</td><td>É o ponto mais sensível: a reputação dela nos EUA é controle glicêmico. Qualquer deriva para açúcar no sangue, insulina ou comparação com GLP-1 vira claim de doença.</td></tr>
+        <tr><td class="n">Sempre falsos</td><td>Emagrecer sem dieta ou exercício · perder X quilos por semana · bloquear absorção de gordura ou carboidrato · emagrecer permanentemente.</td></tr>
+        <tr><td class="n">TCPA</td><td>SMS, WhatsApp e ligação do comercial exigem <b>consentimento expresso e por escrito na página de inscrição</b>, separado do aceite geral.</td></tr>
+        <tr><td class="n">Venda a menores</td><td>Lei de Nova York proíbe venda de suplemento de emagrecimento a menores. Checkout confirma 18+ e os anúncios excluem menores.</td></tr>
+        <tr><td class="n">Rótulo</td><td>Interação medicamentosa, gestação e lactação, quantidade de cafeína, e glucomanan com bastante água — risco de engasgo documentado.</td></tr>
+        <tr><td class="n">Validade</td><td>Com envio único de 6 meses, exigir <b>validade mínima de 20 meses na entrega</b>. O pó tem datação mais curta que a cápsula.</td></tr>
       </tbody>
     </table>
   </div>
-</div>
+</section>
 
-<!-- ============ 07 ============ -->
-<div class="panel" id="p-7" role="tabpanel" aria-labelledby="t-7" hidden>
-  <h2>Economia</h2>
-  <p class="srcnote">Modelo de custos e precificação — 791 fórmulas, 9 abas</p>
-  <p class="lede">A regra de ferro desse mercado: aquisição consome 50 a 60% da receita. O que sobra para produto e logística é 20 a 25%.</p>
+<!-- ======== 5 NÚMEROS E FASES ======== -->
+<section id="s5" role="tabpanel" aria-labelledby="t5" hidden>
+  <h2>Números e fases</h2>
+  <p class="src">Modelo de custos e precificação — 791 fórmulas, 9 abas</p>
+  <p class="lead">A regra de ferro deste mercado: aquisição consome 50 a 60% da receita. O que sobra para produto e logística é 20 a 25%.</p>
 
   <h3>Onde vai cada dólar</h3>
   <div class="scroll">
     <table>
       <thead><tr><th>Linha</th><th class="num">Por pedido</th><th>Observação</th></tr></thead>
       <tbody>
-        <tr><td class="nm">Receita bruta média</td><td class="num">$478,80</td><td>Oferta de $389 + bumps ponderados pelo take rate</td></tr>
-        <tr><td class="nm">Reembolso e chargeback</td><td class="num">$62,49</td><td><b>Segundo maior custo</b> — maior que frete, 3PL, embalagem e processamento somados</td></tr>
-        <tr><td class="nm">Processamento</td><td class="num">$21,85</td><td>Adquirente de alto risco, 4,5% + taxa fixa</td></tr>
-        <tr><td class="nm">Frete ao cliente</td><td class="num">$16 a $26</td><td>Por peso real: 3–4 lb = $20,15 · acima de 10 lb vira cotação</td></tr>
-        <tr><td class="nm">Embalagem, 3PL, suporte</td><td class="num">$10,70</td><td>Caixa, inserto, picking, armazenagem, atendimento</td></tr>
-        <tr><td class="nm">Comissão do comercial</td><td class="num">$15,96</td><td>10% sobre a receita que o time recupera</td></tr>
-        <tr><td class="nm">Orçamento para o produto</td><td class="num">$86,46</td><td>O que sobra para 30% de margem com CAC de $90</td></tr>
+        <tr><td class="n">Receita bruta média</td><td class="num">US$ 478,80</td><td>Oferta de 389 + bumps ponderados pelo take rate</td></tr>
+        <tr class="hl"><td class="n">Reembolso e chargeback</td><td class="num">62,49</td><td><b>Segundo maior custo</b> — maior que frete, 3PL, embalagem e processamento somados</td></tr>
+        <tr><td class="n">Processamento</td><td class="num">21,85</td><td>Adquirente de alto risco, 4,5% + taxa fixa</td></tr>
+        <tr><td class="n">Frete ao cliente</td><td class="num">16 a 26</td><td>Por peso real; acima de 10 lb vira cotação avulsa</td></tr>
+        <tr><td class="n">Embalagem, 3PL, suporte</td><td class="num">10,70</td><td>Caixa, inserto, picking, armazenagem, atendimento</td></tr>
+        <tr><td class="n">Comissão do comercial</td><td class="num">15,96</td><td>10% sobre a receita que o time recupera</td></tr>
+        <tr class="hl"><td class="n">Sobra para o produto</td><td class="num">86,46</td><td>Para 30% de margem com CAC de US$ 90</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="call ok">
-    <span class="k">A conclusão</span>
-    <p>As três rotas de composição cabem nesse orçamento — a mais cara, de estoque zero, usa <strong>$68,44</strong> e ainda sobra $18. A estimativa de $14 por frasco que travava a conta era o custo de uma fórmula custom com quatro ativos de marca, que nenhum fornecedor tem e que ninguém precisa para entregar os mesmos mecanismos.</p>
+  <h3>As três alavancas</h3>
+  <div class="grid g3">
+    <div class="card"><div class="ct">Alavanca 1</div><div class="ch">Custo do frasco</div><p>Cada US$ 2 a menos compra ~US$ 10 de folga no CAC. E cada US$ 1 vale 6 no pedido, porque são 6 frascos por cliente — negociar o âncora vale 6× mais que qualquer outro SKU.</p></div>
+    <div class="card"><div class="ct">Alavanca 2</div><div class="ch">CAC até US$ 90</div><p>A mais incerta, e só o primeiro webinar mede. Depende de CPL e de taxa de presença — com horário marcado, o show rate é o gargalo.</p></div>
+    <div class="card acc"><div class="ct">Alavanca 3</div><div class="ch">Reembolso 12% → 9%</div><p>Vale ~3 pontos de margem, o mesmo que cortar US$ 2 do frasco, e é mais barato: garantia com devolução de lacrados, expectativa correta no pitch e onboarding nas duas primeiras semanas.</p></div>
   </div>
 
   <h3>Preço</h3>
   <div class="scroll">
     <table>
-      <thead><tr><th>Preço 6 meses</th><th class="num">Por mês</th><th>Leitura</th></tr></thead>
+      <thead><tr><th>6 meses</th><th class="num">Por mês</th><th>Leitura</th></tr></thead>
       <tbody>
-        <tr><td class="nm">$294</td><td class="num">$49</td><td>Padrão do mercado de VSL evergreen. Exige custo de commodity.</td></tr>
-        <tr class="hi"><td class="nm">$389</td><td class="num">$65</td><td><b>Alvo definido.</b> Viável com produtos de estoque e CAC eficiente.</td></tr>
-        <tr><td class="nm">$397</td><td class="num">$66</td><td>Se for ficar abaixo de $400, use este: mesma percepção, +$8, e parece preço de resposta direta.</td></tr>
-        <tr><td class="nm">$447</td><td class="num">$74</td><td><b>Recomendado.</b> Entrega 30%+ em toda a faixa plausível de custo, e fica sob a barreira dos $500.</td></tr>
-        <tr><td class="nm">$497</td><td class="num">$83</td><td>Preço natural de webinar ao vivo com fechamento humano.</td></tr>
+        <tr><td class="n">US$ 294</td><td class="num">49</td><td>Padrão do VSL evergreen. Exige custo de commodity.</td></tr>
+        <tr class="hl"><td class="n">US$ 389</td><td class="num">65</td><td><b>Alvo definido.</b> Viável com produtos de estoque e CAC eficiente.</td></tr>
+        <tr><td class="n">US$ 397</td><td class="num">66</td><td>Se for ficar abaixo de 400, use este: mesma percepção, +8, e parece preço de resposta direta.</td></tr>
+        <tr class="hl"><td class="n">US$ 447</td><td class="num">74</td><td><b>Recomendado.</b> Entrega 30%+ em toda a faixa de custo, e fica sob a barreira dos 500.</td></tr>
+        <tr><td class="n">US$ 497</td><td class="num">83</td><td>Preço natural de webinar ao vivo com fechamento humano.</td></tr>
       </tbody>
     </table>
   </div>
-
-  <div class="call gold">
-    <span class="k">Por que o formato sustenta preço mais alto</span>
-    <p>$294 é o preço treinado do VSL evergreen, onde não existe vendedor. Aqui há <strong>aula ao vivo com especialista e time comercial fechando</strong> — o formato de ticket alto, onde $497 e $597 são normais. E preço baixo demais custa duas vezes: atrai comprador menos comprometido, o que sobe o reembolso, que já é o segundo maior custo.</p>
+  <div class="note">
+    <span class="nt">Por que o formato sustenta preço mais alto</span>
+    <p>US$ 294 é o preço treinado do VSL evergreen, onde não existe vendedor. Aqui há <b>aula ao vivo e time comercial fechando</b> — o formato de ticket alto. E preço baixo demais custa duas vezes: atrai comprador menos comprometido, o que sobe o reembolso, que já é o segundo maior custo.</p>
   </div>
 
-  <h3>As três alavancas</h3>
-  <div class="phases">
-    <div class="ph"><div class="t">Alavanca 1</div><div class="h">Custo do frasco</div><p>Cada $2 a menos no frasco compra ~$10 de folga no CAC. E cada $1 vale $6 no pedido, porque são 6 frascos por cliente — negociar o âncora vale 6× mais que qualquer outro SKU.</p></div>
-    <div class="ph"><div class="t">Alavanca 2</div><div class="h">CAC ≤ $90</div><p>É a mais incerta e só o primeiro webinar mede. Depende de CPL e da taxa de presença — com horário marcado, o show rate é o gargalo.</p></div>
-    <div class="ph"><div class="t">Alavanca 3</div><div class="h">Reembolso 12% → 9%</div><p>Vale ~3 pontos de margem, o mesmo que cortar $2 do frasco, e é mais barato de conseguir: garantia com devolução de frascos lacrados, expectativa correta no pitch e onboarding nas duas primeiras semanas.</p></div>
-  </div>
-
-  <h3>Capital e caixa</h3>
-  <ul class="plain">
-    <li><b>Rota de estoque zero:</b> nenhum capital travado. Mensalidade de plataforma, isenta acima de $5 mil faturados no mês.</li>
-    <li><b>Rota de compra direta:</b> ~<b>$51,6 mil</b> em estoque para atender cerca de 1.000 clientes — porque cada cliente consome 6 frascos do âncora. Cote pensando em <b>clientes</b>, não em unidades: 5.000 frascos são só ~830 clientes.</li>
-    <li><b>Reserva rolante:</b> o adquirente de alto risco retém tipicamente 5 a 10% por 6 meses. Não é despesa, mas trava capital de giro exatamente na fase em que ele falta.</li>
-    <li><b>Conta de pagamento:</b> é o item de maior lead time do projeto e pode inviabilizar o lançamento sozinho. Emagrecimento de ticket alto com pré-pagamento é o perfil que faz adquirente segurar reserva ou encerrar conta.</li>
-  </ul>
-</div>
-
-<!-- ============ 08 ============ -->
-<div class="panel" id="p-8" role="tabpanel" aria-labelledby="t-8" hidden>
-  <h2>Fases do projeto</h2>
-  <p class="lede">Cada fase tem um fornecedor, um produto, um objetivo e um critério de saída. A regra é não comprometer capital antes de a fase anterior ter provado o que precisava provar.</p>
-
-  <div class="arch">
-    <div class="tier">
-      <div class="lab">Fase 0 · destravar · 2 a 4 semanas · corre em paralelo</div>
-      <div class="val">O que não depende de fornecedor nem de marca</div>
-      <ul class="plain" style="margin:8px 0 0">
-        <li><b>Conta de pagamento de alto risco.</b> Maior lead time de todo o projeto e o único item que pode inviabilizar o lançamento sozinho. Começar hoje.</li>
-        <li><b>Clearance no USPTO</b> de dois nomes de marca-mãe — um de fora do cluster -ORA — e do nome do protocolo, com domínio e handles.</li>
-        <li><b>Cobrar os 8 fornecedores sem resposta</b>, com prioridade para Vita Plus (6.000 fórmulas prontas) e NutraCap (valida e escala na mesma casa).</li>
-        <li><b>Amostra física paga</b> de Berberine e Saffron. É a validação que nenhuma planilha substitui.</li>
-        <li><b>Consentimento TCPA</b> na página de inscrição, para SMS, WhatsApp e ligação do comercial.</li>
-        <li><b>Revisão jurídica</b> de rótulo, roteiro da live, script do comercial e checkout.</li>
-      </ul>
+  <h3>Fases</h3>
+  <p class="lead">Cada fase compra informação antes de comprar estoque.</p>
+  <div class="tl">
+    <div class="ph">
+      <div class="pl">Fase 0<em>2–4 semanas</em></div>
+      <div><div class="ph2">Destravar — em paralelo a tudo</div>
+      <div class="pd">Conta de pagamento de alto risco · clearance no USPTO · cobrança dos 8 fornecedores sem resposta · amostra física paga · consentimento TCPA · revisão jurídica de rótulo, roteiro e checkout.</div></div>
     </div>
-
-    <div class="tier">
-      <div class="lab">Fase 1 · validar · 30 a 45 dias · capital próximo de zero</div>
-      <div class="val">On Demand Fulfillment, dropship</div>
-      <div class="note">Quatro SKUs de estoque: Berberine (âncora) · Saffron (brinde) · Blood Sugar Plus (bump doce) · Oxy Burn (bump termogênico). Brinde de 3 meses ou bônus digital.</div>
-      <div class="pills">
-        <span class="pill">Preço US$ 389–447</span>
-        <span class="pill">Produto ≈ US$ 68/pedido</span>
-        <span class="pill">Estoque zero</span>
-        <span class="pill">No ar em dias</span>
-      </div>
-      <div class="note" style="margin-top:9px"><b>O que esta fase precisa provar:</b> CPL, taxa de presença na aula, conversão do pitch e taxa de recuperação do comercial. <b>Critério de saída:</b> CAC ≤ US$ 110 e reembolso ≤ 12%.</div>
+    <div class="ph">
+      <div class="pl">Fase 1<em>30–45 dias</em></div>
+      <div><div class="ph2">Validar — On Demand Fulfillment, dropship</div>
+      <div class="pd">Quatro SKUs de estoque: Berberine · Saffron · Blood Sugar Plus · Oxy Burn. Brinde de 3 meses ou bônus digital.</div>
+      <div class="tags"><span class="chip a">Estoque zero</span><span class="chip n">No ar em dias</span><span class="chip ok">Critério de saída: CAC ≤ 110 e reembolso ≤ 12%</span></div></div>
     </div>
-
-    <div class="tier">
-      <div class="lab">Fase 2 · escalar · após volume mensal comprovado</div>
-      <div class="val">Vox Nutrition, compra direta</div>
-      <div class="note">Mesmo produto, mesma fábrica, cerca de 25% mais barato por frasco. Entra o 3PL da ShipCentral, cotado à parte.</div>
-      <div class="pills">
-        <span class="pill">Produto ≈ US$ 51/pedido</span>
-        <span class="pill">Capital ≈ US$ 51,6 mil</span>
-        <span class="pill">Atende ~1.000 clientes</span>
-        <span class="pill">4 a 6 semanas</span>
-      </div>
-      <div class="note" style="margin-top:9px">A margem sobe sem mexer na oferta nem no preço. É a fase que paga a estrutura.</div>
+    <div class="ph">
+      <div class="pl">Fase 2<em>4–6 semanas</em></div>
+      <div><div class="ph2">Escalar — Vox Nutrition, compra direta</div>
+      <div class="pd">Mesmo produto, mesma fábrica, cerca de 25% mais barato por frasco. Entra o 3PL da ShipCentral. A margem sobe sem mexer na oferta.</div>
+      <div class="tags"><span class="chip n">Capital ≈ US$ 51,6 mil</span><span class="chip n">Atende ~1.000 clientes</span></div></div>
     </div>
-
-    <div class="tier">
-      <div class="lab">Fase 3 · diferenciar · após tração</div>
-      <div class="val">Private Label Express, fórmula própria</div>
-      <div class="note">Blend custom de 4 ativos <b>só para o âncora</b>: berberina HCl + açafrão + gymnema + cromo. Os outros três seguem com blend de estoque, que já tem história para a live.</div>
-      <div class="pills">
-        <span class="pill">2.500 frascos/SKU</span>
-        <span class="pill">10 a 12 semanas</span>
-        <span class="pill">Pó custom 1.000–2.000 potes</span>
-        <span class="pill">Rótulo aberto</span>
-      </div>
-      <div class="note" style="margin-top:9px">É aqui que o glucomanan do briefing finalmente cabe, e que a marca passa a ter fórmula defensável em vez de catálogo compartilhado.</div>
+    <div class="ph">
+      <div class="pl">Fase 3<em>10–12 semanas</em></div>
+      <div><div class="ph2">Diferenciar — Private Label Express, fórmula própria</div>
+      <div class="pd">Blend custom de 4 ativos só para o âncora. É aqui que o glucomanan do briefing finalmente cabe, e que a marca passa a ter fórmula defensável em vez de catálogo compartilhado.</div>
+      <div class="tags"><span class="chip n">2.500 frascos/SKU</span><span class="chip n">Pó custom 1.000–2.000 potes</span><span class="chip a">Rótulo aberto</span></div></div>
     </div>
-
-    <div class="tier">
-      <div class="lab">Fase 4 · expandir</div>
-      <div class="val">Da marca de emagrecimento para a plataforma de wellness</div>
-      <div class="note">É o que a arquitetura de marca foi desenhada para permitir — e por isso o nome não pode conter supplements, nutrition nem weight loss.</div>
-      <div class="pills">
-        <span class="pill">CORE · diário</span>
-        <span class="pill">PERFORM · recuperação</span>
-        <span class="pill">LONGEVITY · envelhecimento</span>
-        <span class="pill">Protocolos combinados</span>
-      </div>
-      <div class="note" style="margin-top:9px">A recompra no mês 5 e os protocolos por objetivo são o que transforma venda única em cliente recorrente.</div>
+    <div class="ph">
+      <div class="pl">Fase 4<em>depois</em></div>
+      <div><div class="ph2">Expandir — de marca de emagrecimento a plataforma de wellness</div>
+      <div class="pd">É o que a arquitetura de marca foi desenhada para permitir — e por isso o nome não pode conter supplements, nutrition nem weight loss.</div>
+      <div class="tags"><span class="chip n">CORE</span><span class="chip n">PERFORM</span><span class="chip n">LONGEVITY</span><span class="chip n">Protocolos combinados</span></div></div>
     </div>
   </div>
 
-  <div class="call gold">
-    <span class="k">A regra que liga as fases</span>
-    <p>Cada fase existe para comprar informação antes de comprar estoque. A Fase 1 custa quase nada e responde a única pergunta que a planilha não responde: <strong>a que preço a aula converte</strong>. Com esse número, a Fase 2 deixa de ser aposta e vira conta — e só aí faz sentido travar US$ 51 mil em frascos, ou 2.500 unidades numa fórmula própria.</p>
+  <div class="note d">
+    <span class="nt">O erro a evitar</span>
+    <p>Pular direto para a fórmula custom do briefing: <b>quatro SKUs × 2.500 frascos × 10 a 12 semanas</b>, antes de existir um único dado de conversão — e com um pó que nenhum dos três fornecedores tem em estoque.</p>
   </div>
 
-  <div class="call">
-    <span class="k">O erro a evitar</span>
-    <p>Pular direto para a fórmula custom do briefing. São <strong>quatro SKUs × 2.500 frascos × 10 a 12 semanas</strong>, antes de existir um único dado de conversão — e com um pó que nenhum dos três fornecedores tem em estoque. O briefing continua sendo o destino certo; só não é o ponto de partida.</p>
-  </div>
-</div>
-
-<div class="panel" id="p-9" role="tabpanel" aria-labelledby="t-9" hidden>
-  <h2>Decisões</h2>
-  <p class="lede">O que já está fechado, e o que ainda trava o que vem depois.</p>
-
-  <h3>Fechado</h3>
-  <div class="scroll">
-    <table>
-      <thead><tr><th>Decisão</th><th>Estado</th></tr></thead>
-      <tbody>
-        <tr><td class="nm">Categoria de entrada</td><td>Emagrecimento, com expansão depois para metabolismo, energia e longevidade</td></tr>
-        <tr><td class="nm">Oferta</td><td>6 meses do principal + 3 meses do brinde, em envio único</td></tr>
-        <tr><td class="nm">Canal</td><td>Webinar ao vivo às 20h com recuperação comercial por temperatura</td></tr>
-        <tr><td class="nm">Preço-alvo</td><td>$389 · recomendado $447</td></tr>
-        <tr><td class="nm">Margem meta</td><td>30% líquida</td></tr>
-        <tr><td class="nm">Forma da berberina</td><td>HCl — mais barata e com base de evidência maior; custa 3–4 cápsulas/dia</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3>Em aberto, por ordem de bloqueio</h3>
-  <ol class="steps">
-    <li><b>Conta de pagamento de alto risco.</b> Maior lead time do projeto e o único item que pode inviabilizar o lançamento sozinho.</li>
-    <li><b>Clearance no USPTO</b> de dois nomes de marca-mãe — um de fora do cluster -ORA — e do nome do protocolo, com domínio e handles. Nada de identidade ou embalagem antes disso.</li>
-    <li><b>Rótulo aberto ou blend</b> no produto-âncora. Decide o valor Transparency e a capacidade de citar estudo no pitch.</li>
-    <li><b>Confirmar o preço</b> em $447, ou aceitar $389 com a composição de estoque.</li>
-    <li><b>Amostra física paga</b> do Berberine e do Saffron antes de qualquer rótulo.</li>
-    <li><b>Escolher uma taxonomia</b> de SKU — Core/Ritual/Glyco/Ignite ou LEAN/CORE/PERFORM/LONGEVITY — e renomear Glyco.</li>
-    <li><b>Roteiro do webinar</b> com os apelos reescritos em linguagem publicável, e o script do comercial sob a mesma revisão.</li>
-    <li><b>Consentimento TCPA</b> na página de inscrição, para SMS, WhatsApp e ligação.</li>
-    <li><b>Confirmar com a Vox</b> se o Green Coffee Bean ainda existe — foi recomendado, mas aparece como descontinuado na tabela da empresa irmã.</li>
+  <h3>Decisões em aberto, por ordem de bloqueio</h3>
+  <ol class="ns">
+    <li><b>Conta de pagamento de alto risco</b> — maior lead time, pode inviabilizar sozinho</li>
+    <li><b>Clearance no USPTO</b> de dois nomes de marca e do protocolo</li>
+    <li><b>Rótulo aberto ou blend</b> no âncora — decide o valor Transparency e a capacidade de citar estudo</li>
+    <li><b>Confirmar o preço</b> em 447, ou aceitar 389 com a composição de estoque</li>
+    <li><b>Escolher uma taxonomia</b> de SKU e renomear Glyco, que aponta para glicemia</li>
+    <li><b>Confirmar o Green Coffee Bean</b> com a Vox — foi recomendado, mas aparece descontinuado na tabela da empresa irmã</li>
   </ol>
-
-  <div class="call">
-    <span class="k">A contradição de fundo, que ainda não foi decidida</span>
-    <p>Os documentos de marca descrevem uma marca premium de wellness, com transparência e sem claims agressivos. O plano de produto e o funil descrevem uma operação de resposta direta em emagrecimento, com blends fechados e escassez no pitch. Não é fatal — muitas marcas nasceram assim e migraram — mas <strong>a marca não pode ser construída como se a fase 1 não existisse</strong>. O rótulo e o site vão ser vistos primeiro por quem comprou num webinar de emagrecimento.</p>
-  </div>
-</div>
+</section>
 
 <footer>
-  Consolidação de "Plano de Estruturação", "Estratégia para Marca para a Supplements LLC" e "Sugestões de Marcas para suplementos", do briefing do protocolo e do modelo de negócio, cruzada com as respostas de Vox Nutrition, On Demand Fulfillment e Private Label Express (set 2026).<br>
-  Preços de catálogo sujeitos a alteração — confirmar com o representante antes de qualquer pedido. Não constitui parecer jurídico: rótulo, alegações, nome e checkout exigem revisão de advogado especializado em FDA/FTC e busca no USPTO.
+  Consolidação de "Plano de Estruturação", "Estratégia para Marca para a Supplements LLC", "Sugestões de Marcas para suplementos", do briefing do protocolo e do modelo de negócio, cruzada com as respostas de Vox Nutrition, On Demand Fulfillment e Private Label Express.<br>
+  Não constitui parecer jurídico. Rótulo, alegações, roteiro, script do comercial e checkout exigem revisão de advogado especializado em FDA/FTC. Nome de marca exige busca no USPTO.
 </footer>
 </div>
 
 <script>
-var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
-tabs.forEach(function(t){
-  t.addEventListener('click', function(){
-    tabs.forEach(function(o){
-      var sel = o === t;
-      o.setAttribute('aria-selected', sel ? 'true' : 'false');
-      document.getElementById(o.getAttribute('aria-controls')).hidden = !sel;
-    });
-    window.scrollTo({top:0, behavior:'smooth'});
-  });
-});
-
-/* ---------- FICHA POR FORNECEDOR ---------- */
+var TERR = {
+  daily: {
+    proposito:{en:'Help people live better, every day.', pt:'Ajudar as pessoas a viver melhor, todos os dias.'},
+    missao:{en:'Create high-quality wellness solutions that make better health simple, practical and consistent.', pt:'Criar soluções de wellness de alta qualidade que tornem o cuidado com a saúde mais simples, prático e consistente.'},
+    visao:{en:'Become a trusted global wellness brand that helps people build better lives through science, quality and everyday habits.', pt:'Ser uma marca global de wellness reconhecida por ajudar pessoas a construir uma vida melhor com ciência, qualidade e hábitos diários.'},
+    promise:'Better Every Day.',
+    nota:'Não limita a marca a suplemento e permite falar de energia, foco, sono, longevidade e hábitos. Cria uma filosofia: você não precisa transformar sua vida de uma vez, precisa fazer escolhas melhores consistentemente.'
+  },
+  healthspan: {
+    proposito:{en:'Help people optimize their healthspan.', pt:'Ajudar as pessoas a otimizar seus anos de vida com saúde.'},
+    missao:{en:'Turn science into simple, high-quality protocols people can actually follow.', pt:'Transformar ciência em protocolos simples e de alta qualidade que as pessoas consigam de fato seguir.'},
+    visao:{en:'Become a reference in health optimization — products, protocols and knowledge in one system.', pt:'Ser referência em otimização de saúde, unindo produto, protocolo e conhecimento em um só sistema.'},
+    promise:'Optimize Your Healthspan.',
+    nota:'Healthspan desloca a conversa de viver mais para viver mais anos com saúde, energia e força. Dá cobertura científica, sustenta preço premium e aceita a entrada por controle de peso sem contradizer nada.'
+  }
+};
+var NAMES = [
+  {w:'VYVORA',ph:'vai·VOR·ah',cl:'ora',st:['warn','Líder atual'],nova:false,tag:'Optimize Your Healthspan.',rt:'Vitality + evolve + aura. Não fica preso a vitamin, nutrition ou supplement. Permite construir significado próprio.'},
+  {w:'NUVORA',ph:'nu·VOR·ah',cl:'ora',st:['neu','Alternativa'],nova:false,tag:'The New Standard of Wellness.',rt:'Sonoridade moderna e tecnológica. Boa para incorporar personalização, testes e AI no futuro.'},
+  {w:'VELORA',ph:'ve·LOR·ah',cl:'ora',st:['neu','Alternativa'],nova:false,tag:'Your Better Biology.',rt:'Forte foneticamente e bastante premium. Registro de lifestyle sofisticado.'},
+  {w:'ELVORA',ph:'el·VOR·ah',cl:'ora',st:['neu','Reserva'],nova:false,tag:'Elevate Your Everyday.',rt:'Remete a elevation, evolve e vitality. Registro wellness/lifestyle.'},
+  {w:'EVORA',ph:'e·VOR·ah',cl:'ora',st:['bad','Risco alto'],nova:false,tag:'Elevate Your Health.',rt:'Curto, sofisticado e fácil de falar — e justamente por isso a probabilidade de já existir em alguma classe é alta.'},
+  {w:'VYYBORA',ph:'vai·BOR·ah',cl:'ora',st:['bad','Descartar'],nova:false,tag:'Better Every Day.',rt:'O duplo Y é passivo de erro de digitação, e num funil de webinar o nome é falado antes de ser digitado. É também o mais próximo de VYBORA CO, já em operação.'},
+  {w:'VYVANTA',ph:'vai·VAN·tah',cl:'fora',st:['neu','Alternativa'],nova:false,tag:'Live at Your Best.',rt:'Mais energético e contemporâneo. Funciona bem para linha de performance e para DTC.'},
+  {w:'VITERRA',ph:'vi·TER·ah',cl:'fora',st:['ok','Fora do cluster'],nova:false,tag:'Built for Better Living.',rt:'Vital + Terra. Sensação natural e premium, e a única da lista original com raiz semântica claramente diferente.'},
+  {w:'VITALYN',ph:'VAI·ta·lin',cl:'fora',st:['warn','Descritivo'],nova:false,tag:'Vitality. Simplified.',rt:'Ligado a vitalidade de forma direta. Ganha em clareza, perde em distintividade e em força de registro.'},
+  {w:'THRIVEN',ph:'THRY·ven',cl:'fora',st:['new','Nova'],nova:true,tag:'Protocols, Not Promises.',rt:'De thrive — prosperar, florescer. Raiz inglesa reconhecível, calorosa e expansível para qualquer categoria de saúde.'},
+  {w:'HALEN',ph:'HAY·len',cl:'fora',st:['new','Nova'],nova:true,tag:'Built on Evidence.',rt:'De hale — saudável, robusto, íntegro. Curto, anglo, fácil de falar e digitar. Registro clínico-premium.'},
+  {w:'VESTRA',ph:'VES·trah',cl:'fora',st:['new','Nova'],nova:true,tag:'Your Healthspan, Optimized.',rt:'Sonoridade latina e premium, com terminação -TRA que escapa completamente do cluster -ORA.'},
+  {w:'ALDEN',ph:'AWL·den',cl:'fora',st:['new','Nova'],nova:true,tag:'Health, On Purpose.',rt:'Limpo, quieto e confiável — o registro de marcas modernas de saúde. Zero conotação de suplemento, que é exatamente o pedido.'},
+  {w:'CADENCE',ph:'KAY·dens',cl:'fora',st:['new','Nova'],nova:true,tag:'Find Your Cadence.',rt:'Palavra inglesa real: o ritmo de uma rotina. É a metáfora exata de um protocolo diário, e dá uma história para contar na live sem prometer resultado.'},
+  {w:'KEYSTONE',ph:'KEE·stone',cl:'fora',st:['new','Nova'],nova:true,tag:'The Keystone of Your Day.',rt:'A pedra que sustenta o arco inteiro. Metáfora forte para um produto-base diário, e registro sólido e confiável — menos feminino que os -ORA.'},
+  {w:'HALERA',ph:'ha·LEH·rah',cl:'fora',st:['new','Nova'],nova:true,tag:'Well, By Design.',rt:'Coined de hale (saudável, íntegro). Mantém a sonoridade premium que agradou nos -ORA, mas com raiz e terminação diferentes — escapa do cluster sem perder o tom.'},
+  {w:'EVERLY',ph:'EH·ver·lee',cl:'fora',st:['new','Nova'],nova:true,tag:'Every Day, Better.',rt:'Caloroso e contemporâneo, registro de marca de cuidado pessoal. Conversa bem com público feminino 30+, que é o núcleo da entrada por controle de peso.'}
+];
+var TAGLINES = [
+  {t:'Better Every Day.',k:'Evolução diária'},
+  {t:'Optimize Your Healthspan.',k:'Ciência · longevidade'},
+  {t:'Protocols, Not Promises.',k:'Nova · diferenciação'},
+  {t:'Science for Better Living.',k:'Ciência'},
+  {t:'Wellness, Made Simple.',k:'Simplicidade'},
+  {t:'Built on Evidence.',k:'Nova · credibilidade'},
+  {t:'Small Habits. Better Life.',k:'Consistência'},
+  {t:'Live Better. Longer.',k:'Longevidade'},
+  {t:'Your Healthspan, Optimized.',k:'Nova · healthspan'},
+  {t:'Perform Better. Live Better.',k:'Performance'},
+  {t:'Health, On Purpose.',k:'Nova · intenção'},
+  {t:'Designed for Better Living.',k:'Premium'},
+  {t:'Where Science Meets Routine.',k:'Nova · rotina'},
+  {t:'Unlock Your Better.',k:'Potencial'},
+  {t:'Find Your Cadence.',k:'Nova · ritmo e rotina'},
+  {t:'The Keystone of Your Day.',k:'Nova · produto-base'},
+  {t:'Well, By Design.',k:'Nova · premium'},
+  {t:'Every Day, Better.',k:'Nova · calorosa'},
+  {t:'No Miracles. Just Method.',k:'Nova · anti-diet-pill'}
+];
 var SUP = [
  {id:'vox',n:'Vox Nutrition',tipo:'fabricante',local:'West Jordan, Utah',st:'respondeu',
   contato:null,
@@ -1011,198 +723,6 @@ var SUP = [
   rec:[],slots:null,
   alerta:'Útil para ampliar a rodada de cotação rapidamente, já que 8 dos 11 ainda não responderam.'}
 ];
-var SHOW_CONTACT = false;
-var supFilter='todos', supAtivo='vox';
-function supVisiveis(){
-  return SUP.filter(function(x){
-    return supFilter==='todos' || x.st===supFilter || x.tipo===supFilter;
-  });
-}
-function renderSupBtns(){
-  var vis = supVisiveis();
-  if(!vis.some(function(x){return x.id===supAtivo;}) && vis.length) supAtivo = vis[0].id;
-  document.getElementById('supbtns').innerHTML = vis.map(function(x){
-    return '<button class="fbtn" data-supid="'+x.id+'" aria-pressed="'+(x.id===supAtivo?'true':'false')+'">'
-      + x.n + (x.st==='respondeu' ? ' ✓' : '') + '</button>';
-  }).join('');
-  document.getElementById('supcount').textContent = vis.length+' de '+SUP.length;
-  document.querySelectorAll('[data-supid]').forEach(function(b){
-    b.addEventListener('click', function(){ supAtivo=b.getAttribute('data-supid'); renderSupBtns(); renderSupDetail(); });
-  });
-}
-function renderSupDetail(){
-  var x = SUP.filter(function(v){return v.id===supAtivo;})[0];
-  if(!x){ document.getElementById('supdetail').innerHTML=''; return; }
-  var chip = x.st==='respondeu' ? '<span class="chip ok">Respondeu ao briefing</span>' : '<span class="chip warn">Sem resposta até agora</span>';
-  var tipo = {fabricante:'Fabricante',turnkey:'Turnkey / sem MOQ',diretorio:'Diretório'}[x.tipo];
-  var h = '<div class="arch">';
-  h += '<div class="tier"><div class="lab">'+tipo+' · '+x.local+'</div><div class="badges" style="display:flex;gap:6px;margin-bottom:9px">'+chip+'</div><div class="fl" style="font-size:14px">'+x.resumo+'</div></div>';
-  if(SHOW_CONTACT && x.contato) h += '<div class="tier"><div class="lab">Contato</div><div class="fl">'+x.contato+'</div></div>';
-  if(x.cond.length) h += '<div class="tier"><div class="lab">Condições</div><ul class="plain" style="margin:0">'+x.cond.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul></div>';
-  if(x.rec.length) h += '<div class="tier"><div class="lab">O que respondeu sobre os nossos conceitos</div><ul class="plain" style="margin:0">'+x.rec.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul></div>';
-  if(x.slots){
-    h += '<div class="tier"><div class="lab">O protocolo montado neste fornecedor</div><div class="slots">'
-      + x.slots.map(function(sl){
-          var falta = sl[1].indexOf('Custom')===0;
-          return '<div class="slot'+(falta?' gap':'')+'"><div class="sl">'+sl[0]+'</div><div class="mainp">'+sl[1]+'</div>'
-            + '<span class="px">'+sl[2]+'</span><div class="alts">'+sl[3]+'</div></div>';
-        }).join('') + '</div></div>';
-  } else {
-    h += '<div class="tier"><div class="lab">O protocolo neste fornecedor</div><div class="fl" style="color:var(--muted)">Ainda não há resposta ao briefing, então não dá para montar os quatro slots. É o que a cobrança desbloqueia.</div></div>';
-  }
-  if(x.alerta) h += '<div class="tier"><div class="lab">Leitura</div><div class="fl">'+x.alerta+'</div></div>';
-  h += '</div>';
-  document.getElementById('supdetail').innerHTML = h;
-}
-document.querySelectorAll('[data-sf2]').forEach(function(b){
-  b.addEventListener('click', function(){
-    supFilter=b.getAttribute('data-sf2');
-    document.querySelectorAll('[data-sf2]').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
-    renderSupBtns(); renderSupDetail();
-  });
-});
-renderSupBtns(); renderSupDetail();
-
-/* ---------- TERRITÓRIOS ---------- */
-var TERR = {
-  daily: {
-    proposito:{en:'Help people live better, every day.', pt:'Ajudar as pessoas a viver melhor, todos os dias.'},
-    missao:{en:'Create high-quality wellness solutions that make better health simple, practical and consistent.', pt:'Criar soluções de wellness de alta qualidade que tornem o cuidado com a saúde mais simples, prático e consistente.'},
-    visao:{en:'Become a trusted global wellness brand that helps people build better lives through science, quality and everyday habits.', pt:'Ser uma marca global de wellness reconhecida por ajudar pessoas a construir uma vida melhor com ciência, qualidade e hábitos diários.'},
-    promise:'Better Every Day.',
-    nota:'Não limita a marca a suplemento e permite falar de energia, foco, sono, longevidade e hábitos. Cria uma filosofia: você não precisa transformar sua vida de uma vez, precisa fazer escolhas melhores consistentemente.'
-  },
-  healthspan: {
-    proposito:{en:'Help people optimize their healthspan.', pt:'Ajudar as pessoas a otimizar seus anos de vida com saúde.'},
-    missao:{en:'Turn science into simple, high-quality protocols people can actually follow.', pt:'Transformar ciência em protocolos simples e de alta qualidade que as pessoas consigam de fato seguir.'},
-    visao:{en:'Become a reference in health optimization — products, protocols and knowledge in one system.', pt:'Ser referência em otimização de saúde, unindo produto, protocolo e conhecimento em um só sistema.'},
-    promise:'Optimize Your Healthspan.',
-    nota:'Healthspan desloca a conversa de viver mais para viver mais anos com saúde, energia e força. Dá cobertura científica, sustenta preço premium e aceita a entrada por controle de peso sem contradizer nada.'
-  }
-};
-var curTerr = 'daily';
-function renderTerr(){
-  var t = TERR[curTerr];
-  document.getElementById('terrout').innerHTML =
-      '<div class="stmt"><span class="en">'+t.proposito.en+'</span>'+t.proposito.pt+'<small>Propósito</small></div>'
-    + '<div class="stmt"><span class="en">'+t.missao.en+'</span>'+t.missao.pt+'<small>Missão</small></div>'
-    + '<div class="stmt"><span class="en">'+t.visao.en+'</span>'+t.visao.pt+'<small>Visão</small></div>'
-    + '<div class="stmt"><span class="en">'+t.promise+'</span><small>Brand promise</small></div>'
-    + '<div class="call gold"><span class="k">Por que este território</span><p>'+t.nota+'</p></div>';
-  var lk = document.getElementById('lkterr');
-  if(lk) lk.textContent = 'Território: ' + (curTerr==='daily'?'Better Every Day':'Optimize Your Healthspan');
-}
-document.querySelectorAll('[data-terr]').forEach(function(b){
-  b.addEventListener('click', function(){
-    curTerr = b.getAttribute('data-terr');
-    document.querySelectorAll('[data-terr]').forEach(function(o){ o.setAttribute('aria-pressed', o===b?'true':'false'); });
-    renderTerr();
-  });
-});
-renderTerr();
-
-/* ---------- NOMES ---------- */
-var NAMES = [
-  {w:'VYVORA',ph:'vai·VOR·ah',cl:'ora',st:['warn','Líder atual'],nova:false,tag:'Optimize Your Healthspan.',rt:'Vitality + evolve + aura. Não fica preso a vitamin, nutrition ou supplement. Permite construir significado próprio.'},
-  {w:'NUVORA',ph:'nu·VOR·ah',cl:'ora',st:['neu','Alternativa'],nova:false,tag:'The New Standard of Wellness.',rt:'Sonoridade moderna e tecnológica. Boa para incorporar personalização, testes e AI no futuro.'},
-  {w:'VELORA',ph:'ve·LOR·ah',cl:'ora',st:['neu','Alternativa'],nova:false,tag:'Your Better Biology.',rt:'Forte foneticamente e bastante premium. Registro de lifestyle sofisticado.'},
-  {w:'ELVORA',ph:'el·VOR·ah',cl:'ora',st:['neu','Reserva'],nova:false,tag:'Elevate Your Everyday.',rt:'Remete a elevation, evolve e vitality. Registro wellness/lifestyle.'},
-  {w:'EVORA',ph:'e·VOR·ah',cl:'ora',st:['bad','Risco alto'],nova:false,tag:'Elevate Your Health.',rt:'Curto, sofisticado e fácil de falar — e justamente por isso a probabilidade de já existir em alguma classe é alta.'},
-  {w:'VYYBORA',ph:'vai·BOR·ah',cl:'ora',st:['bad','Descartar'],nova:false,tag:'Better Every Day.',rt:'O duplo Y é passivo de erro de digitação, e num funil de webinar o nome é falado antes de ser digitado. É também o mais próximo de VYBORA CO, já em operação.'},
-  {w:'VYVANTA',ph:'vai·VAN·tah',cl:'fora',st:['neu','Alternativa'],nova:false,tag:'Live at Your Best.',rt:'Mais energético e contemporâneo. Funciona bem para linha de performance e para DTC.'},
-  {w:'VITERRA',ph:'vi·TER·ah',cl:'fora',st:['ok','Fora do cluster'],nova:false,tag:'Built for Better Living.',rt:'Vital + Terra. Sensação natural e premium, e a única da lista original com raiz semântica claramente diferente.'},
-  {w:'VITALYN',ph:'VAI·ta·lin',cl:'fora',st:['warn','Descritivo'],nova:false,tag:'Vitality. Simplified.',rt:'Ligado a vitalidade de forma direta. Ganha em clareza, perde em distintividade e em força de registro.'},
-  {w:'THRIVEN',ph:'THRY·ven',cl:'fora',st:['new','Nova'],nova:true,tag:'Protocols, Not Promises.',rt:'De thrive — prosperar, florescer. Raiz inglesa reconhecível, calorosa e expansível para qualquer categoria de saúde.'},
-  {w:'HALEN',ph:'HAY·len',cl:'fora',st:['new','Nova'],nova:true,tag:'Built on Evidence.',rt:'De hale — saudável, robusto, íntegro. Curto, anglo, fácil de falar e digitar. Registro clínico-premium.'},
-  {w:'VESTRA',ph:'VES·trah',cl:'fora',st:['new','Nova'],nova:true,tag:'Your Healthspan, Optimized.',rt:'Sonoridade latina e premium, com terminação -TRA que escapa completamente do cluster -ORA.'},
-  {w:'ALDEN',ph:'AWL·den',cl:'fora',st:['new','Nova'],nova:true,tag:'Health, On Purpose.',rt:'Limpo, quieto e confiável — o registro de marcas modernas de saúde. Zero conotação de suplemento, que é exatamente o pedido.'},
-  {w:'CADENCE',ph:'KAY·dens',cl:'fora',st:['new','Nova'],nova:true,tag:'Find Your Cadence.',rt:'Palavra inglesa real: o ritmo de uma rotina. É a metáfora exata de um protocolo diário, e dá uma história para contar na live sem prometer resultado.'},
-  {w:'KEYSTONE',ph:'KEE·stone',cl:'fora',st:['new','Nova'],nova:true,tag:'The Keystone of Your Day.',rt:'A pedra que sustenta o arco inteiro. Metáfora forte para um produto-base diário, e registro sólido e confiável — menos feminino que os -ORA.'},
-  {w:'HALERA',ph:'ha·LEH·rah',cl:'fora',st:['new','Nova'],nova:true,tag:'Well, By Design.',rt:'Coined de hale (saudável, íntegro). Mantém a sonoridade premium que agradou nos -ORA, mas com raiz e terminação diferentes — escapa do cluster sem perder o tom.'},
-  {w:'EVERLY',ph:'EH·ver·lee',cl:'fora',st:['new','Nova'],nova:true,tag:'Every Day, Better.',rt:'Caloroso e contemporâneo, registro de marca de cuidado pessoal. Conversa bem com público feminino 30+, que é o núcleo da entrada por controle de peso.'}
-];
-var TAGLINES = [
-  {t:'Better Every Day.',k:'Evolução diária'},
-  {t:'Optimize Your Healthspan.',k:'Ciência · longevidade'},
-  {t:'Protocols, Not Promises.',k:'Nova · diferenciação'},
-  {t:'Science for Better Living.',k:'Ciência'},
-  {t:'Wellness, Made Simple.',k:'Simplicidade'},
-  {t:'Built on Evidence.',k:'Nova · credibilidade'},
-  {t:'Small Habits. Better Life.',k:'Consistência'},
-  {t:'Live Better. Longer.',k:'Longevidade'},
-  {t:'Your Healthspan, Optimized.',k:'Nova · healthspan'},
-  {t:'Perform Better. Live Better.',k:'Performance'},
-  {t:'Health, On Purpose.',k:'Nova · intenção'},
-  {t:'Designed for Better Living.',k:'Premium'},
-  {t:'Where Science Meets Routine.',k:'Nova · rotina'},
-  {t:'Unlock Your Better.',k:'Potencial'},
-  {t:'Find Your Cadence.',k:'Nova · ritmo e rotina'},
-  {t:'The Keystone of Your Day.',k:'Nova · produto-base'},
-  {t:'Well, By Design.',k:'Nova · premium'},
-  {t:'Every Day, Better.',k:'Nova · calorosa'},
-  {t:'No Miracles. Just Method.',k:'Nova · anti-diet-pill'}
-];
-var curName=NAMES[0], curTag=null;
-var NGROUPS = [
-  {t:'Família -ORA', d:'O cluster saturado — colisões já registradas em VYBORA CO, VEYORA e VYB',
-   f:function(n){ return n.cl==='ora'; }},
-  {t:'Fora do cluster, da lista original', d:'Raiz semântica diferente, menos risco fonético',
-   f:function(n){ return n.cl==='fora' && !n.nova; }},
-  {t:'Sugestões novas', d:'Acrescentadas para a rodada de clearance não depender só do -ORA',
-   f:function(n){ return n.nova; }}
-];
-function card(n){
-  return '<button class="ncard" type="button" data-name="'+n.w+'" aria-pressed="'+(n.w===curName.w?'true':'false')+'">'
-    +'<div class="w">'+n.w+'</div><div class="ph2">'+n.ph+'</div>'
-    +'<div class="tags"><span class="chip '+n.st[0]+'">'+n.st[1]+'</span></div>'
-    +'<div class="rt">'+n.rt+'</div></button>';
-}
-function renderNames(){
-  document.getElementById('ngroups').innerHTML = NGROUPS.map(function(g){
-    var items = NAMES.filter(g.f);
-    return '<div class="ghead"><span>'+g.t+' · '+items.length+'</span><em>'+g.d+'</em></div>'
-      + '<div class="ngrid">'+items.map(card).join('')+'</div>';
-  }).join('');
-  document.querySelectorAll('[data-name]').forEach(function(b){
-    b.addEventListener('click', function(){
-      var f = NAMES.filter(function(x){return x.w===b.getAttribute('data-name');})[0];
-      if(f){ curName=f; curTag=null; renderNames(); renderTaglines(); renderLockup(); renderArch(); }
-    });
-  });
-}
-function renderTaglines(){
-  document.getElementById('tls').innerHTML = TAGLINES.map(function(t){
-    var active = (curTag ? curTag===t.t : curName.tag===t.t);
-    return '<button class="tlb" type="button" data-tag="'+t.t.replace(/"/g,'&quot;')+'" aria-pressed="'+(active?'true':'false')+'">'
-      +'<div class="tt">'+t.t+'</div><div class="tk">'+t.k+'</div></button>';
-  }).join('');
-  document.querySelectorAll('[data-tag]').forEach(function(b){
-    b.addEventListener('click', function(){ curTag=b.getAttribute('data-tag'); renderTaglines(); renderLockup(); });
-  });
-}
-function renderLockup(){
-  document.getElementById('lkbrand').textContent = curName.w;
-  document.getElementById('lktag').textContent = curTag || curName.tag;
-  document.getElementById('lkterr').textContent = 'Território: ' + (curTerr==='daily'?'Better Every Day':'Optimize Your Healthspan');
-}
-var SKUS=[['LEAN'],['METABOLIC'],['FIBER+'],['CORE'],['GREENS'],['REST'],['RECOVER'],['RENEW'],['HYDRATE'],['COLLAGEN']];
-var FAMS=[['LEAN','Weight Management','LEAN · METABOLIC · FIBER+'],['CORE','Daily Wellness','CORE · GREENS · HYDRATE'],['PERFORM','Strength &amp; Recovery','RECOVER · CREATINE · PROTEIN'],['LONGEVITY','Healthy Aging','RENEW · COQ10 · MAGNESIUM']];
-var PROTOS=[['LEAN PROTOCOL','30-day weight management support','LEAN + METABOLIC + FIBER+'],['DAILY PROTOCOL','Your everyday wellness foundation','CORE + GREENS + MAGNESIUM'],['ACTIVE PROTOCOL','Strength. Hydration. Recovery.','HYDRATE + CREATINE + RECOVER'],['LONGEVITY PROTOCOL','Build a healthier future','RENEW + COQ10 + MAGNESIUM']];
-function renderArch(){
-  var b = curName.w;
-  document.getElementById('arch').innerHTML =
-      '<div class="tier"><div class="lab">Nível 1 · Marca-mãe</div><div class="skus"><span class="sku" style="border-color:var(--garnet)"><b>'+b+'</b></span></div>'
-    + '<div class="fl" style="font-size:12.5px;color:var(--muted);margin-top:8px">'+curName.tag+' · '+curName.ph+'</div></div>'
-    + '<div class="tier"><div class="lab">Nível 2 · SKUs por benefício</div><div class="skus">'
-    + SKUS.map(function(s){return '<span class="sku"><b>'+b+'</b> '+s[0]+'</span>';}).join('')+'</div></div>'
-    + '<div class="tier"><div class="lab">Nível 3 · Quatro famílias</div><div class="fams">'
-    + FAMS.map(function(f){return '<div class="fam"><div class="fh">'+f[0]+'</div><div class="fl">'+f[1]+'<br><span style="color:var(--faint);font-size:11.5px">'+f[2]+'</span></div></div>';}).join('')+'</div></div>'
-    + '<div class="tier"><div class="lab">Nível 4 · Protocolos</div><div class="proto">'
-    + PROTOS.map(function(p){return '<div class="pr"><div class="pn">'+b+' '+p[0]+'</div><div class="pc">'+p[1]+' · '+p[2]+'</div></div>';}).join('')+'</div></div>';
-}
-renderNames(); renderTaglines(); renderLockup(); renderArch();
-
-/* ---------- PORTFÓLIO ---------- */
 var P = [
  ['Berberine 1200 mg','ancora','Âncora metabólica','nome','Berberine HCl 97% + Granular Berberine 97% (Berberis aristata, casca) — 1200 mg, 2 cáps/dia','Metabolismo de glicose e lipídios; é o ativo com mais literatura do protocolo','forte','Dezenas de ensaios humanos e meta-análises em parâmetros metabólicos. Dose estudada tipicamente 900–1500 mg/dia dividida — o produto entrega 1200 mg, dentro da faixa. Absorção oral baixa é a limitação conhecida.',['Supports metabolism and healthy weight management','Helps regulate blood sugar and insulin response'],[6.64,5.74,5.54],[9.50,7.60],1,'Rotulado como "Blend", mas são duas formas do mesmo ativo. E a 1ª alegação do catálogo é glicêmica — não usar no rótulo nem na live.'],
  ['GLP1 Support','ancora','Mesmo part number (14697) do Berberine','nome','Idêntico ao Berberine 1200 mg','Igual ao Berberine','forte','Mesmo produto, mesma evidência.',[],[6.64,5.74,5.54],[null,null],0,'É o Berberine renomeado. Não usar nome GLP-1 no rótulo nem na live.'],
@@ -1240,53 +760,180 @@ var P = [
  ['CoQ10 (30 ct)','longevidade','Energia mitocondrial','unico','Ubiquinona','Função mitocondrial','moderada','Evidência boa em insuficiência cardíaca e em mialgia por estatina. Não é ativo de emagrecimento.',['Supports heart health and cardiovascular energy production','Aids cellular energy at the mitochondrial level'],[4.53,3.63,3.43],[8.80,6.60],0,null],
  ['Collagen I-II-III-V-X (90 ct)','longevidade','Beleza e articulação','blend','Colágeno tipos I, II, III, V e X — 1800 mg','Pele, articulação, cabelo e unha','moderada','Peptídeos de colágeno têm evidência razoável para elasticidade da pele e desconforto articular. Excelente produto de recompra.',['Supports joint, hair, skin, and nail health','Promotes skin elasticity and reduces visible signs of aging'],[4.82,3.92,3.72],[7.23,5.78],0,null]
 ];
-var SHOW_PRICES = false;
-var PGROUPS = [
-  ['ancora','Âncora metabólica — o produto principal'],
-  ['saciedade','Saciedade, apetite e inchaço — o brinde complementar'],
-  ['glicemico','Vontade de doce — order bump 1'],
-  ['termo','Termogênese e energia — order bump 2'],
-  ['digestivo','Digestivo e fibra — apoio ao protocolo'],
-  ['sono','Sono, cortisol e compulsão noturna'],
-  ['longevidade','Longevidade — fora do protocolo inicial, para a expansão']
+
+/* ---------- navegação ---------- */
+var NB = [].slice.call(document.querySelectorAll('.nb'));
+NB.forEach(function(b){
+  b.addEventListener('click', function(){
+    NB.forEach(function(o){
+      var sel = o===b;
+      o.setAttribute('aria-selected', sel?'true':'false');
+      document.getElementById(o.getAttribute('aria-controls')).hidden = !sel;
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+/* ---------- território ---------- */
+var curTerr='daily';
+function renderTerr(){
+  document.getElementById('terrbtns').innerHTML =
+    [['daily','Better Every Day'],['healthspan','Optimize Your Healthspan']].map(function(t){
+      return '<button class="fb" data-terr="'+t[0]+'" aria-pressed="'+(t[0]===curTerr?'true':'false')+'">'+t[1]+'</button>';
+    }).join('');
+  var t = TERR[curTerr];
+  document.getElementById('terrout').innerHTML =
+      '<div class="stmt"><span class="en">'+t.proposito.en+'</span><span class="pt">'+t.proposito.pt+'</span><small>Propósito</small></div>'
+    + '<div class="stmt"><span class="en">'+t.missao.en+'</span><span class="pt">'+t.missao.pt+'</span><small>Missão</small></div>'
+    + '<div class="stmt"><span class="en">'+t.visao.en+'</span><span class="pt">'+t.visao.pt+'</span><small>Visão</small></div>'
+    + '<div class="note"><span class="nt">Por que este território</span><p>'+t.nota+'</p></div>'
+    + (curTerr==='healthspan' ? '' : '<div class="note w"><span class="nt">Sugestão</span><p>Com emagrecimento como entrada, <b>Healthspan</b> é o território mais coerente: aceita a porta de entrada sem contradizer nada e ainda faz sentido quando a marca tiver linha de longevidade. "Better Every Day" continua útil — mas como assinatura de campanha, não como plataforma.</p></div>');
+  document.querySelectorAll('[data-terr]').forEach(function(b){
+    b.addEventListener('click', function(){ curTerr=b.getAttribute('data-terr'); renderTerr(); renderLock(); });
+  });
+}
+
+/* ---------- nomes ---------- */
+var curName=NAMES[0], curTag=null;
+var NG = [
+  ['Família -ORA','O cluster saturado — colisões já registradas', function(n){return n.cl==='ora';}],
+  ['Fora do cluster, da lista original','Raiz semântica diferente, menos risco fonético', function(n){return n.cl==='fora' && !n.nova;}],
+  ['Sugestões novas','Para a rodada de clearance não depender só do -ORA', function(n){return n.nova;}]
 ];
-var BLEND = {blend5:['ok','Blend de 5 ativos'],blend4:['ok','Blend de 4 ativos'],blend:['ok','Blend'],
-             unico:['neu','Ingrediente único'],nome:['warn','Blend só no nome'],'?':['neu','Composição a confirmar']};
-var EVID = {forte:['ok','Evidência forte'],moderada:['ok','Evidência moderada'],mista:['warn','Evidência mista'],
-            fraca:['warn','Evidência fraca'],minima:['bad','Evidência mínima'],'?':['neu','A confirmar']};
-var pFilter='todos';
-function money(v){ return (v===null||v===undefined) ? '—' : '$'+v.toFixed(2); }
-function renderP(){
-  document.getElementById('pnote').innerHTML = SHOW_PRICES
-    ? 'Composição extraída dos templates de rótulo que a Vox anexou. O nível de evidência é avaliação nossa sobre a literatura do ativo — não vem do fornecedor. Vox = preço por frasco por quantidade; ODF t1 = 1–199 frascos/mês, t3 = 1.000–4.999, já com fulfillment.'
-    : 'Composição extraída dos templates de rótulo que a Vox anexou. O nível de evidência é avaliação nossa sobre a literatura do ativo — não vem do fornecedor. Preços circulam só no material interno.';
-  var total=0, mostrados=0, html='';
-  PGROUPS.forEach(function(g){
-    var items = P.filter(function(r){ return r[1]===g[0]; });
-    total += items.length;
-    if(pFilter!=='todos' && pFilter!==g[0]) return;
-    if(!items.length) return;
-    mostrados += items.length;
-    html += '<div class="ghead" style="grid-column:1/-1"><span>'+g[1]+'</span><em>'+items.length+' produtos</em></div>';
-    items.forEach(function(r){
-      var b = BLEND[r[3]] || BLEND['?'], e = EVID[r[6]] || EVID['?'];
-      var claims = r[8].length ? '<div class="fld"><div class="fl2">Alegações do catálogo</div><div class="fv">'
-          + r[8].map(function(c){return '“'+c+'”';}).join('<br>') + '</div></div>' : '';
-      var px = SHOW_PRICES ? '<div class="pxrow"><span>Vox '+money(r[9][0])+' / '+money(r[9][1])+' / '+money(r[9][2])
-          +'</span><span>ODF '+money(r[10][0])+' / '+money(r[10][1])+'</span></div>' : '';
-      html += '<div class="pcard'+(r[11]?' hi':'')+'">'
-        + '<div class="pn2">'+r[0]+'</div><div class="pp">'+r[2]+'</div>'
-        + '<div class="badges"><span class="chip '+b[0]+'">'+b[1]+'</span><span class="chip '+e[0]+'">'+e[1]+'</span></div>'
-        + '<div class="fld"><div class="fl2">Ingrediente e dose</div><div class="fv">'+r[4]+'</div></div>'
-        + '<div class="fld"><div class="fl2">Para que serve</div><div class="fv">'+r[5]+'</div></div>'
-        + '<div class="fld"><div class="fl2">O que diz a ciência</div><div class="fv">'+r[7]+'</div></div>'
-        + claims
-        + (r[12] ? '<div class="warn2">'+r[12]+'</div>' : '')
-        + px + '</div>';
+function renderNames(){
+  document.getElementById('ngroups').innerHTML = NG.map(function(g){
+    var it = NAMES.filter(g[2]);
+    return '<div class="gh"><span>'+g[0]+' · '+it.length+'</span><em>'+g[1]+'</em></div><div class="ngrid">'
+      + it.map(function(n){
+          return '<button class="nc" data-name="'+n.w+'" aria-pressed="'+(n.w===curName.w?'true':'false')+'">'
+            +'<div class="nw">'+n.w+'</div><div class="np">'+n.ph+'</div>'
+            +'<span class="chip '+({bad:'d',warn:'w',ok:'ok',neu:'n',new:'a'}[n.st[0]]||'n')+'">'+n.st[1]+'</span>'
+            +'<div class="nr">'+n.rt+'</div></button>';
+        }).join('') + '</div>';
+  }).join('');
+  document.querySelectorAll('[data-name]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var f=NAMES.filter(function(x){return x.w===b.getAttribute('data-name');})[0];
+      if(f){curName=f;curTag=null;renderNames();renderTags();renderLock();renderArch();}
     });
   });
-  document.getElementById('pgrid').innerHTML = html;
-  document.getElementById('pcount').textContent = mostrados+' de '+total;
+}
+function renderTags(){
+  document.getElementById('tagbtns').innerHTML = TAGLINES.map(function(t){
+    var on = curTag ? curTag===t.t : curName.tag===t.t;
+    return '<button class="fb" data-tag="'+t.t.replace(/"/g,'&quot;')+'" aria-pressed="'+(on?'true':'false')+'">'+t.t+'</button>';
+  }).join('');
+  document.querySelectorAll('[data-tag]').forEach(function(b){
+    b.addEventListener('click', function(){ curTag=b.getAttribute('data-tag'); renderTags(); renderLock(); });
+  });
+}
+function renderLock(){
+  document.getElementById('lkb').textContent = curName.w;
+  document.getElementById('lkt').textContent = curTag || curName.tag;
+}
+var SKUS=['LEAN','METABOLIC','FIBER+','CORE','GREENS','REST','RECOVER','RENEW','HYDRATE','COLLAGEN'];
+var FAMS=[['LEAN','Weight Management'],['CORE','Daily Wellness'],['PERFORM','Strength &amp; Recovery'],['LONGEVITY','Healthy Aging']];
+var PROTOS=[['LEAN PROTOCOL','LEAN + METABOLIC + FIBER+'],['DAILY PROTOCOL','CORE + GREENS + MAGNESIUM'],['ACTIVE PROTOCOL','HYDRATE + CREATINE + RECOVER'],['LONGEVITY PROTOCOL','RENEW + COQ10 + MAGNESIUM']];
+function renderArch(){
+  var b=curName.w;
+  document.getElementById('arch').innerHTML =
+    '<div class="grid g2">'
+    + '<div class="card"><div class="ct">Nível 2 · SKUs por benefício</div><div class="tags">'
+      + SKUS.map(function(x){return '<span class="chip n">'+b+' '+x+'</span>';}).join('')+'</div></div>'
+    + '<div class="card"><div class="ct">Nível 3 · Quatro famílias</div><ul class="ls" style="margin:0">'
+      + FAMS.map(function(f){return '<li><b>'+f[0]+'</b> — '+f[1]+'</li>';}).join('')+'</ul></div>'
+    + '<div class="card acc"><div class="ct">Nível 4 · Protocolos — o que aumenta ticket e recorrência</div><ul class="ls" style="margin:0">'
+      + PROTOS.map(function(p){return '<li><b>'+b+' '+p[0]+'</b><br><span style="color:var(--muted);font-size:12.5px">'+p[1]+'</span></li>';}).join('')+'</ul></div>'
+    + '<div class="card"><div class="ct">Nível 1 · Marca-mãe</div><div class="ch">'+b+'</div><p>'+curName.tag+' · '+curName.ph+'</p>'
+      + '<p style="margin-top:9px">O nome não pode conter supplements, nutrition nem weight loss — é o que permite a Fase 4.</p></div>'
+    + '</div>';
+}
+
+/* ---------- fornecedores ---------- */
+var SHOW_CONTACT = false;
+var supFilter='todos', supAtivo='vox';
+function supVis(){ return SUP.filter(function(x){ return supFilter==='todos' || x.st===supFilter || x.tipo===supFilter; }); }
+function renderSupBtns(){
+  var vis=supVis();
+  if(!vis.some(function(x){return x.id===supAtivo;}) && vis.length) supAtivo=vis[0].id;
+  document.getElementById('supbtns').innerHTML = vis.map(function(x){
+    return '<button class="fb" data-supid="'+x.id+'" aria-pressed="'+(x.id===supAtivo?'true':'false')+'">'
+      + x.n + (x.st==='respondeu'?' ✓':'') + '</button>';
+  }).join('');
+  document.getElementById('supcount').textContent = vis.length+' de '+SUP.length;
+  document.querySelectorAll('[data-supid]').forEach(function(b){
+    b.addEventListener('click', function(){ supAtivo=b.getAttribute('data-supid'); renderSupBtns(); renderSupDet(); });
+  });
+}
+function renderSupDet(){
+  var x=SUP.filter(function(v){return v.id===supAtivo;})[0];
+  if(!x){document.getElementById('supdetail').innerHTML='';return;}
+  var chip = x.st==='respondeu' ? '<span class="chip ok">Respondeu ao briefing</span>' : '<span class="chip w">Sem resposta até agora</span>';
+  var tipo = {fabricante:'Fabricante',turnkey:'Turnkey / sem MOQ',diretorio:'Diretório'}[x.tipo];
+  var h = '<div class="card" style="margin-top:6px">';
+  h += '<div class="ct">'+tipo+' · '+x.local+'</div>';
+  h += '<div style="margin-bottom:9px">'+chip+'</div>';
+  h += '<p style="font-size:14.5px;color:var(--ink)">'+x.resumo+'</p>';
+  if(SHOW_CONTACT && x.contato) h += '<div class="pf" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line)"><div class="pl2" style="font-family:\'JetBrains Mono\',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:5px">Contato</div><div style="font-size:13px;color:var(--ink-2)">'+x.contato+'</div></div>';
+  h += '</div>';
+  if(x.cond.length) h += '<h3 style="margin-top:26px">Condições</h3><ul class="ls">'+x.cond.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul>';
+  if(x.rec.length) h += '<h3>O que respondeu sobre os nossos conceitos</h3><ul class="ls">'+x.rec.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul>';
+  if(x.slots){
+    h += '<h3>O protocolo montado neste fornecedor</h3><div class="slots">'
+      + x.slots.map(function(s){
+          var gap = s[1].indexOf('Custom')===0;
+          return '<div class="sc'+(gap?' gap':'')+'"><div class="ss">'+s[0]+'</div><div class="sm">'+s[1]+'</div>'
+            + (s[2]&&s[2]!=='—' ? '<div class="sx">'+s[2]+'</div>' : '')
+            + '<div class="sa">'+s[3]+'</div></div>';
+        }).join('') + '</div>';
+  } else {
+    h += '<div class="note w" style="margin-top:22px"><span class="nt">O protocolo neste fornecedor</span><p>Ainda não há resposta ao briefing, então não dá para montar os quatro slots. É o que a cobrança desbloqueia.</p></div>';
+  }
+  if(x.alerta) h += '<div class="note"><span class="nt">Leitura</span><p>'+x.alerta+'</p></div>';
+  document.getElementById('supdetail').innerHTML = h;
+}
+document.querySelectorAll('[data-sf]').forEach(function(b){
+  b.addEventListener('click', function(){
+    supFilter=b.getAttribute('data-sf');
+    document.querySelectorAll('[data-sf]').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
+    renderSupBtns(); renderSupDet();
+  });
+});
+
+/* ---------- portfólio ---------- */
+var SHOW_PRICES = false;
+var PG = [['ancora','Âncora metabólica — o produto principal'],['saciedade','Saciedade, apetite e inchaço — o brinde'],
+          ['glicemico','Vontade de doce — order bump 1'],['termo','Termogênese e energia — order bump 2'],
+          ['digestivo','Digestivo e fibra'],['sono','Sono, cortisol e compulsão noturna'],
+          ['longevidade','Longevidade — para a expansão']];
+var BL={blend5:['ok','Blend de 5'],blend4:['ok','Blend de 4'],blend:['ok','Blend'],unico:['n','Ingrediente único'],nome:['w','Blend só no nome'],'?':['n','A confirmar']};
+var EV={forte:['ok','Evidência forte'],moderada:['ok','Evidência moderada'],mista:['w','Evidência mista'],fraca:['w','Evidência fraca'],minima:['d','Evidência mínima'],'?':['n','A confirmar']};
+var pFilter='todos';
+function m$(v){ return (v===null||v===undefined)?'—':'$'+v.toFixed(2); }
+function renderP(){
+  var tot=0,mos=0,h='';
+  PG.forEach(function(g){
+    var it=P.filter(function(r){return r[1]===g[0];});
+    tot+=it.length;
+    if(pFilter!=='todos'&&pFilter!==g[0]) return;
+    if(!it.length) return;
+    mos+=it.length;
+    h+='<div class="gh" style="grid-column:1/-1"><span>'+g[1]+'</span><em>'+it.length+'</em></div>';
+    it.forEach(function(r){
+      var b=BL[r[3]]||BL['?'], e=EV[r[6]]||EV['?'];
+      h+='<div class="pc'+(r[11]?' hl':'')+'">'
+       +'<div class="pn">'+r[0]+'</div><div class="pp">'+r[2]+'</div>'
+       +'<div class="pb"><span class="chip '+b[0]+'">'+b[1]+'</span><span class="chip '+e[0]+'">'+e[1]+'</span></div>'
+       +'<div class="pf"><div class="pl2">Ingrediente e dose</div><div class="pv">'+r[4]+'</div></div>'
+       +'<div class="pf"><div class="pl2">Para que serve</div><div class="pv">'+r[5]+'</div></div>'
+       +'<div class="pf"><div class="pl2">O que diz a ciência</div><div class="pv">'+r[7]+'</div></div>'
+       +(r[12]?'<div class="pw">'+r[12]+'</div>':'')
+       +(SHOW_PRICES?'<div class="px"><span>Vox '+m$(r[9][0])+' / '+m$(r[9][1])+'</span><span>ODF '+m$(r[10][0])+' / '+m$(r[10][1])+'</span></div>':'')
+       +'</div>';
+    });
+  });
+  document.getElementById('pgrid').innerHTML=h;
+  document.getElementById('pcount').textContent=mos+' de '+tot;
 }
 document.querySelectorAll('[data-pf]').forEach(function(b){
   b.addEventListener('click', function(){
@@ -1295,5 +942,8 @@ document.querySelectorAll('[data-pf]').forEach(function(b){
     renderP();
   });
 });
-renderP();
+
+renderTerr(); renderNames(); renderTags(); renderLock(); renderArch();
+renderSupBtns(); renderSupDet(); renderP();
+
 </script>
