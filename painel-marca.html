@@ -122,7 +122,7 @@ ul.plain li::before{content:"";position:absolute;left:0;top:1.05em;width:7px;hei
 .slot{border:1px solid var(--rule);background:var(--paper);padding:14px;display:flex;flex-direction:column}
 .slot .sl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--moro);margin-bottom:9px}
 .slot .mainp{font-weight:600;font-size:14.5px;line-height:1.3}
-.slot .px{display:none;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--ink-2);margin-top:4px;display:block}
+.slot .px{display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--ink-2);margin-top:4px}
 .slot .alts{font-size:12.5px;color:var(--muted);margin-top:10px;padding-top:9px;border-top:1px solid var(--rule);line-height:1.5}
 .slot.gap{border-color:var(--bad);border-left:3px solid var(--bad)}
 .slot.gap .mainp{color:var(--bad)}
@@ -225,13 +225,13 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
 <header class="mast">
   <p class="eyebrow">Supplements LLC · Mercado EUA · Painel de decisão</p>
   <h1>Fornecedores, estratégia, nome e o <em>protocolo</em> que dá para montar hoje</h1>
-  <p class="standfirst">Os três documentos de marca consolidados, mais tudo que os fornecedores responderam ao briefing do Neilson — com preços reais de catálogo e as composições possíveis a partir do que existe em estoque.</p>
+  <p class="standfirst">Os três documentos de marca consolidados, mais tudo que os fornecedores responderam ao briefing do Neilson, e as composições possíveis a partir do que existe em estoque.</p>
 
   <div class="tabs" role="tablist" aria-label="Frentes do projeto">
     <button class="tab" role="tab" id="t-1" aria-controls="p-1" aria-selected="true"><span class="n">01</span> Estruturação</button>
     <button class="tab" role="tab" id="t-2" aria-controls="p-2" aria-selected="false"><span class="n">02</span> Estratégia</button>
     <button class="tab" role="tab" id="t-3" aria-controls="p-3" aria-selected="false"><span class="n">03</span> Nomes</button>
-    <button class="tab" role="tab" id="t-4" aria-controls="p-4" aria-selected="false"><span class="n">04</span> Portfólio e preços</button>
+    <button class="tab" role="tab" id="t-4" aria-controls="p-4" aria-selected="false"><span class="n">04</span> Portfólio</button>
     <button class="tab" role="tab" id="t-5" aria-controls="p-5" aria-selected="false"><span class="n">05</span> Composição</button>
     <button class="tab" role="tab" id="t-6" aria-controls="p-6" aria-selected="false"><span class="n">06</span> Produto e funil</button>
     <button class="tab" role="tab" id="t-7" aria-controls="p-7" aria-selected="false"><span class="n">07</span> Economia</button>
@@ -255,11 +255,11 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
     <table>
       <thead><tr><th>Fornecedor</th><th>MOQ estoque</th><th>MOQ custom</th><th>Prazo</th><th>Fulfillment DTC</th></tr></thead>
       <tbody>
-        <tr class="hi"><td class="nm">Vox Nutrition<br><span style="font-weight:400;font-size:12.5px;color:var(--muted)">Ruben Espinosa · (385) 212-3914</span></td>
+        <tr class="hi"><td class="nm">Vox Nutrition<br><span style="font-weight:400;font-size:12.5px;color:var(--muted)">West Jordan, Utah</span></td>
           <td class="mono">300 rotulado<br>150 em branco</td><td class="mono">~1.000.000 cáps<br>pó: ~750 kg</td><td class="mono">4–6 semanas</td><td>Não — irmã ShipCentral</td></tr>
-        <tr><td class="nm">On Demand Fulfillment<br><span style="font-weight:400;font-size:12.5px;color:var(--muted)">Joshua Christensen · (385) 518-1812</span></td>
+        <tr><td class="nm">On Demand Fulfillment<br><span style="font-weight:400;font-size:12.5px;color:var(--muted)">West Jordan, Utah</span></td>
           <td class="mono">Sem MOQ<br>dropship</td><td class="mono">Não oferece</td><td class="mono">Dias</td><td>Sim — já incluso no preço</td></tr>
-        <tr><td class="nm">Private Label Express<br><span style="font-weight:400;font-size:12.5px;color:var(--muted)">Eliza Pablo / Jem U. · 888.404.2773</span></td>
+        <tr><td class="nm">Private Label Express<br><span style="font-weight:400;font-size:12.5px;color:var(--muted)">Coral Springs, Flórida</span></td>
           <td class="mono">500<br>só gummies</td><td class="mono">150.000 cáps<br>≈ 2.500 frascos/SKU</td><td class="mono">10–12 semanas</td><td>Sim</td></tr>
       </tbody>
     </table>
@@ -276,10 +276,8 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
   <div class="supbox" id="sup-vox">
     <div class="arch">
       <div class="tier">
-        <div class="lab">Contato</div>
-        <div class="fl"><b>Ruben Espinosa</b> · Business Development Manager<br>
-        ruben.espinosa@voxnutrition.com · (385) 212-3914<br>
-        8224 S Industry Cir, Suite 200 · West Jordan, Utah 84088</div>
+        <div class="lab">Fornecedor</div>
+        <div class="fl"><b>Vox Nutrition</b> · West Jordan, Utah<br>Fabricante. Contato do representante está no material interno.</div>
       </div>
       <div class="tier">
         <div class="lab">Condições</div>
@@ -302,30 +300,26 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
         </ul>
       </div>
       <div class="tier">
-        <div class="lab">O protocolo montado na Vox · MOQ 150 por SKU</div>
+        <div class="lab">O protocolo montado na Vox · MOQ 150 frascos por SKU</div>
         <div class="slots">
           <div class="slot">
             <div class="sl">Produto principal</div>
             <div class="mainp">Berberine 1200 mg</div>
-            <span class="px">$6,64 @150 · $5,74 @1.000</span>
             <div class="alts">Dose clínica, forma HCl — a mais estudada.<br><b>Alternativas:</b> Caralluma 600 mg, Garcinia 95% HCA.</div>
           </div>
           <div class="slot">
             <div class="sl">Brinde complementar</div>
             <div class="mainp">Saffron 88.5</div>
-            <span class="px">$4,23 @150 · $3,33 @1.000</span>
             <div class="alts">É o mesmo ativo do Satiereal do briefing.<br><b>Se quiser formato pó:</b> Greens 151 g. <b>Se quiser fibra:</b> Max Detox ou Colon Sweep.</div>
           </div>
           <div class="slot">
             <div class="sl">Order bump 1 · doce</div>
             <div class="mainp">Blood Sugar Plus</div>
-            <span class="px">$4,26 @150 · $3,36 @1.000</span>
             <div class="alts">Cobre o conceito glicêmico do briefing.<br><b>Alternativas:</b> Cinnamon 600 mg, ALA avulso, Myo D-Chiro Inositol.</div>
           </div>
           <div class="slot">
             <div class="sl">Order bump 2 · termogênico</div>
             <div class="mainp">Oxy Burn</div>
-            <span class="px">$4,73 @150 · $3,83 @1.000</span>
             <div class="alts">Frasco preto, já diferencia na caixa.<br><b>Alternativas:</b> Best Seller Blend, Keto Ultra, Night Time Fat Burn (sem estimulante).</div>
           </div>
         </div>
@@ -340,10 +334,8 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
   <div class="supbox" id="sup-odf" hidden>
     <div class="arch">
       <div class="tier">
-        <div class="lab">Contato</div>
-        <div class="fl"><b>Joshua Christensen</b> · Account Manager<br>
-        joshua.christensen@ondemandfulfillment.com · (385) 518-1812<br>
-        West Jordan, Utah</div>
+        <div class="lab">Fornecedor</div>
+        <div class="fl"><b>On Demand Fulfillment</b> · West Jordan, Utah<br>Revende produto fabricado pela Vox. Contato do gerente de conta está no material interno.</div>
       </div>
       <div class="tier">
         <div class="lab">Condições</div>
@@ -371,25 +363,21 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
           <div class="slot">
             <div class="sl">Produto principal</div>
             <div class="mainp">Berberine</div>
-            <span class="px">$9,50 tier 1 · $7,60 tier 3</span>
             <div class="alts">1.200 mg de Berberina HCl por dose — o mais próximo do conceito.<br><b>Alternativas:</b> African Mango Ultra, White Kidney Bean.</div>
           </div>
           <div class="slot">
             <div class="sl">Brinde complementar</div>
             <div class="mainp">Saffron Pure</div>
-            <span class="px">$5,41 tier 1 · $4,58 tier 3</span>
             <div class="alts">Saciedade, mesmo ativo do Satiereal.<br><b>Se quiser fibra:</b> Psyllium Husk Plus. <b>Formato pó:</b> Powder Greens.</div>
           </div>
           <div class="slot">
             <div class="sl">Order bump 1 · doce</div>
             <div class="mainp">Blood Sugar Ultra</div>
-            <span class="px">$5,90 tier 1 · $4,80 tier 3</span>
             <div class="alts">Suporte glicêmico.<br><b>Alternativas:</b> Cinnamon, Myo D-Chiro Inositol.</div>
           </div>
           <div class="slot">
             <div class="sl">Order bump 2 · termogênico</div>
             <div class="mainp">Oxy Burn</div>
-            <span class="px">$6,67 tier 1 · $5,42 tier 3</span>
             <div class="alts">Termogênico de manhã.<br><b>Alternativas:</b> Best Sellers Blend, Raspberry Ketone Ultra, Night Time Fat Burner.</div>
           </div>
         </div>
@@ -404,10 +392,8 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
   <div class="supbox" id="sup-ple" hidden>
     <div class="arch">
       <div class="tier">
-        <div class="lab">Contato</div>
-        <div class="fl"><b>Eliza Pablo</b> · Operations &amp; Brand Development Lead · eliza@privatelabelexpress.com<br>
-        <b>Jem U.</b> · Operations &amp; Brand Development · support@privatelabelexpress.com<br>
-        888.404.2773 · 4220 NW 120th Avenue, Coral Springs, FL 33065</div>
+        <div class="lab">Fornecedor</div>
+        <div class="fl"><b>Private Label Express</b> · Coral Springs, Flórida<br>Contato da equipe comercial está no material interno.</div>
       </div>
       <div class="tier">
         <div class="lab">MOQ de custom, por total de unidades produzidas</div>
@@ -438,25 +424,21 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
           <div class="slot gap">
             <div class="sl">Produto principal</div>
             <div class="mainp">Não existe em estoque</div>
-            <span class="px">Custom: 2.500 frascos · 10–12 semanas</span>
             <div class="alts">Nenhum dos gummies de estoque serve ao conceito metabólico.</div>
           </div>
           <div class="slot gap">
             <div class="sl">Brinde complementar</div>
             <div class="mainp">Não existe em estoque</div>
-            <span class="px">Pó custom: 1.000–2.000 potes</span>
             <div class="alts">É aqui que a PLE é melhor que a Vox: o MOQ de pó custom é muito menor que os 750 kg da Vox.</div>
           </div>
           <div class="slot gap">
             <div class="sl">Order bump 1 · doce</div>
             <div class="mainp">Não existe em estoque</div>
-            <span class="px">Custom: 2.500 frascos</span>
             <div class="alts">Só faria sentido na fase de fórmula-assinatura.</div>
           </div>
           <div class="slot gap">
             <div class="sl">Order bump 2 · termogênico</div>
             <div class="mainp">Não existe em estoque</div>
-            <span class="px">Custom: 2.500 frascos</span>
             <div class="alts">Idem.</div>
           </div>
         </div>
@@ -631,9 +613,14 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
 
 <!-- ============ 04 ============ -->
 <div class="panel" id="p-4" role="tabpanel" aria-labelledby="t-4" hidden>
-  <h2>Portfólio e preços reais</h2>
-  <p class="srcnote">Vox Nutrition — tabela Q3 2026 · On Demand Fulfillment — catálogo set 2026</p>
-  <p class="lede">O que existe em estoque, com preço por frasco. Vox é compra direta com MOQ 150; ODF é dropship sem MOQ, com fulfillment embutido.</p>
+  <h2>Portfólio dos fornecedores</h2>
+  <p class="srcnote">Catálogo Vox Nutrition 2026 + catálogo On Demand Fulfillment, set 2026</p>
+  <p class="lede">O catálogo real dos fornecedores, com as alegações que o próprio fabricante publica para cada produto. É a matéria-prima do rótulo e do roteiro — mas não é automaticamente utilizável.</p>
+
+  <div class="call">
+    <span class="k">Duas alegações do catálogo que vocês não podem usar</span>
+    <p>A FTC mantém uma lista de alegações que considera <strong>sempre falsas</strong> para suplemento de emagrecimento. Duas delas estão no catálogo do fabricante, escritas por ele: <em>"Helps block fat production"</em> no Garcinia Cambogia e <em>"Supports carbohydrate blocking to reduce calorie absorption"</em> no White Kidney Bean. <strong>O fato de o fornecedor usar não torna seguro para vocês</strong> — quem responde pelo claim é quem vende ao consumidor final. Marcamos na coluna Atenção todos os casos.</p>
+  </div>
 
   <div class="call gold">
     <span class="k">Achado nos catálogos</span>
@@ -1086,70 +1073,127 @@ renderNames(); renderTaglines(); renderLockup(); renderArch();
 
 /* ---------- PORTFÓLIO ---------- */
 var P = [
-  ['Berberine 1200 mg','ancora','Âncora metabólica — dose clínica',6.64,5.74,5.54,9.50,7.60,1],
-  ['GLP1 Support (mesmo part do Berberine)','ancora','Mesmo produto, nome de marketing',6.64,5.74,5.54,null,null,0],
-  ['Saffron 88.5','saciedade','Saciedade — é o ativo do Satiereal',4.23,3.33,3.13,5.41,4.58,1],
-  ['Caralluma 600 mg','saciedade','Supressão de apetite',4.51,3.61,3.41,5.59,4.54,0],
-  ['Garcinia Cambogia 700 mg 95% HCA','saciedade','Apetite e gordura',4.81,3.91,3.71,5.72,4.84,0],
-  ['White Kidney Bean','saciedade','Bloqueio de carboidrato',null,null,null,5.47,4.45,0],
-  ['African Mango Ultra','saciedade','Metabólico e apetite',null,null,null,6.34,5.15,0],
-  ['Blood Sugar Plus','glicemico','Glicêmico — cobre o conceito do bump',4.26,3.36,3.16,5.90,4.80,1],
-  ['Cinnamon 600 mg','glicemico','Canela — parte do conceito original',4.84,3.94,3.74,6.48,5.18,0],
-  ['ALA (ácido alfa-lipoico)','glicemico','Ativo do briefing, avulso',6.81,5.91,5.71,null,null,0],
-  ['Myo D-Chiro Inositol','glicemico','Metabólico e hormonal feminino',4.63,3.73,3.53,5.96,4.47,0],
-  ['Oxy Burn','termo','Termogênico — frasco preto',4.73,3.83,3.63,6.67,5.42,1],
-  ['Best Seller Blend','termo','Café verde, raspberry ketone, cafeína, chá verde',4.97,4.07,3.87,6.67,5.22,0],
-  ['Keto Ultra','termo','Termogênico cetogênico',4.66,3.76,3.56,null,null,0],
-  ['Green Coffee Bean w/ GCA','termo','Descontinuado no ODF — só via Vox',4.47,3.57,3.37,5.95,4.84,0],
-  ['Raspberry Ketone Ultra','termo','Termogênico',null,null,null,6.34,5.15,0],
-  ['Night Time Fat Burn','termo','Termogênico noturno, sem estimulante',4.58,3.68,3.48,6.24,5.07,0],
-  ['Psyllium Husk Plus','digestivo','Fibra — substituto do pó de glucomanan',null,null,null,5.78,4.70,1],
-  ['Colon Sweep','digestivo','Digestivo',4.34,3.44,3.24,4.61,3.74,0],
-  ['Max Detox','digestivo','Digestivo',4.31,3.41,3.21,5.78,4.70,0],
-  ['Digestive Enzyme','digestivo','Enzimas digestivas',5.34,4.44,4.24,7.00,5.72,0],
-  ['Probiotic 40 Billion','digestivo','Saúde intestinal',6.96,6.06,5.86,9.68,7.26,0],
-  ['Greens (pó)','digestivo','Pó diário — 151 g',8.24,7.69,7.54,12.62,9.94,0],
-  ['Sleep Formula','sono','Sono',null,null,null,5.78,5.08,0],
-  ['Melatonin Plus','sono','Sono',4.50,3.60,3.40,null,null,0],
-  ['5-HTP Plus','sono','Humor e sono',4.72,3.82,3.62,5.62,4.56,0],
-  ['Magnesium Complex','sono','Relaxamento e recuperação',4.60,3.70,3.50,8.36,6.69,0],
-  ['Ashwagandha 1300 mg','sono','Adaptógeno, estresse',4.63,3.73,3.53,5.71,4.64,0],
-  ['NMN','longevidade','Longevidade celular',5.65,4.75,4.55,6.92,5.82,0],
-  ['NAD+','longevidade','Longevidade celular',6.60,5.70,5.50,null,null,0],
-  ['Resveratrol 50% 600 mg','longevidade','Longevidade',5.50,4.60,4.40,6.44,5.37,0],
-  ['CoQ10 (30 ct)','longevidade','Energia mitocondrial',4.53,3.63,3.43,8.80,6.60,0],
-  ['Collagen I-II-III-V-X (90 ct)','longevidade','Beleza e articulação',4.82,3.92,3.72,7.23,5.78,0]
+ ['Berberine 1200 mg','ancora','Âncora metabólica — dose clínica',
+  ['Supports metabolism and healthy weight management','Helps regulate blood sugar and insulin response','Promotes cardiovascular and digestive health'],
+  true,true,1,'A 1ª alegação do catálogo é glicêmica — não usar no rótulo nem na live. Liderar por metabolismo e controle de peso.'],
+ ['Caralluma 600 mg','ancora','Apetite e metabolismo de gordura',
+  ['Helps curb appetite and reduce food cravings','Supports fat metabolism and weight management','Promotes sustained energy levels during calorie restriction'],
+  true,true,0,null],
+ ['Saffron 88.5','saciedade','Saciedade — é o ativo do Satiereal',
+  ['Helps reduce snacking and emotional eating habits','Supports mood balance and emotional well-being','Promotes eye health and antioxidant protection'],
+  true,true,1,null],
+ ['Colon Sweep','saciedade','"O ritual que desincha" — em cápsula',
+  ['Promotes a flatter stomach and reduced bloating','Helps eliminate waste and toxins for digestive regularity','Supports gentle detox and bowel cleansing'],
+  true,true,1,null],
+ ['Apple Cider Vinegar','saciedade','Apetite + vontade de doce em um só',
+  ['Supports metabolism and appetite control','Helps regulate blood sugar and reduce cravings','Aids digestion and promotes a healthy gut environment'],
+  false,false,0,null],
+ ['Garcinia Cambogia 95% HCA','saciedade','Apetite',
+  ['Supports appetite control and reduced caloric intake','Promotes a feeling of fullness between meals','Helps block fat production to support weight loss goals'],
+  true,true,0,'"Block fat production" está na lista da FTC de alegações sempre falsas para suplemento. Não reproduzir.'],
+ ['White Kidney Bean','saciedade','Bloqueio de carboidrato',
+  ['Helps control appetite and blood sugar spikes','Aids in weight management during high-carb meals','Supports carbohydrate blocking to reduce calorie absorption'],
+  false,true,0,'"Carbohydrate blocking to reduce calorie absorption" também está na lista da FTC. Evitar o produto ou reescrever por completo.'],
+ ['Blood Sugar Plus','glicemico','"Corta a vontade de doce"',
+  ['Helps reduce energy crashes and sugar cravings','Supports healthy blood sugar balance throughout the day','Promotes improved insulin function and glucose metabolism'],
+  true,true,1,'Usar só a 1ª alegação. As outras duas são território glicêmico.'],
+ ['Cinnamon 600 mg','glicemico','Canela — ativo do briefing',
+  ['Provides antioxidant support for cellular health','Supports healthy blood sugar levels and insulin sensitivity','Helps maintain a healthy inflammatory response'],
+  true,true,0,null],
+ ['ALA (ácido alfa-lipoico)','glicemico','Ativo do briefing, avulso',[],
+  true,false,0,null],
+ ['Myo D-Chiro Inositol','glicemico','Metabólico e hormonal feminino',
+  ['Promotes insulin sensitivity and metabolic health','Supports hormonal balance and ovarian function','Helps regulate menstrual cycles'],
+  true,true,0,null],
+ ['Oxy Burn','termo','Termogênico de manhã',
+  ['Supports fat-burning and thermogenic activity','Boosts energy and focus throughout the day','Helps control appetite and improve body composition'],
+  true,true,1,null],
+ ['Best Seller Blend','termo','Termogênico + apetite',
+  ['Support fat metabolism and calorie burning','Helps control appetite and reduce cravings','Boosts energy and focus to support an active lifestyle'],
+  true,true,0,null],
+ ['Night Time Fat Burn','termo','Noturno, sem estimulante',
+  ['Helps curb late-night cravings and nighttime snacking','Supports fat metabolism during sleep','Promotes relaxation and deeper rest for overnight recovery'],
+  true,true,1,null],
+ ['Raspberry Ketone Ultra (Keto Ultra)','termo','Termogênico',
+  ['Supports fat metabolism and thermogenic activity','Helps suppress appetite and manage cravings','Promotes weight loss when paired with a healthy diet'],
+  true,true,0,null],
+ ['Green Coffee Bean w/ GCA','termo','Termogênico',
+  ['Supports metabolism and natural fat-burning processes','Provides antioxidant support from chlorogenic acids','Helps regulate blood sugar and energy levels after meals'],
+  true,true,0,'Descontinuado no ODF. Confirmar disponibilidade na Vox antes de contar com ele.'],
+ ['CLA Softgel','termo','Preservação de massa magra',
+  ['Promotes fat loss while preserving lean muscle mass','Supports metabolism and body composition goals','Aids in reducing stubborn belly fat over time'],
+  false,false,0,null],
+ ['Psyllium Husk Plus','digestivo','Fibra — substituto do pó',[],
+  false,true,1,null],
+ ['Max Detox','digestivo','Detox e digestão',
+  ['Promotes natural liver, kidney, and colon cleansing','Supports removal of toxins and waste buildup','Aids digestion and helps improve energy levels'],
+  true,true,0,null],
+ ['Digestive Enzyme','digestivo','Menos inchaço pós-refeição',
+  ['Promotes better nutrient absorption and less bloating after meals','Supports the breakdown of proteins, fats, and carbohydrates','Aids digestive comfort for sensitive stomachs'],
+  true,true,0,null],
+ ['Probiotic 40 Billion','digestivo','Intestino',
+  ['Supports gut flora balance and digestive health','Helps reduce bloating and gas','Promotes regularity and immune function'],
+  true,true,0,null],
+ ['Greens (pó)','digestivo','Pó diário — 151 g',
+  ['Offers a daily dose of fruits, vegetables, and superfoods','Promotes alkalinity, digestion, and immune support','Helps increase energy and reduce inflammation naturally'],
+  true,true,0,null],
+ ['Magnesium Complex','sono','Relaxamento e recuperação',
+  ['Supports nervous system calm and relaxation','Helps ease muscle cramps and tension','Promotes restful sleep'],
+  true,true,0,null],
+ ['Melatonin Plus','sono','Sono',
+  ['Promotes deep, restful sleep and a healthy sleep cycle','Helps reduce occasional insomnia','Supports relaxation and calm before bedtime'],
+  true,false,0,null],
+ ['5-HTP Plus','sono','Humor e compulsão noturna',
+  ['Supports serotonin production for improved emotional balance','Promotes better sleep quality','Helps reduce stress and mild depressive symptoms'],
+  true,true,0,null],
+ ['Ashwagandha 1300 mg','sono','Cortisol e estresse',
+  ['Reduces cortisol levels and supports stress resilience','Promotes energy, focus, and stamina','Supports hormonal and adrenal balance'],
+  true,true,0,null],
+ ['NMN','longevidade','Longevidade celular',
+  ['Supports cellular energy production by helping increase NAD+','Promotes healthy aging and cellular repair','Helps maintain metabolic and cognitive health'],
+  true,true,0,null],
+ ['NAD+','longevidade','Longevidade celular',
+  ['Supports cellular energy production and healthy aging','Promotes mitochondrial health and antioxidant protection','Supports metabolic and cognitive performance'],
+  true,false,0,null],
+ ['Resveratrol 50%','longevidade','Longevidade',
+  ['Supports heart health and circulatory function','Provides antioxidant protection for healthy aging','Promotes cellular longevity and immune defense'],
+  true,true,0,null],
+ ['CoQ10','longevidade','Energia mitocondrial',
+  ['Supports heart health and cardiovascular energy production','Aids cellular energy at the mitochondrial level','Helps reduce oxidative stress, especially in aging adults'],
+  true,true,0,null],
+ ['Collagen I-II-III-V-X','longevidade','Beleza e articulação',
+  ['Supports joint, hair, skin, and nail health','Promotes skin elasticity and reduces visible signs of aging','Enhances recovery and flexibility in connective tissues'],
+  true,true,0,null]
 ];
-var SHOW_PRICES = false;
 var PGROUPS = [
-  ['ancora','Candidatos a âncora metabólica'],
-  ['saciedade','Saciedade e apetite'],
-  ['glicemico','Glicêmico e vontade de doce'],
-  ['termo','Termogênico'],
-  ['digestivo','Digestivo e fibra'],
-  ['sono','Sono e recuperação'],
-  ['longevidade','Longevidade']
+  ['ancora','Âncora metabólica — o produto principal'],
+  ['saciedade','Saciedade, apetite e inchaço — o brinde complementar'],
+  ['glicemico','Vontade de doce — order bump 1'],
+  ['termo','Termogênese e energia — order bump 2'],
+  ['digestivo','Digestivo e fibra — apoio ao protocolo'],
+  ['sono','Sono, cortisol e compulsão noturna'],
+  ['longevidade','Longevidade — fora do protocolo inicial, para a expansão']
 ];
-function money(v){ return v===null ? '<span style="color:var(--faint)">—</span>' : '$'+v.toFixed(2); }
-function stock(v){ return v!==null ? '<span class="chip ok">Em estoque</span>' : '<span style="color:var(--faint)">—</span>'; }
+function disp(v){ return v ? '<span class="chip ok">Em estoque</span>' : '<span style="color:var(--faint)">—</span>'; }
 function renderP(){
-  var cols = SHOW_PRICES ? 7 : 4;
-  document.getElementById('phead').innerHTML = SHOW_PRICES
-    ? '<tr><th>Produto</th><th>Papel no protocolo</th><th class="num">Vox 150</th><th class="num">Vox 1.000</th><th class="num">Vox 2.500</th><th class="num">ODF t1</th><th class="num">ODF t3</th></tr>'
-    : '<tr><th>Produto</th><th>Papel no protocolo</th><th>Vox Nutrition</th><th>On Demand Fulfillment</th></tr>';
-  document.getElementById('pnote').innerHTML = SHOW_PRICES
-    ? 'Vox = preço por frasco na compra direta, pela quantidade. ODF t1 = 1–199 frascos/mês, t3 = 1.000–4.999 frascos/mês, já com fulfillment incluso. Traço = não disponível naquele fornecedor.'
-    : 'Disponibilidade por fornecedor. Os preços por frasco de cada catálogo não são reproduzidos aqui — estão nas tabelas originais que a Vox e o ODF enviaram, e circulam só internamente.';
+  document.getElementById('phead').innerHTML =
+    '<tr><th>Produto</th><th>Alegações do catálogo do fabricante</th><th>Vox</th><th>ODF</th><th>Atenção</th></tr>';
+  document.getElementById('pnote').innerHTML =
+    'Alegações transcritas do catálogo Vox Nutrition 2026 — é a linguagem que o fabricante publica, e não é automaticamente segura para o rótulo nem para a live. Os produtos estão agrupados pelos quatro conceitos do briefing original.';
   document.querySelector('#ptable tbody').innerHTML = PGROUPS.map(function(g){
     var items = P.filter(function(r){ return r[1]===g[0]; });
     if(!items.length) return '';
-    return '<tr class="grouprow"><td colspan="'+cols+'">'+g[1]+' · '+items.length+'</td></tr>'
+    return '<tr class="grouprow"><td colspan="5">'+g[1]+' · '+items.length+'</td></tr>'
       + items.map(function(r){
-          var cells = SHOW_PRICES
-            ? '<td class="num">'+money(r[3])+'</td><td class="num">'+money(r[4])+'</td><td class="num">'+money(r[5])+'</td><td class="num">'+money(r[6])+'</td><td class="num">'+money(r[7])+'</td>'
-            : '<td>'+stock(r[3])+'</td><td>'+stock(r[6])+'</td>';
-          return '<tr class="'+(r[8]?'hi':'')+'"><td class="nm">'+r[0]+'</td>'
-            +'<td style="font-size:13px;color:var(--ink-2)">'+r[2]+'</td>'+cells+'</tr>';
+          var claims = r[3].length
+            ? '<ul style="margin:4px 0 0;padding-left:15px;font-size:12.5px;color:var(--ink-2);line-height:1.5">'
+              + r[3].map(function(c){return '<li>'+c+'</li>';}).join('') + '</ul>'
+            : '<span style="color:var(--faint);font-size:12.5px">sem ficha no catálogo</span>';
+          var alerta = r[7] ? '<span class="chip warn">Claim</span><div style="font-size:12px;color:var(--warn);margin-top:5px;line-height:1.45">'+r[7]+'</div>' : '';
+          return '<tr class="'+(r[6]?'hi':'')+'"><td class="nm">'+r[0]
+            +'<div style="font-weight:400;font-size:12px;color:var(--muted);margin-top:3px">'+r[2]+'</div></td>'
+            +'<td>'+claims+'</td><td>'+disp(r[4])+'</td><td>'+disp(r[5])+'</td>'
+            +'<td style="min-width:150px">'+alerta+'</td></tr>';
         }).join('');
   }).join('');
 }
