@@ -118,6 +118,18 @@ ul.plain li:last-child{border-bottom:none}
 ul.plain li::before{content:"";position:absolute;left:0;top:1.05em;width:7px;height:7px;background:var(--gold);border-radius:50%}
 
 .ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(212px,1fr));gap:12px;margin:10px 0 26px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;margin:12px 0 26px}
+.pcard{border:1px solid var(--rule);background:var(--surface);padding:17px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:0}
+.pcard.hi{border-left:3px solid var(--gold);padding-left:15px}
+.pcard .pn2{font-weight:700;font-size:15px;line-height:1.25}
+.pcard .pp{font-size:12px;color:var(--muted);margin-top:2px}
+.pcard .badges{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 0}
+.pcard .fld{margin-top:11px;padding-top:10px;border-top:1px solid var(--rule)}
+.pcard .fl2{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+.pcard .fv{font-size:12.8px;line-height:1.5;color:var(--ink-2)}
+.pcard .fv b{color:var(--ink)}
+.pcard .warn2{margin-top:10px;padding:9px 11px;background:var(--warn-soft);border-left:2px solid var(--warn);font-size:12px;line-height:1.45;color:var(--warn)}
+.pcard .pxrow{margin-top:11px;padding-top:9px;border-top:1px solid var(--rule);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;color:var(--ink-2);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:12px;margin:10px 0 0}
 .slot{border:1px solid var(--rule);background:var(--paper);padding:14px;display:flex;flex-direction:column}
 .slot .sl{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--moro);margin-bottom:9px}
@@ -640,12 +652,20 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
     <p>A Vox vende <strong>"GLP1 Support"</strong> com o <strong>mesmo part number (14697) do Berberine 1200mg</strong>, e <strong>"GLP1 Booster"</strong> com o mesmo part number (14724) do Best Seller Blend. São os mesmos produtos com nome de marketing GLP-1. Dois recados: o mercado já está vendendo berberina como a jogada GLP-1, e <strong>vocês não devem usar esses nomes no rótulo</strong> — o próprio modelo de negócio de vocês proíbe "GLP-1 natural", e é exatamente o tipo de nome que FDA e FTC olham.</p>
   </div>
 
-  <div class="scroll">
-    <table id="ptable">
-      <thead id="phead"></thead>
-      <tbody></tbody>
-    </table>
+  <div class="filters">
+    <span class="flabel">Filtrar</span>
+    <button class="fbtn" data-pf="todos" aria-pressed="true">Todos</button>
+    <button class="fbtn" data-pf="ancora" aria-pressed="false">Âncora</button>
+    <button class="fbtn" data-pf="saciedade" aria-pressed="false">Saciedade</button>
+    <button class="fbtn" data-pf="glicemico" aria-pressed="false">Doce</button>
+    <button class="fbtn" data-pf="termo" aria-pressed="false">Termogênico</button>
+    <button class="fbtn" data-pf="digestivo" aria-pressed="false">Digestivo</button>
+    <button class="fbtn" data-pf="sono" aria-pressed="false">Sono</button>
+    <button class="fbtn" data-pf="longevidade" aria-pressed="false">Longevidade</button>
+    <span class="count" id="pcount"></span>
   </div>
+
+  <div class="pgrid" id="pgrid"></div>
   <p style="font-size:12.5px;color:var(--muted)" id="pnote"></p>
 
   <div class="call">
@@ -776,7 +796,7 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
         <tr><td class="nm">Berberine 1200 mg</td><td><span class="chip warn">Blend só no nome</span></td>
           <td style="font-size:13px">"Berberine HCl Blend" 1200 mg — mas são <b>duas formas do mesmo ativo</b> (Berberine HCl 97% e Granular Berberine 97%, ambos Berberis aristata). Para a live, é um ingrediente só.</td></tr>
         <tr><td class="nm">Blood Sugar Plus · Oxy Burn</td><td><span class="chip neu">Provável blend</span></td>
-          <td style="font-size:13px">Os rótulos vieram como imagem, sem texto extraível. A Vox ofereceu enviar os Supplement Facts assim que definirmos os produtos — <b>é o próximo pedido a fazer</b>.</td></tr>
+          <td style="font-size:13px">Os rótulos vieram como imagem, sem texto extraível. O representante da Vox ofereceu enviar os Supplement Facts assim que definirmos os produtos — <b>é o próximo pedido a fazer</b>.</td></tr>
         <tr><td class="nm">Saffron · Caralluma · Cinnamon</td><td><span class="chip bad">Ingrediente único</span></td>
           <td style="font-size:13px">Saffron 88,5 mg · Caralluma 1200 mg · Canela Ceylon orgânica 1200 mg. Dose boa, história curta.</td></tr>
       </tbody>
@@ -1127,98 +1147,43 @@ renderNames(); renderTaglines(); renderLockup(); renderArch();
 
 /* ---------- PORTFÓLIO ---------- */
 var P = [
- ['Berberine 1200 mg','ancora','Âncora metabólica — dose clínica',
-  ['Supports metabolism and healthy weight management','Helps regulate blood sugar and insulin response','Promotes cardiovascular and digestive health'],
-  true,true,1,'A 1ª alegação do catálogo é glicêmica — não usar no rótulo nem na live. Liderar por metabolismo e controle de peso.'],
- ['Caralluma 600 mg','ancora','Apetite e metabolismo de gordura',
-  ['Helps curb appetite and reduce food cravings','Supports fat metabolism and weight management','Promotes sustained energy levels during calorie restriction'],
-  true,true,0,null],
- ['Saffron 88.5','saciedade','Saciedade — é o ativo do Satiereal',
-  ['Helps reduce snacking and emotional eating habits','Supports mood balance and emotional well-being','Promotes eye health and antioxidant protection'],
-  true,true,1,null],
- ['Colon Sweep','saciedade','"O ritual que desincha" — em cápsula',
-  ['Promotes a flatter stomach and reduced bloating','Helps eliminate waste and toxins for digestive regularity','Supports gentle detox and bowel cleansing'],
-  true,true,1,null],
- ['Apple Cider Vinegar','saciedade','Apetite + vontade de doce em um só',
-  ['Supports metabolism and appetite control','Helps regulate blood sugar and reduce cravings','Aids digestion and promotes a healthy gut environment'],
-  false,false,0,null],
- ['Garcinia Cambogia 95% HCA','saciedade','Apetite',
-  ['Supports appetite control and reduced caloric intake','Promotes a feeling of fullness between meals','Helps block fat production to support weight loss goals'],
-  true,true,0,'"Block fat production" está na lista da FTC de alegações sempre falsas para suplemento. Não reproduzir.'],
- ['White Kidney Bean','saciedade','Bloqueio de carboidrato',
-  ['Helps control appetite and blood sugar spikes','Aids in weight management during high-carb meals','Supports carbohydrate blocking to reduce calorie absorption'],
-  false,true,0,'"Carbohydrate blocking to reduce calorie absorption" também está na lista da FTC. Evitar o produto ou reescrever por completo.'],
- ['Blood Sugar Plus','glicemico','"Corta a vontade de doce"',
-  ['Helps reduce energy crashes and sugar cravings','Supports healthy blood sugar balance throughout the day','Promotes improved insulin function and glucose metabolism'],
-  true,true,1,'Usar só a 1ª alegação. As outras duas são território glicêmico.'],
- ['Cinnamon 600 mg','glicemico','Canela — ativo do briefing',
-  ['Provides antioxidant support for cellular health','Supports healthy blood sugar levels and insulin sensitivity','Helps maintain a healthy inflammatory response'],
-  true,true,0,null],
- ['ALA (ácido alfa-lipoico)','glicemico','Ativo do briefing, avulso',[],
-  true,false,0,null],
- ['Myo D-Chiro Inositol','glicemico','Metabólico e hormonal feminino',
-  ['Promotes insulin sensitivity and metabolic health','Supports hormonal balance and ovarian function','Helps regulate menstrual cycles'],
-  true,true,0,null],
- ['Oxy Burn','termo','Termogênico de manhã',
-  ['Supports fat-burning and thermogenic activity','Boosts energy and focus throughout the day','Helps control appetite and improve body composition'],
-  true,true,1,null],
- ['Best Seller Blend','termo','Termogênico + apetite',
-  ['Support fat metabolism and calorie burning','Helps control appetite and reduce cravings','Boosts energy and focus to support an active lifestyle'],
-  true,true,0,null],
- ['Night Time Fat Burn','termo','Noturno, sem estimulante',
-  ['Helps curb late-night cravings and nighttime snacking','Supports fat metabolism during sleep','Promotes relaxation and deeper rest for overnight recovery'],
-  true,true,1,null],
- ['Raspberry Ketone Ultra (Keto Ultra)','termo','Termogênico',
-  ['Supports fat metabolism and thermogenic activity','Helps suppress appetite and manage cravings','Promotes weight loss when paired with a healthy diet'],
-  true,true,0,null],
- ['Green Coffee Bean w/ GCA','termo','Termogênico',
-  ['Supports metabolism and natural fat-burning processes','Provides antioxidant support from chlorogenic acids','Helps regulate blood sugar and energy levels after meals'],
-  true,true,0,'Descontinuado no ODF. Confirmar disponibilidade na Vox antes de contar com ele.'],
- ['CLA Softgel','termo','Preservação de massa magra',
-  ['Promotes fat loss while preserving lean muscle mass','Supports metabolism and body composition goals','Aids in reducing stubborn belly fat over time'],
-  false,false,0,null],
- ['Psyllium Husk Plus','digestivo','Fibra — substituto do pó',[],
-  false,true,1,null],
- ['Max Detox','digestivo','Detox e digestão',
-  ['Promotes natural liver, kidney, and colon cleansing','Supports removal of toxins and waste buildup','Aids digestion and helps improve energy levels'],
-  true,true,0,null],
- ['Digestive Enzyme','digestivo','Menos inchaço pós-refeição',
-  ['Promotes better nutrient absorption and less bloating after meals','Supports the breakdown of proteins, fats, and carbohydrates','Aids digestive comfort for sensitive stomachs'],
-  true,true,0,null],
- ['Probiotic 40 Billion','digestivo','Intestino',
-  ['Supports gut flora balance and digestive health','Helps reduce bloating and gas','Promotes regularity and immune function'],
-  true,true,0,null],
- ['Greens (pó)','digestivo','Pó diário — 151 g',
-  ['Offers a daily dose of fruits, vegetables, and superfoods','Promotes alkalinity, digestion, and immune support','Helps increase energy and reduce inflammation naturally'],
-  true,true,0,null],
- ['Magnesium Complex','sono','Relaxamento e recuperação',
-  ['Supports nervous system calm and relaxation','Helps ease muscle cramps and tension','Promotes restful sleep'],
-  true,true,0,null],
- ['Melatonin Plus','sono','Sono',
-  ['Promotes deep, restful sleep and a healthy sleep cycle','Helps reduce occasional insomnia','Supports relaxation and calm before bedtime'],
-  true,false,0,null],
- ['5-HTP Plus','sono','Humor e compulsão noturna',
-  ['Supports serotonin production for improved emotional balance','Promotes better sleep quality','Helps reduce stress and mild depressive symptoms'],
-  true,true,0,null],
- ['Ashwagandha 1300 mg','sono','Cortisol e estresse',
-  ['Reduces cortisol levels and supports stress resilience','Promotes energy, focus, and stamina','Supports hormonal and adrenal balance'],
-  true,true,0,null],
- ['NMN','longevidade','Longevidade celular',
-  ['Supports cellular energy production by helping increase NAD+','Promotes healthy aging and cellular repair','Helps maintain metabolic and cognitive health'],
-  true,true,0,null],
- ['NAD+','longevidade','Longevidade celular',
-  ['Supports cellular energy production and healthy aging','Promotes mitochondrial health and antioxidant protection','Supports metabolic and cognitive performance'],
-  true,false,0,null],
- ['Resveratrol 50%','longevidade','Longevidade',
-  ['Supports heart health and circulatory function','Provides antioxidant protection for healthy aging','Promotes cellular longevity and immune defense'],
-  true,true,0,null],
- ['CoQ10','longevidade','Energia mitocondrial',
-  ['Supports heart health and cardiovascular energy production','Aids cellular energy at the mitochondrial level','Helps reduce oxidative stress, especially in aging adults'],
-  true,true,0,null],
- ['Collagen I-II-III-V-X','longevidade','Beleza e articulação',
-  ['Supports joint, hair, skin, and nail health','Promotes skin elasticity and reduces visible signs of aging','Enhances recovery and flexibility in connective tissues'],
-  true,true,0,null]
+ ['Berberine 1200 mg','ancora','Âncora metabólica','nome','Berberine HCl 97% + Granular Berberine 97% (Berberis aristata, casca) — 1200 mg, 2 cáps/dia','Metabolismo de glicose e lipídios; é o ativo com mais literatura do protocolo','forte','Dezenas de ensaios humanos e meta-análises em parâmetros metabólicos. Dose estudada tipicamente 900–1500 mg/dia dividida — o produto entrega 1200 mg, dentro da faixa. Absorção oral baixa é a limitação conhecida.',['Supports metabolism and healthy weight management','Helps regulate blood sugar and insulin response'],[6.64,5.74,5.54],[9.50,7.60],1,'Rotulado como "Blend", mas são duas formas do mesmo ativo. E a 1ª alegação do catálogo é glicêmica — não usar no rótulo nem na live.'],
+ ['GLP1 Support','ancora','Mesmo part number (14697) do Berberine','nome','Idêntico ao Berberine 1200 mg','Igual ao Berberine','forte','Mesmo produto, mesma evidência.',[],[6.64,5.74,5.54],[null,null],0,'É o Berberine renomeado. Não usar nome GLP-1 no rótulo nem na live.'],
+ ['Caralluma 600 mg','ancora','Apetite','unico','Caralluma Powder 1200 mg, 2 cáps/dia','Supressão de apetite','fraca','Poucos ensaios humanos, amostras pequenas e resultados mistos. Uso tradicional indiano como supressor de fome em jejum.',['Helps curb appetite and reduce food cravings','Supports fat metabolism and weight management'],[4.51,3.61,3.41],[5.59,4.54],0,null],
+ ['Saffron 88.5','saciedade','Saciedade — é o ativo do Satiereal','unico','Saffron Extract 88,5 mg por cápsula, 1 cáp 2x/dia = 177 mg/dia','Reduz beliscar e comer emocional','moderada','A dose do briefing (Satiereal 176 mg/dia) é exatamente 2 cápsulas deste produto. Ensaios randomizados pequenos mostram redução de snacking e melhora de humor; literatura limitada mas consistente na direção.',['Helps reduce snacking and emotional eating habits','Supports mood balance and emotional well-being'],[4.23,3.33,3.13],[5.41,4.58],1,null],
+ ['Colon Sweep','saciedade','"O ritual que desincha"','?','Composição não disponível — rótulo veio como imagem','Regularidade intestinal, menos inchaço','?','Depende da composição. Pedir o Supplement Facts à Vox antes de decidir.',['Promotes a flatter stomach and reduced bloating','Supports gentle detox and bowel cleansing'],[4.34,3.44,3.24],[4.61,3.74],1,'Pedir Supplement Facts. "Detox" e "cleansing" são termos que convidam a claim exagerado.'],
+ ['Apple Cider Vinegar','saciedade','Apetite + doce em um só','?','Composição não disponível','Digestão, apetite, vontade de doce','fraca','Ensaios humanos pequenos sugerem efeito modesto na glicemia pós-prandial. Evidência de perda de peso é fraca.',['Supports metabolism and appetite control','Helps regulate blood sugar and reduce cravings'],[null,null,null],[null,null],0,null],
+ ['African Mango Ultra','saciedade','Metabólico e apetite','?','Irvingia gabonensis','Apetite e metabolismo','minima','Os ensaios positivos vêm quase todos do mesmo grupo e foram questionados. Evidência independente praticamente inexistente.',[],[null,null,null],[6.34,5.15],0,'Evidência frágil. Evitaria construir pitch em cima dele.'],
+ ['Garcinia Cambogia 95% HCA','saciedade','Apetite','unico','Garcinia cambogia 95% HCA','Apetite e "bloqueio de gordura"','fraca','Meta-análises mostram efeito sobre peso pequeno e provavelmente sem relevância clínica. Relatos isolados de hepatotoxicidade.',['Supports appetite control and reduced caloric intake','Helps block fat production to support weight loss goals'],[4.81,3.91,3.71],[5.72,4.84],0,'"Block fat production" está na lista da FTC de alegações sempre falsas. Não reproduzir.'],
+ ['White Kidney Bean','saciedade','Bloqueio de carboidrato','unico','Extrato de Phaseolus vulgaris (faseolamina)','Inibição de alfa-amilase','fraca','Ensaios pequenos com resultados modestos e inconsistentes.',['Helps control appetite and blood sugar spikes','Supports carbohydrate blocking to reduce calorie absorption'],[null,null,null],[5.47,4.45],0,'"Carbohydrate blocking to reduce calorie absorption" também está na lista da FTC. Evitar.'],
+ ['Blood Sugar Plus','glicemico','"Corta a vontade de doce"','?','Composição não disponível — rótulo veio como imagem','Vontade de doce e picos de energia','?','Depende da composição. Se contiver cromo, canela e ALA, cada um tem evidência própria — toda modesta.',['Helps reduce energy crashes and sugar cravings','Supports healthy blood sugar balance throughout the day'],[4.26,3.36,3.16],[5.90,4.80],1,'Pedir Supplement Facts. Usar só a 1ª alegação; as outras são território glicêmico.'],
+ ['Cinnamon 600 mg','glicemico','Canela — ativo do briefing','unico','Canela Ceylon orgânica 1200 mg, 2 cáps/dia','Suporte glicêmico','fraca','Meta-análises mostram efeito pequeno e heterogêneo sobre glicemia de jejum. Ceylon é preferível à cássia por ter muito menos cumarina — ponto real de qualidade a favor deste produto.',['Supports healthy blood sugar levels and insulin sensitivity','Provides antioxidant support for cellular health'],[4.84,3.94,3.74],[6.48,5.18],0,null],
+ ['ALA (ácido alfa-lipoico)','glicemico','Ativo do briefing, avulso','unico','Ácido alfa-lipoico','Sensibilidade à insulina, antioxidante','moderada','Meta-análises mostram redução pequena mas consistente de peso e circunferência abdominal. Evidência melhor em neuropatia diabética que em emagrecimento.',[],[6.81,5.91,5.71],[null,null],0,null],
+ ['Myo D-Chiro Inositol','glicemico','Metabólico e hormonal feminino','blend','Mio-inositol + D-chiro-inositol','Sensibilidade à insulina e equilíbrio hormonal','moderada','Boa evidência em SOP para sensibilidade à insulina e ciclo. Fora de SOP, evidência de emagrecimento é limitada.',['Promotes insulin sensitivity and metabolic health','Supports hormonal balance and ovarian function'],[4.63,3.73,3.53],[5.96,4.47],0,null],
+ ['Best Seller Blend','termo','Blend de 5 ativos — tem história','blend5','658 mg/dose: café verde 130 mg (50% ác. clorogênico) · raspberry ketone 130 mg · garcinia 130 mg (50% HCA) · cafeína anidra 138 mg · chá verde 130 mg (45% EGCG)','Termogênese, energia e apetite','mista','A cafeína (138 mg) é o único ativo com efeito termogênico bem estabelecido. Café verde e raspberry ketone têm evidência fraca a mínima. Chá verde tem efeito modesto. Cinco mecanismos para contar, um deles sólido.',['Support fat metabolism and calorie burning','Helps control appetite and reduce cravings'],[4.97,4.07,3.87],[6.67,5.22],1,'Contém cafeína — obrigatório declarar no rótulo. Raspberry ketone praticamente não tem evidência humana.'],
+ ['Raspberry Ketone Ultra (Keto Ultra)','termo','Blend de 4 ativos','blend4','Raspberry ketones 500 mg · african mango 300 mg · fórmula proprietária 400 mg (chá verde + extrato de cafeína)','Termogênese e apetite','fraca','Raspberry ketone: evidência humana essencialmente ausente, os dados são in vitro e em roedores com doses não traduzíveis. African mango: frágil.',['Supports fat metabolism and thermogenic activity','Helps suppress appetite and manage cravings'],[4.66,3.76,3.56],[6.34,5.15],1,'Já traz linha "Proprietary Formula" no rótulo. Mas é o blend de evidência mais fraca da lista.'],
+ ['Oxy Burn','termo','Termogênico de manhã','?','Composição não disponível — rótulo veio como imagem','Termogênese, energia e apetite','?','Depende da composição. Pedir o Supplement Facts.',['Supports fat-burning and thermogenic activity','Boosts energy and focus throughout the day'],[4.73,3.83,3.63],[6.67,5.42],1,'Pedir Supplement Facts e a quantidade exata de cafeína.'],
+ ['Green Coffee Bean w/ GCA','termo','Termogênico','unico','Extrato de café verde com ácido clorogênico','Metabolismo','minima','⚠ O ensaio que popularizou o ingrediente foi retratado, e a FTC multou a empresa que o patrocinou por alegações infundadas. É o caso emblemático de claim de emagrecimento punido nos EUA.',['Supports metabolism and natural fat-burning processes','Provides antioxidant support from chlorogenic acids'],[4.47,3.57,3.37],[5.95,4.84],0,'Descontinuado no ODF. E carrega histórico de ação da FTC — eu não usaria como ativo de destaque na live.'],
+ ['Night Time Fat Burn','termo','Noturno, sem estimulante','?','Composição não disponível','Compulsão noturna e sono','?','Depende da composição. O ângulo "beliscar à noite" é forte comercialmente e de baixo risco regulatório.',['Helps curb late-night cravings and nighttime snacking','Supports fat metabolism during sleep'],[4.58,3.68,3.48],[6.24,5.07],1,'Pedir Supplement Facts.'],
+ ['CLA Softgel','termo','Preservação de massa magra','unico','Ácido linoleico conjugado','Composição corporal','fraca','Meta-análises mostram efeito muito pequeno sobre gordura corporal. Relatos de piora de marcadores metabólicos em doses altas.',['Promotes fat loss while preserving lean muscle mass','Supports metabolism and body composition goals'],[null,null,null],[null,null],0,null],
+ ['Psyllium Husk Plus','digestivo','Fibra — substituto do pó','?','Psyllium (Plantago ovata) + outros','Saciedade, regularidade, colesterol','forte','Fibra solúvel com evidência sólida para saciedade, regularidade e redução de LDL. É o substituto mais defensável do glucomanan.',[],[null,null,null],[5.78,4.70],1,'Como toda fibra expansiva, exige advertência de ingestão com bastante água.'],
+ ['Max Detox','digestivo','Detox e digestão','?','Composição não disponível','Digestão','?','"Detox" não é conceito fisiológico reconhecido — é linguagem de marketing. Usar com cuidado.',['Promotes natural liver, kidney, and colon cleansing','Supports removal of toxins and waste buildup'],[4.31,3.41,3.21],[5.78,4.70],0,'Alegações de "cleansing" e "remove toxins" são frágeis e atraem escrutínio.'],
+ ['Digestive Enzyme','digestivo','Menos inchaço pós-refeição','blend','Mistura de enzimas digestivas','Digestão e inchaço pós-refeição','moderada','Enzimas têm efeito real em má digestão e inchaço pós-refeição. Não é produto de emagrecimento.',['Promotes better nutrient absorption and less bloating after meals','Supports the breakdown of proteins, fats, and carbohydrates'],[5.34,4.44,4.24],[7.00,5.72],0,null],
+ ['Probiotic 40 Billion','digestivo','Intestino','blend','Múltiplas cepas, 40 bilhões UFC','Flora intestinal, inchaço','moderada','Efeito é cepa-específico. Evidência boa para algumas indicações, fraca para emagrecimento.',['Supports gut flora balance and digestive health','Helps reduce bloating and gas'],[6.96,6.06,5.86],[9.68,7.26],0,null],
+ ['Greens (pó)','digestivo','Pó diário — 151 g','blend','Mistura de frutas, vegetais e superalimentos','Nutrição diária','fraca','Conveniência nutricional. Não substitui ingestão de vegetais e não tem evidência de emagrecimento.',['Offers a daily dose of fruits, vegetables, and superfoods','Promotes alkalinity, digestion, and immune support'],[8.24,7.69,7.54],[12.62,9.94],0,'"Promotes alkalinity" não tem base fisiológica. Não reproduzir.'],
+ ['Magnesium Complex','sono','Relaxamento e recuperação','blend','Múltiplas formas de magnésio','Relaxamento muscular e sono','moderada','Evidência razoável para qualidade de sono e cãibras, principalmente em quem tem ingestão baixa.',['Supports nervous system calm and relaxation','Helps ease muscle cramps and tension'],[4.60,3.70,3.50],[8.36,6.69],0,null],
+ ['Magnesium Glycinate (90 ct)','sono','Magnésio de alta absorção','unico','Glicinato de magnésio','Sono e relaxamento','moderada','Forma quelada, melhor tolerância gastrointestinal que o óxido.',['Provides a gentle, highly absorbable form of magnesium','Supports nervous system calm and relaxation'],[5.51,4.61,4.41],[8.70,6.96],0,null],
+ ['Melatonin Plus','sono','Sono','blend','Melatonina + coadjuvantes','Indução do sono','forte','Evidência sólida para latência do sono e ajuste de ritmo circadiano. É dos ativos mais bem estabelecidos do catálogo.',['Promotes deep, restful sleep and a healthy sleep cycle','Helps reduce occasional insomnia'],[4.50,3.60,3.40],[null,null],0,null],
+ ['Sleep Formula','sono','Sono','?','Composição não disponível','Sono','?','Pedir Supplement Facts.',[],[null,null,null],[5.78,5.08],0,null],
+ ['5-HTP Plus','sono','Humor e compulsão noturna','blend','5-hidroxitriptofano + coadjuvantes','Humor, saciedade, sono','moderada','Alguns ensaios mostram redução de ingestão calórica e de compulsão. ⚠ Interage com antidepressivos serotoninérgicos.',['Supports serotonin production for improved emotional balance','Promotes better sleep quality'],[4.72,3.82,3.62],[5.62,4.56],0,'Interação medicamentosa relevante. Advertência obrigatória no rótulo.'],
+ ['Ashwagandha 1300 mg','sono','Cortisol e estresse','unico','Withania somnifera 1300 mg','Estresse e cortisol','moderada','Vários ensaios randomizados mostram redução de cortisol e de escores de estresse. Dos adaptógenos, é o de melhor evidência.',['Reduces cortisol levels and supports stress resilience','Supports hormonal and adrenal balance'],[4.63,3.73,3.53],[5.71,4.64],0,null],
+ ['NMN','longevidade','Longevidade celular','unico','Mononucleotídeo de nicotinamida','Precursor de NAD+','fraca','Eleva NAD+ em humanos, mas desfechos clínicos ainda não demonstrados. ⚠ Status regulatório como suplemento nos EUA foi contestado pela FDA.',['Supports cellular energy production by helping increase NAD+','Promotes healthy aging and cellular repair'],[5.65,4.75,4.55],[6.92,5.82],0,'Verificar status regulatório atual antes de incluir no portfólio.'],
+ ['NAD+','longevidade','Longevidade celular','unico','NAD+ / precursores','Energia celular','fraca','Mesma situação do NMN: mecanismo plausível, desfechos clínicos ainda não demonstrados.',['Supports cellular energy production and healthy aging','Promotes mitochondrial health'],[6.60,5.70,5.50],[null,null],0,null],
+ ['Resveratrol 50%','longevidade','Longevidade','unico','Resveratrol 50%, 600 mg','Antioxidante, longevidade','fraca','Biodisponibilidade oral baixa. Resultados humanos inconsistentes apesar do volume de pesquisa.',['Supports heart health and circulatory function','Provides antioxidant protection for healthy aging'],[5.50,4.60,4.40],[6.44,5.37],0,null],
+ ['CoQ10 (30 ct)','longevidade','Energia mitocondrial','unico','Ubiquinona','Função mitocondrial','moderada','Evidência boa em insuficiência cardíaca e em mialgia por estatina. Não é ativo de emagrecimento.',['Supports heart health and cardiovascular energy production','Aids cellular energy at the mitochondrial level'],[4.53,3.63,3.43],[8.80,6.60],0,null],
+ ['Collagen I-II-III-V-X (90 ct)','longevidade','Beleza e articulação','blend','Colágeno tipos I, II, III, V e X — 1800 mg','Pele, articulação, cabelo e unha','moderada','Peptídeos de colágeno têm evidência razoável para elasticidade da pele e desconforto articular. Excelente produto de recompra.',['Supports joint, hair, skin, and nail health','Promotes skin elasticity and reduces visible signs of aging'],[4.82,3.92,3.72],[7.23,5.78],0,null]
 ];
+var SHOW_PRICES = false;
 var PGROUPS = [
   ['ancora','Âncora metabólica — o produto principal'],
   ['saciedade','Saciedade, apetite e inchaço — o brinde complementar'],
@@ -1228,28 +1193,50 @@ var PGROUPS = [
   ['sono','Sono, cortisol e compulsão noturna'],
   ['longevidade','Longevidade — fora do protocolo inicial, para a expansão']
 ];
-function disp(v){ return v ? '<span class="chip ok">Em estoque</span>' : '<span style="color:var(--faint)">—</span>'; }
+var BLEND = {blend5:['ok','Blend de 5 ativos'],blend4:['ok','Blend de 4 ativos'],blend:['ok','Blend'],
+             unico:['neu','Ingrediente único'],nome:['warn','Blend só no nome'],'?':['neu','Composição a confirmar']};
+var EVID = {forte:['ok','Evidência forte'],moderada:['ok','Evidência moderada'],mista:['warn','Evidência mista'],
+            fraca:['warn','Evidência fraca'],minima:['bad','Evidência mínima'],'?':['neu','A confirmar']};
+var pFilter='todos';
+function money(v){ return (v===null||v===undefined) ? '—' : '$'+v.toFixed(2); }
 function renderP(){
-  document.getElementById('phead').innerHTML =
-    '<tr><th>Produto</th><th>Alegações do catálogo do fabricante</th><th>Vox</th><th>ODF</th><th>Atenção</th></tr>';
-  document.getElementById('pnote').innerHTML =
-    'Alegações transcritas do catálogo Vox Nutrition 2026 — é a linguagem que o fabricante publica, e não é automaticamente segura para o rótulo nem para a live. Os produtos estão agrupados pelos quatro conceitos do briefing original.';
-  document.querySelector('#ptable tbody').innerHTML = PGROUPS.map(function(g){
+  document.getElementById('pnote').innerHTML = SHOW_PRICES
+    ? 'Composição extraída dos templates de rótulo que a Vox anexou. O nível de evidência é avaliação nossa sobre a literatura do ativo — não vem do fornecedor. Vox = preço por frasco por quantidade; ODF t1 = 1–199 frascos/mês, t3 = 1.000–4.999, já com fulfillment.'
+    : 'Composição extraída dos templates de rótulo que a Vox anexou. O nível de evidência é avaliação nossa sobre a literatura do ativo — não vem do fornecedor. Preços circulam só no material interno.';
+  var total=0, mostrados=0, html='';
+  PGROUPS.forEach(function(g){
     var items = P.filter(function(r){ return r[1]===g[0]; });
-    if(!items.length) return '';
-    return '<tr class="grouprow"><td colspan="5">'+g[1]+' · '+items.length+'</td></tr>'
-      + items.map(function(r){
-          var claims = r[3].length
-            ? '<ul style="margin:4px 0 0;padding-left:15px;font-size:12.5px;color:var(--ink-2);line-height:1.5">'
-              + r[3].map(function(c){return '<li>'+c+'</li>';}).join('') + '</ul>'
-            : '<span style="color:var(--faint);font-size:12.5px">sem ficha no catálogo</span>';
-          var alerta = r[7] ? '<span class="chip warn">Claim</span><div style="font-size:12px;color:var(--warn);margin-top:5px;line-height:1.45">'+r[7]+'</div>' : '';
-          return '<tr class="'+(r[6]?'hi':'')+'"><td class="nm">'+r[0]
-            +'<div style="font-weight:400;font-size:12px;color:var(--muted);margin-top:3px">'+r[2]+'</div></td>'
-            +'<td>'+claims+'</td><td>'+disp(r[4])+'</td><td>'+disp(r[5])+'</td>'
-            +'<td style="min-width:150px">'+alerta+'</td></tr>';
-        }).join('');
-  }).join('');
+    total += items.length;
+    if(pFilter!=='todos' && pFilter!==g[0]) return;
+    if(!items.length) return;
+    mostrados += items.length;
+    html += '<div class="ghead" style="grid-column:1/-1"><span>'+g[1]+'</span><em>'+items.length+' produtos</em></div>';
+    items.forEach(function(r){
+      var b = BLEND[r[3]] || BLEND['?'], e = EVID[r[6]] || EVID['?'];
+      var claims = r[8].length ? '<div class="fld"><div class="fl2">Alegações do catálogo</div><div class="fv">'
+          + r[8].map(function(c){return '“'+c+'”';}).join('<br>') + '</div></div>' : '';
+      var px = SHOW_PRICES ? '<div class="pxrow"><span>Vox '+money(r[9][0])+' / '+money(r[9][1])+' / '+money(r[9][2])
+          +'</span><span>ODF '+money(r[10][0])+' / '+money(r[10][1])+'</span></div>' : '';
+      html += '<div class="pcard'+(r[11]?' hi':'')+'">'
+        + '<div class="pn2">'+r[0]+'</div><div class="pp">'+r[2]+'</div>'
+        + '<div class="badges"><span class="chip '+b[0]+'">'+b[1]+'</span><span class="chip '+e[0]+'">'+e[1]+'</span></div>'
+        + '<div class="fld"><div class="fl2">Ingrediente e dose</div><div class="fv">'+r[4]+'</div></div>'
+        + '<div class="fld"><div class="fl2">Para que serve</div><div class="fv">'+r[5]+'</div></div>'
+        + '<div class="fld"><div class="fl2">O que diz a ciência</div><div class="fv">'+r[7]+'</div></div>'
+        + claims
+        + (r[12] ? '<div class="warn2">'+r[12]+'</div>' : '')
+        + px + '</div>';
+    });
+  });
+  document.getElementById('pgrid').innerHTML = html;
+  document.getElementById('pcount').textContent = mostrados+' de '+total;
 }
+document.querySelectorAll('[data-pf]').forEach(function(b){
+  b.addEventListener('click', function(){
+    pFilter=b.getAttribute('data-pf');
+    document.querySelectorAll('[data-pf]').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
+    renderP();
+  });
+});
 renderP();
 </script>
