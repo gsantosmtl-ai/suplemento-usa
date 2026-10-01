@@ -247,7 +247,8 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
     <button class="tab" role="tab" id="t-5" aria-controls="p-5" aria-selected="false"><span class="n">05</span> Composição</button>
     <button class="tab" role="tab" id="t-6" aria-controls="p-6" aria-selected="false"><span class="n">06</span> Produto e funil</button>
     <button class="tab" role="tab" id="t-7" aria-controls="p-7" aria-selected="false"><span class="n">07</span> Economia</button>
-    <button class="tab" role="tab" id="t-8" aria-controls="p-8" aria-selected="false"><span class="n">08</span> Decisões</button>
+    <button class="tab" role="tab" id="t-8" aria-controls="p-8" aria-selected="false"><span class="n">08</span> Fases</button>
+    <button class="tab" role="tab" id="t-9" aria-controls="p-9" aria-selected="false"><span class="n">09</span> Decisões</button>
   </div>
 </header>
 
@@ -279,193 +280,16 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
 
   <h3>Ficha de cada fornecedor</h3>
   <div class="filters">
-    <span class="flabel">Fornecedor</span>
-    <button class="fbtn" data-sup="vox" aria-pressed="true">Vox Nutrition</button>
-    <button class="fbtn" data-sup="odf" aria-pressed="false">On Demand Fulfillment</button>
-    <button class="fbtn" data-sup="ple" aria-pressed="false">Private Label Express</button>
+    <span class="flabel">Status</span>
+    <button class="fbtn" data-sf2="todos" aria-pressed="true">Todos</button>
+    <button class="fbtn" data-sf2="respondeu" aria-pressed="false">Responderam ao briefing</button>
+    <button class="fbtn" data-sf2="aguardando" aria-pressed="false">Sem resposta</button>
+    <button class="fbtn" data-sf2="fabricante" aria-pressed="false">Fabricante</button>
+    <button class="fbtn" data-sf2="turnkey" aria-pressed="false">Turnkey / sem MOQ</button>
+    <span class="count" id="supcount"></span>
   </div>
-
-  <div class="supbox" id="sup-vox">
-    <div class="arch">
-      <div class="tier">
-        <div class="lab">Fornecedor</div>
-        <div class="fl"><b>Vox Nutrition</b> · West Jordan, Utah<br>Fabricante. Contato do representante está no material interno.</div>
-      </div>
-      <div class="tier">
-        <div class="lab">Condições</div>
-        <ul class="plain" style="margin:0">
-          <li><b>MOQ 300 frascos rotulados</b> por SKU, ou <b>150 em branco</b>. Prazo do primeiro pedido: <b>4–6 semanas</b> após pagamento e aprovação de rótulo.</li>
-          <li>Frasco padrão <b>175cc branco com tampa branca</b>; pós em canister preto com colher. Garrafa, tampa e cápsula customizadas a partir de <b>500 unidades</b>.</li>
-          <li>Rótulo: <b>$199 o primeiro design, $100 cada adicional</b>. Adesivo de tampa $0,15/frasco. Reboxing $20/caixa.</li>
-          <li>Instalação <b>FDA-registered, cGMP, NPA, NSF e UDAF Organic</b>, CoA por lote e teste de terceiros em matéria-prima e produto acabado.</li>
-          <li><b>Não entrega ao consumidor final.</b> O 3PL é com a empresa irmã <b>ShipCentral</b>, cotado à parte.</li>
-          <li>Custom: <b>~1.000.000 de cápsulas</b> por fórmula; pó custom a partir de <b>~750 kg</b>.</li>
-        </ul>
-      </div>
-      <div class="tier">
-        <div class="lab">O que ele recomendou para os nossos quatro conceitos</div>
-        <ul class="plain" style="margin:0">
-          <li><b>Metabólico / apetite</b> → Berberine como ponto de partida, mais Saffron e Caralluma como opções.</li>
-          <li><b>Pó de saciedade</b> → não existe estoque com glucomanan, hibisco, dente-de-leão e gengibre. Seria custom.</li>
-          <li><b>Compulsão / glicêmico</b> → Blood Sugar Plus e Cinnamon.</li>
-          <li><b>Termogênico</b> → Oxy Burn, Green Coffee Bean, Best Seller Blend e Raspberry Ketone Ultra.</li>
-        </ul>
-      </div>
-      <div class="tier">
-        <div class="lab">O protocolo montado na Vox · MOQ 150 frascos por SKU</div>
-        <div class="slots">
-          <div class="slot">
-            <div class="sl">Produto principal</div>
-            <div class="mainp">Berberine 1200 mg</div>
-            <div class="alts">Dose clínica, forma HCl — a mais estudada.<br><b>Alternativas:</b> Caralluma 600 mg, Garcinia 95% HCA.</div>
-          </div>
-          <div class="slot">
-            <div class="sl">Brinde complementar</div>
-            <div class="mainp">Saffron 88.5</div>
-            <div class="alts">É o mesmo ativo do Satiereal do briefing.<br><b>Se quiser formato pó:</b> Greens 151 g. <b>Se quiser fibra:</b> Max Detox ou Colon Sweep.</div>
-          </div>
-          <div class="slot">
-            <div class="sl">Order bump 1 · doce</div>
-            <div class="mainp">Blood Sugar Plus</div>
-            <div class="alts">Cobre o conceito glicêmico do briefing.<br><b>Alternativas:</b> Cinnamon 600 mg, ALA avulso, Myo D-Chiro Inositol.</div>
-          </div>
-          <div class="slot">
-            <div class="sl">Order bump 2 · termogênico</div>
-            <div class="mainp">Oxy Burn</div>
-            <div class="alts">Frasco preto, já diferencia na caixa.<br><b>Alternativas:</b> Best Seller Blend, Keto Ultra, Night Time Fat Burn (sem estimulante).</div>
-          </div>
-        </div>
-      </div>
-      <div class="tier">
-        <div class="lab">Leitura</div>
-        <div class="fl">É o <b>melhor custo por frasco</b> e o menor MOQ de estoque do mercado (150 unidades). Em troca, exige capital, aprovação de rótulo e um 3PL separado. ⚠ Recomendou <b>Green Coffee Bean</b>, que aparece como <b>descontinuado</b> na tabela do ODF — mesmo grupo. Vale confirmar disponibilidade antes de contar com ele.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="supbox" id="sup-odf" hidden>
-    <div class="arch">
-      <div class="tier">
-        <div class="lab">Fornecedor</div>
-        <div class="fl"><b>On Demand Fulfillment</b> · West Jordan, Utah<br>Revende produto fabricado pela Vox. Contato do gerente de conta está no material interno.</div>
-      </div>
-      <div class="tier">
-        <div class="lab">Condições</div>
-        <ul class="plain" style="margin:0">
-          <li><b>Sem MOQ.</b> Modelo dropship: produz, armazena, separa, embala e envia direto ao cliente final sob a nossa marca, em 24h.</li>
-          <li>Os produtos <b>são fabricados pela Vox Nutrition</b> — é o mesmo produto, com fulfillment embutido no preço do frasco.</li>
-          <li>Mensalidade <b>$149,99/mês (1–25 SKUs)</b>, isenta acima de $5.000 faturados no mês anterior. Plano pausado: $49,99/mês.</li>
-          <li>Novo cliente começa no <b>Tier 2 ou Tier 4</b> nos primeiros 90 dias; depois o tier segue o volume de frascos enviados no mês.</li>
-          <li>Frete real por peso: 1–2 lb $15,70 · 3–4 lb $20,15 · 5–6 lb $25,97 · <b>acima de 10 lb vira cotação avulsa</b>.</li>
-          <li>Só fórmulas de estoque — <b>não faz custom</b>.</li>
-        </ul>
-      </div>
-      <div class="tier">
-        <div class="lab">O que ele recomendou para os nossos quatro conceitos</div>
-        <ul class="plain" style="margin:0">
-          <li><b>Metabólico / apetite</b> → <b>Berberine 60 caps com 1.200 mg de Berberina HCl por dose</b>, o mais próximo do conceito. Não há estoque com di-hidroberberina.</li>
-          <li><b>Pó de saciedade</b> → sem match. Tem Psyllium Husk Plus e Saffron Extract isolados.</li>
-          <li><b>Compulsão / glicêmico</b> → tem Ceylon Cinnamon isolado; não há fórmula combinando Gymnema, cromo, canela e ALA.</li>
-          <li><b>Termogênico</b> → KETO 5 e Best Sellers Blend.</li>
-        </ul>
-      </div>
-      <div class="tier">
-        <div class="lab">O protocolo montado no ODF · sem MOQ, dropship</div>
-        <div class="slots">
-          <div class="slot">
-            <div class="sl">Produto principal</div>
-            <div class="mainp">Berberine</div>
-            <div class="alts">1.200 mg de Berberina HCl por dose — o mais próximo do conceito.<br><b>Alternativas:</b> African Mango Ultra, White Kidney Bean.</div>
-          </div>
-          <div class="slot">
-            <div class="sl">Brinde complementar</div>
-            <div class="mainp">Saffron Pure</div>
-            <div class="alts">Saciedade, mesmo ativo do Satiereal.<br><b>Se quiser fibra:</b> Psyllium Husk Plus. <b>Formato pó:</b> Powder Greens.</div>
-          </div>
-          <div class="slot">
-            <div class="sl">Order bump 1 · doce</div>
-            <div class="mainp">Blood Sugar Ultra</div>
-            <div class="alts">Suporte glicêmico.<br><b>Alternativas:</b> Cinnamon, Myo D-Chiro Inositol.</div>
-          </div>
-          <div class="slot">
-            <div class="sl">Order bump 2 · termogênico</div>
-            <div class="mainp">Oxy Burn</div>
-            <div class="alts">Termogênico de manhã.<br><b>Alternativas:</b> Best Sellers Blend, Raspberry Ketone Ultra, Night Time Fat Burner.</div>
-          </div>
-        </div>
-      </div>
-      <div class="tier">
-        <div class="lab">A sugestão mais útil que ele deu</div>
-        <div class="fl">Usar <b>produtos de ingrediente único de forma estratégica</b> dentro do protocolo, em vez de exigir que todo SKU seja uma fórmula multi-ingrediente. Berberine, Ceylon Cinnamon, Saffron e Psyllium existem separados e dão <b>mais flexibilidade de arquitetura</b> — é exatamente o que destrava o lançamento em dias.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="supbox" id="sup-ple" hidden>
-    <div class="arch">
-      <div class="tier">
-        <div class="lab">Fornecedor</div>
-        <div class="fl"><b>Private Label Express</b> · Coral Springs, Flórida<br>Contato da equipe comercial está no material interno.</div>
-      </div>
-      <div class="tier">
-        <div class="lab">MOQ de custom, por total de unidades produzidas</div>
-        <div class="scroll" style="margin:0">
-          <table style="min-width:auto">
-            <tbody>
-              <tr><td class="nm">Cápsulas / tabletes</td><td class="mono">150.000 por fórmula — ≈ <b>2.500 frascos de 60 ct</b></td></tr>
-              <tr><td class="nm">Softgels</td><td class="mono">300.000 por fórmula</td></tr>
-              <tr><td class="nm">Gummies custom</td><td class="mono">450.000 por fórmula</td></tr>
-              <tr><td class="nm">Pós</td><td class="mono">1.000–2.000 potes</td></tr>
-              <tr><td class="nm">Stick packs</td><td class="mono">20.000 sticks</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="tier">
-        <div class="lab">Condições</div>
-        <ul class="plain" style="margin:0">
-          <li>Prazo de custom: <b>10–12 semanas</b> após pagamento e aprovação final de rótulo.</li>
-          <li>Desenvolvimento de fórmula é <b>serviço pago à parte</b> — várias das nossas ainda precisam de dose e padronização finalizadas antes de poderem ser cotadas.</li>
-          <li>Faz design de rótulo, revisão de compliance, CoA de produto acabado, armazenagem, fulfillment e integração com Shopify.</li>
-          <li>Estoque disponível: <b>só gummies</b> — ACV+probiótico, colágeno, probiótico, multi feminino, vit C+zinco, vit C 1000, D3, cúrcuma+gengibre, hair/skin/nails. MOQ 500/SKU, 2–4 semanas.</li>
-        </ul>
-      </div>
-      <div class="tier">
-        <div class="lab">O protocolo na PLE · tudo seria custom</div>
-        <div class="slots">
-          <div class="slot gap">
-            <div class="sl">Produto principal</div>
-            <div class="mainp">Não existe em estoque</div>
-            <div class="alts">Nenhum dos gummies de estoque serve ao conceito metabólico.</div>
-          </div>
-          <div class="slot gap">
-            <div class="sl">Brinde complementar</div>
-            <div class="mainp">Não existe em estoque</div>
-            <div class="alts">É aqui que a PLE é melhor que a Vox: o MOQ de pó custom é muito menor que os 750 kg da Vox.</div>
-          </div>
-          <div class="slot gap">
-            <div class="sl">Order bump 1 · doce</div>
-            <div class="mainp">Não existe em estoque</div>
-            <div class="alts">Só faria sentido na fase de fórmula-assinatura.</div>
-          </div>
-          <div class="slot gap">
-            <div class="sl">Order bump 2 · termogênico</div>
-            <div class="mainp">Não existe em estoque</div>
-            <div class="alts">Idem.</div>
-          </div>
-        </div>
-      </div>
-      <div class="tier">
-        <div class="lab">O veredito dela</div>
-        <div class="fl">Foi a única que disse com todas as letras: <b>"a 30–45 day launch would not be realistic for the complete four-product line"</b>. E recomendou lançar com <b>um ou dois produtos</b> — o âncora e um complementar — deixando o resto para quando a marca tiver tração. Nenhum dos gummies de estoque serve ao protocolo de emagrecimento.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="call gold">
-    <span class="k">O que eu acrescentaria ao RFQ</span>
-    <p>O roteiro original pede preço, MOQ, prazo e certificação. Faltam três coisas que mudam a decisão: <strong>custo por ativo</strong> em vez de preço fechado do frasco; <strong>licença de logo</strong> dos ingredientes de marca, que nem todo fabricante pode nomear no rótulo; e <strong>validade mínima de 20 meses na entrega</strong> — com envio único de 6 meses, a última cápsula é consumida muito depois da fabricação.</p>
-  </div>
+  <div class="filters" id="supbtns" style="margin-top:4px"></div>
+  <div id="supdetail"></div>
 
   <h3>Critérios de triagem inegociáveis</h3>
   <ol class="steps">
@@ -937,6 +761,88 @@ footer{border-top:1px solid var(--rule);margin-top:46px;padding-top:26px;font-fa
 
 <!-- ============ 08 ============ -->
 <div class="panel" id="p-8" role="tabpanel" aria-labelledby="t-8" hidden>
+  <h2>Fases do projeto</h2>
+  <p class="lede">Cada fase tem um fornecedor, um produto, um objetivo e um critério de saída. A regra é não comprometer capital antes de a fase anterior ter provado o que precisava provar.</p>
+
+  <div class="arch">
+    <div class="tier">
+      <div class="lab">Fase 0 · destravar · 2 a 4 semanas · corre em paralelo</div>
+      <div class="val">O que não depende de fornecedor nem de marca</div>
+      <ul class="plain" style="margin:8px 0 0">
+        <li><b>Conta de pagamento de alto risco.</b> Maior lead time de todo o projeto e o único item que pode inviabilizar o lançamento sozinho. Começar hoje.</li>
+        <li><b>Clearance no USPTO</b> de dois nomes de marca-mãe — um de fora do cluster -ORA — e do nome do protocolo, com domínio e handles.</li>
+        <li><b>Cobrar os 8 fornecedores sem resposta</b>, com prioridade para Vita Plus (6.000 fórmulas prontas) e NutraCap (valida e escala na mesma casa).</li>
+        <li><b>Amostra física paga</b> de Berberine e Saffron. É a validação que nenhuma planilha substitui.</li>
+        <li><b>Consentimento TCPA</b> na página de inscrição, para SMS, WhatsApp e ligação do comercial.</li>
+        <li><b>Revisão jurídica</b> de rótulo, roteiro da live, script do comercial e checkout.</li>
+      </ul>
+    </div>
+
+    <div class="tier">
+      <div class="lab">Fase 1 · validar · 30 a 45 dias · capital próximo de zero</div>
+      <div class="val">On Demand Fulfillment, dropship</div>
+      <div class="note">Quatro SKUs de estoque: Berberine (âncora) · Saffron (brinde) · Blood Sugar Plus (bump doce) · Oxy Burn (bump termogênico). Brinde de 3 meses ou bônus digital.</div>
+      <div class="pills">
+        <span class="pill">Preço US$ 389–447</span>
+        <span class="pill">Produto ≈ US$ 68/pedido</span>
+        <span class="pill">Estoque zero</span>
+        <span class="pill">No ar em dias</span>
+      </div>
+      <div class="note" style="margin-top:9px"><b>O que esta fase precisa provar:</b> CPL, taxa de presença na aula, conversão do pitch e taxa de recuperação do comercial. <b>Critério de saída:</b> CAC ≤ US$ 110 e reembolso ≤ 12%.</div>
+    </div>
+
+    <div class="tier">
+      <div class="lab">Fase 2 · escalar · após volume mensal comprovado</div>
+      <div class="val">Vox Nutrition, compra direta</div>
+      <div class="note">Mesmo produto, mesma fábrica, cerca de 25% mais barato por frasco. Entra o 3PL da ShipCentral, cotado à parte.</div>
+      <div class="pills">
+        <span class="pill">Produto ≈ US$ 51/pedido</span>
+        <span class="pill">Capital ≈ US$ 51,6 mil</span>
+        <span class="pill">Atende ~1.000 clientes</span>
+        <span class="pill">4 a 6 semanas</span>
+      </div>
+      <div class="note" style="margin-top:9px">A margem sobe sem mexer na oferta nem no preço. É a fase que paga a estrutura.</div>
+    </div>
+
+    <div class="tier">
+      <div class="lab">Fase 3 · diferenciar · após tração</div>
+      <div class="val">Private Label Express, fórmula própria</div>
+      <div class="note">Blend custom de 4 ativos <b>só para o âncora</b>: berberina HCl + açafrão + gymnema + cromo. Os outros três seguem com blend de estoque, que já tem história para a live.</div>
+      <div class="pills">
+        <span class="pill">2.500 frascos/SKU</span>
+        <span class="pill">10 a 12 semanas</span>
+        <span class="pill">Pó custom 1.000–2.000 potes</span>
+        <span class="pill">Rótulo aberto</span>
+      </div>
+      <div class="note" style="margin-top:9px">É aqui que o glucomanan do briefing finalmente cabe, e que a marca passa a ter fórmula defensável em vez de catálogo compartilhado.</div>
+    </div>
+
+    <div class="tier">
+      <div class="lab">Fase 4 · expandir</div>
+      <div class="val">Da marca de emagrecimento para a plataforma de wellness</div>
+      <div class="note">É o que a arquitetura de marca foi desenhada para permitir — e por isso o nome não pode conter supplements, nutrition nem weight loss.</div>
+      <div class="pills">
+        <span class="pill">CORE · diário</span>
+        <span class="pill">PERFORM · recuperação</span>
+        <span class="pill">LONGEVITY · envelhecimento</span>
+        <span class="pill">Protocolos combinados</span>
+      </div>
+      <div class="note" style="margin-top:9px">A recompra no mês 5 e os protocolos por objetivo são o que transforma venda única em cliente recorrente.</div>
+    </div>
+  </div>
+
+  <div class="call gold">
+    <span class="k">A regra que liga as fases</span>
+    <p>Cada fase existe para comprar informação antes de comprar estoque. A Fase 1 custa quase nada e responde a única pergunta que a planilha não responde: <strong>a que preço a aula converte</strong>. Com esse número, a Fase 2 deixa de ser aposta e vira conta — e só aí faz sentido travar US$ 51 mil em frascos, ou 2.500 unidades numa fórmula própria.</p>
+  </div>
+
+  <div class="call">
+    <span class="k">O erro a evitar</span>
+    <p>Pular direto para a fórmula custom do briefing. São <strong>quatro SKUs × 2.500 frascos × 10 a 12 semanas</strong>, antes de existir um único dado de conversão — e com um pó que nenhum dos três fornecedores tem em estoque. O briefing continua sendo o destino certo; só não é o ponto de partida.</p>
+  </div>
+</div>
+
+<div class="panel" id="p-9" role="tabpanel" aria-labelledby="t-9" hidden>
   <h2>Decisões</h2>
   <p class="lede">O que já está fechado, e o que ainda trava o que vem depois.</p>
 
@@ -994,17 +900,168 @@ tabs.forEach(function(t){
 });
 
 /* ---------- FICHA POR FORNECEDOR ---------- */
-document.querySelectorAll('[data-sup]').forEach(function(b){
+var SUP = [
+ {id:'vox',n:'Vox Nutrition',tipo:'fabricante',local:'West Jordan, Utah',st:'respondeu',
+  contato:null,
+  resumo:'Fabricante de verdade, com o menor MOQ de estoque do mercado e o melhor custo por frasco. Não faz entrega ao consumidor final.',
+  cond:['<b>MOQ 300 frascos rotulados</b> por SKU, ou <b>150 em branco</b>. Primeiro pedido em <b>4–6 semanas</b> após pagamento e aprovação de rótulo.',
+        'Frasco padrão 175cc branco; pós em canister preto com colher. Garrafa, tampa e cápsula customizadas a partir de <b>500 unidades</b>.',
+        'Rótulo: <b>$199 o primeiro design, $100 cada adicional</b>. Adesivo de tampa $0,15/frasco. Reboxing $20/caixa.',
+        'Instalação <b>FDA-registered, cGMP, NPA, NSF e UDAF Organic</b>, CoA por lote e teste de terceiros.',
+        '<b>Não entrega ao consumidor final.</b> O 3PL é com a irmã <b>ShipCentral</b>, cotado à parte.',
+        'Custom: <b>~1.000.000 de cápsulas</b> por fórmula; pó custom a partir de <b>~750 kg</b>.'],
+  rec:['<b>Metabólico / apetite</b> → Berberine, mais Saffron e Caralluma',
+       '<b>Pó de saciedade</b> → não existe estoque com glucomanan, hibisco, dente-de-leão e gengibre. Seria custom.',
+       '<b>Compulsão / glicêmico</b> → Blood Sugar Plus e Cinnamon',
+       '<b>Termogênico</b> → Oxy Burn, Green Coffee Bean, Best Seller Blend e Raspberry Ketone Ultra'],
+  slots:[['Produto principal','Berberine 1200 mg','—','Dose clínica, forma HCl. <b>Alternativas:</b> Caralluma, Garcinia.'],
+         ['Brinde complementar','Saffron 88.5','—','É o ativo do Satiereal. <b>Pó:</b> Greens. <b>Desinchar:</b> Colon Sweep.'],
+         ['Order bump 1 · doce','Blood Sugar Plus','—','<b>Alternativas:</b> Cinnamon, ALA, Myo D-Chiro.'],
+         ['Order bump 2 · termogênico','Oxy Burn','—','<b>Alternativas:</b> Best Seller Blend (5 ativos), Keto Ultra, Night Time Fat Burn.']],
+  alerta:'Recomendou <b>Green Coffee Bean</b>, que aparece como descontinuado na tabela da empresa irmã. Confirmar disponibilidade.'},
+
+ {id:'odf',n:'On Demand Fulfillment',tipo:'turnkey',local:'West Jordan, Utah',st:'respondeu',
+  contato:null,
+  resumo:'Dropship sem MOQ dos produtos fabricados pela Vox, com fulfillment ao consumidor final embutido no preço do frasco.',
+  cond:['<b>Sem MOQ.</b> Produz, armazena, separa, embala e envia direto ao cliente final sob a nossa marca, em 24h.',
+        'Os produtos <b>são fabricados pela Vox Nutrition</b> — é o mesmo produto, com fulfillment embutido.',
+        'Mensalidade <b>$149,99/mês (1–25 SKUs)</b>, isenta acima de $5.000 faturados no mês anterior. Pausado: $49,99/mês.',
+        'Novo cliente começa no <b>Tier 2 ou Tier 4</b> nos primeiros 90 dias; depois o tier segue o volume mensal.',
+        'Frete real por peso: 1–2 lb $15,70 · 3–4 lb $20,15 · 5–6 lb $25,97 · <b>acima de 10 lb vira cotação</b>.',
+        'Só fórmulas de estoque — <b>não faz custom</b>.'],
+  rec:['<b>Metabólico / apetite</b> → Berberine 60 caps com 1.200 mg de Berberina HCl. Não há estoque com di-hidroberberina.',
+       '<b>Pó de saciedade</b> → sem match. Tem Psyllium Husk Plus e Saffron isolados.',
+       '<b>Compulsão / glicêmico</b> → Ceylon Cinnamon isolado; não há fórmula com Gymnema + cromo + canela + ALA.',
+       '<b>Termogênico</b> → KETO 5 e Best Sellers Blend.'],
+  slots:[['Produto principal','Berberine','—','1.200 mg de Berberina HCl. <b>Alternativas:</b> African Mango, White Kidney Bean.'],
+         ['Brinde complementar','Saffron Pure','—','<b>Fibra:</b> Psyllium Husk Plus. <b>Pó:</b> Powder Greens.'],
+         ['Order bump 1 · doce','Blood Sugar Ultra','—','<b>Alternativas:</b> Cinnamon, Myo D-Chiro.'],
+         ['Order bump 2 · termogênico','Oxy Burn','—','<b>Alternativas:</b> Best Sellers Blend, Raspberry Ketone, Night Time Fat Burner.']],
+  alerta:'A sugestão mais útil que ele deu: usar <b>produtos de ingrediente único de forma estratégica</b> em vez de exigir que todo SKU seja multi-ingrediente. É o que destrava o lançamento em dias.'},
+
+ {id:'ple',n:'Private Label Express',tipo:'fabricante',local:'Coral Springs, Flórida',st:'respondeu',
+  contato:null,
+  resumo:'Full-service com custom real, mas MOQ e prazo incompatíveis com lançamento rápido. Único com MOQ de pó custom viável.',
+  cond:['Custom de cápsula: <b>150.000 cápsulas por fórmula ≈ 2.500 frascos de 60 ct</b>. Softgel 300.000. Gummies 450.000.',
+        '<b>Pós: 1.000–2.000 potes</b> — é o menor MOQ de pó custom entre os três, muito abaixo dos 750 kg da Vox.',
+        'Stick packs: 20.000 unidades.',
+        'Prazo de custom: <b>10–12 semanas</b> após pagamento e aprovação final de rótulo.',
+        'Desenvolvimento de fórmula é <b>serviço pago à parte</b>.',
+        'Estoque disponível: <b>só gummies</b> (ACV, colágeno, probiótico, multi, vit C, D3, cúrcuma, hair/skin/nails), MOQ 500/SKU, 2–4 semanas.'],
+  rec:['Foi a única a dizer com todas as letras: <b>"a 30–45 day launch would not be realistic for the complete four-product line"</b>.',
+       'Recomendou lançar com <b>um ou dois produtos</b> — o âncora e um complementar.',
+       'Nenhum dos gummies de estoque serve ao protocolo de emagrecimento.'],
+  slots:[['Produto principal','Custom — 2.500 frascos','—','Nenhum estoque serve ao conceito metabólico.'],
+         ['Brinde complementar','Pó custom — 1.000–2.000 potes','—','<b>É aqui que a PLE ganha da Vox:</b> MOQ de pó muito menor.'],
+         ['Order bump 1 · doce','Custom — 2.500 frascos','—','Só na fase de fórmula-assinatura.'],
+         ['Order bump 2 · termogênico','Custom — 2.500 frascos','—','Idem.']],
+  alerta:'É o parceiro da fase 2, não da fase 1. Mas é o caminho mais barato para o pó custom, se vocês quiserem o glucomanan de verdade.'},
+
+ {id:'makers',n:'Makers Nutrition',tipo:'fabricante',local:'Commack, Nova York',st:'aguardando',
+  contato:null,
+  resumo:'Turnkey completo, da formulação ao fulfillment. Cotação em 48h. Era um dos três prioritários do plano.',
+  cond:['MOQ a partir de <b>~1.000 unidades</b>.','Cotação prometida em <b>48 horas</b>.','Cobre formulação, rótulo, embalagem e fulfillment.'],
+  rec:[],slots:null,
+  alerta:'Apareceu por engano no e-mail ao ODF — o texto dizia "move forward with Makers Nutrition". Vale cobrar a cotação.'},
+
+ {id:'nutrascience',n:'NutraScience Labs',tipo:'fabricante',local:'Farmingdale, Nova York',st:'aguardando',
+  contato:null,
+  resumo:'+50 anos de experiência combinada e +2.300 marcas atendidas. Forte em compliance e escala.',
+  cond:['Perfil de escala — provável MOQ mais alto.','Reputação forte em compliance, que é o ponto fraco desta categoria.'],
+  rec:[],slots:null,alerta:null},
+
+ {id:'vitaplus',n:'Vita Plus Inter',tipo:'fabricante',local:'Temecula, Califórnia',st:'aguardando',
+  contato:null,
+  resumo:'+6.000 fórmulas prontas e 30 anos de mercado, com linha específica de Weight Management. FDA-registered e cGMP.',
+  cond:['<b>+6.000 fórmulas de estoque</b> — o maior catálogo da lista.','Linha dedicada de Weight Management.'],
+  rec:[],slots:null,
+  alerta:'Com 6.000 fórmulas prontas, é o fornecedor com maior chance de ter algo próximo do blend de 4 que vocês querem. Vale priorizar a cobrança.'},
+
+ {id:'nutracap',n:'NutraCap Labs',tipo:'fabricante',local:'Norcross, Geórgia',st:'aguardando',
+  contato:null,
+  resumo:'Híbrido: MOQ baixo com programa de fórmula customizada na mesma casa, e planta de 100.000 ft² para escalar.',
+  cond:['MOQ baixo + custom no mesmo fornecedor.','Planta de 100.000 ft² para quando o volume crescer.'],
+  rec:[],slots:null,
+  alerta:'É o único que permite validar e escalar sem trocar de parceiro nem refazer due diligence. Merece prioridade na cobrança.'},
+
+ {id:'supliful',n:'Supliful',tipo:'turnkey',local:'Plataforma · fulfillment nos EUA',st:'aguardando',
+  contato:null,
+  resumo:'Print-on-demand com 180+ produtos e sem MOQ. Rota mais rápida de validação depois do ODF.',
+  cond:['<b>Sem MOQ</b>, 180+ produtos.','Planos de <b>US$ 0 a 49+/mês</b>.'],
+  rec:[],slots:null,alerta:null},
+
+ {id:'rocktomic',n:'Rocktomic',tipo:'turnkey',local:'Duluth, Geórgia',st:'aguardando',
+  contato:null,
+  resumo:'Mesmo modelo print-on-demand do Supliful, com 150+ produtos.',
+  cond:['<b>Sem MOQ</b>, 150+ produtos.'],
+  rec:[],slots:null,
+  alerta:'Reclamações registradas no BBB sobre falha de comunicação e atraso de envio. Tratar como opção secundária e validar referências recentes antes de contratar.'},
+
+ {id:'enz',n:'ENZ Pharmtech',tipo:'fabricante',local:'Zhengzhou, China',st:'aguardando',
+  contato:null,
+  resumo:'Especialista em suplementos de emagrecimento — gummies e cápsulas. Fabricação fora dos EUA.',
+  cond:['Especialização direta na categoria.','Fabricação na China.'],
+  rec:[],slots:null,
+  alerta:'Fabricar fora dos EUA exige camada extra de due diligence: importação, desembaraço, rotulagem conforme FDA antes da entrada, e prazos maiores. Alfândega retém lote não conforme.'},
+
+ {id:'wonnda',n:'Wonnda',tipo:'diretorio',local:'Plataforma / diretório',st:'aguardando',
+  contato:null,
+  resumo:'Não é fabricante — é diretório para comparar vários fornecedores de weight loss e pedir cotação em lote.',
+  cond:['Permite cotação em lote com múltiplos fabricantes de uma vez.'],
+  rec:[],slots:null,
+  alerta:'Útil para ampliar a rodada de cotação rapidamente, já que 8 dos 11 ainda não responderam.'}
+];
+var SHOW_CONTACT = false;
+var supFilter='todos', supAtivo='vox';
+function supVisiveis(){
+  return SUP.filter(function(x){
+    return supFilter==='todos' || x.st===supFilter || x.tipo===supFilter;
+  });
+}
+function renderSupBtns(){
+  var vis = supVisiveis();
+  if(!vis.some(function(x){return x.id===supAtivo;}) && vis.length) supAtivo = vis[0].id;
+  document.getElementById('supbtns').innerHTML = vis.map(function(x){
+    return '<button class="fbtn" data-supid="'+x.id+'" aria-pressed="'+(x.id===supAtivo?'true':'false')+'">'
+      + x.n + (x.st==='respondeu' ? ' ✓' : '') + '</button>';
+  }).join('');
+  document.getElementById('supcount').textContent = vis.length+' de '+SUP.length;
+  document.querySelectorAll('[data-supid]').forEach(function(b){
+    b.addEventListener('click', function(){ supAtivo=b.getAttribute('data-supid'); renderSupBtns(); renderSupDetail(); });
+  });
+}
+function renderSupDetail(){
+  var x = SUP.filter(function(v){return v.id===supAtivo;})[0];
+  if(!x){ document.getElementById('supdetail').innerHTML=''; return; }
+  var chip = x.st==='respondeu' ? '<span class="chip ok">Respondeu ao briefing</span>' : '<span class="chip warn">Sem resposta até agora</span>';
+  var tipo = {fabricante:'Fabricante',turnkey:'Turnkey / sem MOQ',diretorio:'Diretório'}[x.tipo];
+  var h = '<div class="arch">';
+  h += '<div class="tier"><div class="lab">'+tipo+' · '+x.local+'</div><div class="badges" style="display:flex;gap:6px;margin-bottom:9px">'+chip+'</div><div class="fl" style="font-size:14px">'+x.resumo+'</div></div>';
+  if(SHOW_CONTACT && x.contato) h += '<div class="tier"><div class="lab">Contato</div><div class="fl">'+x.contato+'</div></div>';
+  if(x.cond.length) h += '<div class="tier"><div class="lab">Condições</div><ul class="plain" style="margin:0">'+x.cond.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul></div>';
+  if(x.rec.length) h += '<div class="tier"><div class="lab">O que respondeu sobre os nossos conceitos</div><ul class="plain" style="margin:0">'+x.rec.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul></div>';
+  if(x.slots){
+    h += '<div class="tier"><div class="lab">O protocolo montado neste fornecedor</div><div class="slots">'
+      + x.slots.map(function(sl){
+          var falta = sl[1].indexOf('Custom')===0;
+          return '<div class="slot'+(falta?' gap':'')+'"><div class="sl">'+sl[0]+'</div><div class="mainp">'+sl[1]+'</div>'
+            + '<span class="px">'+sl[2]+'</span><div class="alts">'+sl[3]+'</div></div>';
+        }).join('') + '</div></div>';
+  } else {
+    h += '<div class="tier"><div class="lab">O protocolo neste fornecedor</div><div class="fl" style="color:var(--muted)">Ainda não há resposta ao briefing, então não dá para montar os quatro slots. É o que a cobrança desbloqueia.</div></div>';
+  }
+  if(x.alerta) h += '<div class="tier"><div class="lab">Leitura</div><div class="fl">'+x.alerta+'</div></div>';
+  h += '</div>';
+  document.getElementById('supdetail').innerHTML = h;
+}
+document.querySelectorAll('[data-sf2]').forEach(function(b){
   b.addEventListener('click', function(){
-    var key = b.getAttribute('data-sup');
-    document.querySelectorAll('[data-sup]').forEach(function(o){
-      o.setAttribute('aria-pressed', o===b ? 'true' : 'false');
-    });
-    ['vox','odf','ple'].forEach(function(k){
-      document.getElementById('sup-'+k).hidden = (k !== key);
-    });
+    supFilter=b.getAttribute('data-sf2');
+    document.querySelectorAll('[data-sf2]').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false');});
+    renderSupBtns(); renderSupDetail();
   });
 });
+renderSupBtns(); renderSupDetail();
 
 /* ---------- TERRITÓRIOS ---------- */
 var TERR = {
